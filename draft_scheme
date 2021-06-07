@@ -1,0 +1,64 @@
+@startuml
+skinparam shadowing false
+skinparam SequenceMessageAlign direction
+
+actor User as user
+participant "Partner" as part
+participant "Mercuryo API" as merc
+
+user -> part: Open form
+activate part
+part -> merc: Get Rates and Partner Fees
+activate merc
+merc --> part: rates & fees
+deactivate merc
+part --> user: Rates
+user -> part: Amount, Currency
+part -> merc: Log User In(Partner-Key, phone)
+activate merc
+merc -> merc: Try: Log User In
+note right of merc
+? if user is reg-d with other partner ?
+endnote
+merc --> part: (User-key + user limits?)
+deactivate merc
+' part -> merc: Sign-User-In(Partner-Key, PI, KYC)
+' note right of part
+' PI:
+' - name, last name, dob, country
+' - phone
+' - email - optional
+' endnote
+' merc -> merc: Try: Sign User In
+' erc --> part: (User-key + user limits?)
+part -> merc: Buy(Partner-Key, User-key, Amount, Currency, Wallet)
+activate merc
+merc --> part: (Transaction-Key, Payment methods: limits, fees, options)
+deactivate merc
+part --> user: Payment Methods
+deactivate part
+user -> part: Payment Method
+activate part
+part -> merc: Set Payment Method(Partner-Key, Transaction-Key, Pyment-Method-Id, Settings)
+activate merc
+merc --> part: (Transaction-Key, Payment Instructions, Result Amount, Fee, Adress)
+deactivate merc
+note right of merc
+? garantied rates from this moment ?
+? time limits ?
+endnote
+part --> user: Payment Form
+deactivate part
+user -> part: Payment Info
+activate part
+part -> merc: Buy Complete(Partner-Key, Transaction-Key)
+activate merc
+merc --> merc: Init Transaction
+part -> merc: Get Status(Partner-Key, Transaction-Key)
+merc --> part: (Transaction-Key, 'pending', Result Amount, Fee, Adress)
+merc --> merc: Complit Transaction
+merc --> part: (Transaction-Key, 'complete', Result Amount, Fee, Adress)
+deactivate merc
+part --> user: Transaction Result
+deactivate part
+@enduml
