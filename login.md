@@ -18,11 +18,11 @@
 
 **Cases**
 
-1. [Sign up](commAPILogin.md#1-sign-up)
-2. [Partner has phone sign up](commAPILogin.md/#2-partner-has-phone-sign-up)
-3. [User from US](commAPILogin.md/#3-user-from-us)
-4. [Log in by uuid](commAPILogin.md/#4-log-in-by-uuid)
-5. [Log in by phone](commAPILogin.md/#5-log-in-by-phone)
+1. [Sign up](login.md#1-sign-up)
+2. [Partner has phone sign up](login.md/#2-partner-has-phone-sign-up)
+3. [User from US](login.md/#3-user-from-us)
+4. [Log in by uuid](login.md/#4-log-in-by-uuid)
+5. [Log in by phone](login.md/#5-log-in-by-phone)
 
 ***
 
