@@ -167,7 +167,7 @@ User want to by crypto on your side. User have Mercuryo account. Login by uuid. 
 
 ***
 
-#### 4. Log in by phone
+#### 5. Log in by phone
 
 **Case:**
 
