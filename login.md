@@ -26,7 +26,7 @@
 
 ***
 
-#### 1. Sing up.
+#### 1. Sing up
 
 **Case:**
 
@@ -58,7 +58,7 @@ User want to by crypto on your side. You do not have information about users pho
 
 6. User need to pass KYC. Use method [`GET /b2b/kyc-access-token`](https://u3-1-api.mrcr.io/v1.6/comm-docs/index.html#api-B2B-UserKycAccessToken) to get user's KYC token
 
-| Error  | Text | Description  | 
+| Parameter  |  Description  | 
 | ------------- | -------------  | 
 | `access_token` | your access token | 
 | `flow` | user's action: `buy`, `sell` etc |
@@ -181,4 +181,4 @@ Flow is the same with log in by uuid but with little diffenrences:
 2. User do not need to verificate his phone
 
 
-1[img](https://github.com/mercuryoio/Commercial-API/blob/master/Log%20In.png)
+![img](https://github.com/mercuryoio/Commercial-API/blob/master/Log%20In.png)
