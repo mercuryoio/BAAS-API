@@ -162,7 +162,7 @@ User want to by crypto on your side. User have Mercuryo account. Login by uuid. 
 
 3. Then Mercuryo API will send users status to you
 
-![img](https://github.com/IgnatBatuev/draft1.6api/blob/main/Log%20in%20by%20uuid.png)
+![img](https://github.com/mercuryoio/Commercial-API/blob/master/Log%20In.png)
 
 
 ***
@@ -180,5 +180,3 @@ Flow is the same with log in by uuid but with little diffenrences:
 1. Use method `POST /sdk-partner/sign-in`
 2. User do not need to verificate his phone
 
-
-![img](https://github.com/mercuryoio/Commercial-API/blob/master/Log%20In.png)
