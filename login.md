@@ -18,7 +18,7 @@
 
 **Cases**
 
-1. [Sign up](login.md#1-sign-up)
+1. [Sign up](login.md/#1-sign-up)
 2. [Partner has phone sign up](login.md/#2-partner-has-phone-sign-up)
 3. [User from US](login.md/#3-user-from-us)
 4. [Log in by uuid](login.md/#4-log-in-by-uuid)
