@@ -40,10 +40,10 @@ User want to by crypto on your side. You do not have information about users pho
 | Error  | Text | Description  | 
 | ------------- | -------------  | -------------  |
 | 403004 | `User not found.` | wrong uuid |
-| 400305 | `invalid country by phone number` |  wrong countrycode |
+| 403005 | `invalid country by phone number` |  wrong countrycode |
 | 403005 | `Country `%s` is not active or not exist.` | country is inactive |
 | 403005 | `Country `%s` is in black list.` | country in black list |
-| 403005 | `Phone is invalid` | phone is invalid |
+| 403010 | `Phone is invalid` | phone is invalid |
 | 403006 | `Accept cannot be blank for new users` | there is no `acception` parameter |
 
 
@@ -132,6 +132,7 @@ US users need to verificate their e-mail too
 | ------------- | -------------  | -------------  |
 | 403007 | `Token somehow contains invalid data.` | token data is invalid |
 | 401008 | `Verification failed.` | invalid token |
+| 401009 | `Verification failed.` | code is invalid |
 
 4. Mercuryo API response with user status
 
