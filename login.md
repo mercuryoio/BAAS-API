@@ -62,7 +62,8 @@ User want to by crypto on your side. You do not have information about users pho
 | ------------- | -------------  | 
 | `access_token` | your access token | 
 | `flow` | user's action: `buy`, `sell` etc |
-| `scheme` | drak or light. This one is optional |
+| `scheme` | `dark` or `light`. This one is optional |
+| `lang` | language. By default it is `en`. Supported languages: `en`, `zh`, `ru`, `fr`, `hi` , `id`, `ja`, `ko`, `pt`, `es`, `tr`, `vi`  | 
 | `success_url` | redirect to your site with successful result |
 | `failure_url` | redirect to your site with failed result |
 
