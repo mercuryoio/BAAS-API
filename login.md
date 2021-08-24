@@ -69,10 +69,6 @@ Link example: `https://payments.mrcr.io/buy?init_token=123&scheme=dark`
 
 Link must contains this parameters: 
 
-| Parameter | Description  | 
-| ------------- | -------------  | 
-| 403004 | `User not found.` |
-
 | Parameter  |  Description  | 
 | ------------- | -------------  | 
 | `access_token` | your access token | 
