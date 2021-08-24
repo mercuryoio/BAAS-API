@@ -24,7 +24,7 @@ All the methods in b2b domain have to be signed up with `b2b-bearer-token`. You 
 
 Creating new IBAN for user:
 
-[Link Comming soon](Link Comming soon)
+[Link Comming soon](link)
 
 ***
 
