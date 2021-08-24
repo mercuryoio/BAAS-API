@@ -1,16 +1,18 @@
-For methods in /sds/ domain you need your `sdk-partner-token`. Ask your Mercuryo manager to get it.
+For methods in `/sdk/` domain you need your `sdk-partner-token`. Ask your Mercuryo manager to get it.
 
 ***
 
 In Mercuryo users can be registered only with phone.
 Users can be authorised with phone and uuid. Uuid - uniq user id. As a partner you will get it as a response for sign-in method and we recommend to save it to user account on your side.
 
+New users need to accept Mercuryo 'Terms and Policies'. [See Acceptance](#Acceptance)
+
 All the users need to pass KYS authorization to use their crypto-wallets or create IBAN.
 *Note: US user also need verified email address to work with Mercuryo API*
 
 ***
 
-**Acceptance**
+#Acceptance
 
 1. You need to add to your Terms and Policy agreement to share user data with Mercuryo.
 2. You need to make an agreement with Mercuryo that Mercuryo will use the data for registration and will use it to third parties.
