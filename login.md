@@ -41,8 +41,8 @@ User want to by crypto on your side. You do not have information about users pho
 | ------------- | -------------  | -------------  |
 | 403004 | `User not found.` | wrong uuid |
 | 403005 | `invalid country by phone number` |  wrong countrycode |
-| 403005 | `Country `%s` is not active or not exist.` | country is inactive |
-| 403005 | `Country `%s` is in black list.` | country in black list |
+| 403005 | `Country %s is not active or not exist.` | country is inactive |
+| 403005 | `Country %s is in black list.` | country in black list |
 | 403010 | `Phone is invalid` | phone is invalid |
 | 403006 | `Accept cannot be blank for new users` | there is no `acception` parameter |
 
@@ -58,6 +58,17 @@ User want to by crypto on your side. You do not have information about users pho
 
 6. User need to pass KYC. Use method [`GET /b2b/kyc-access-token`](https://u3-1-api.mrcr.io/v1.6/comm-docs/index.html#api-B2B-UserKycAccessToken) to get user's KYC token
 
+| Error  | Text | Description  | 
+| ------------- | -------------  | -------------  | 
+| 403004 | `User not found.` | user not found |
+
+
+7. You need to redirect user to Mercuryo side by link. 
+
+Link example: `https://payments.mrcr.io/buy?init_token=123&scheme=dark`
+
+Link must contains this parameters: 
+
 | Parameter  |  Description  | 
 | ------------- | -------------  | 
 | `access_token` | your access token | 
@@ -66,13 +77,6 @@ User want to by crypto on your side. You do not have information about users pho
 | `lang` | language. By default it is `en`. Supported languages: `en`, `zh`, `ru`, `fr`, `hi` , `id`, `ja`, `ko`, `pt`, `es`, `tr`, `vi`  | 
 | `success_url` | redirect to your site with successful result |
 | `failure_url` | redirect to your site with failed result |
-
-
-7. You need to redirect user to Mercuryo side by link. Link must contains this parameters: 
-
-| Parameter | Description  | 
-| ------------- | -------------  | 
-| 403004 | `User not found.` |
 
 8. Use [`GET /b2b/user/data`](https://u3-1-api.mrcr.io/v1.6/comm-docs/index.html#api-B2B-UserData) to get info about user's status
 
