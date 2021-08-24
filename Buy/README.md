@@ -1,7 +1,4 @@
-# Buying crypto on Partner side
-
-**You can use Mercuryo API only with your partner token. Ask your Mercuryo manager to get it.**
-
+# Buying crypto with card on Partner side
 
 [1. Steps to buy crypto](#steps)
 
@@ -13,11 +10,11 @@
 
 **User can buy crypto on your side with Mercuryo API.**
 
-1. On your side user wants to buy crypto with the help of Mercuryo API.
+1. On your side user wants to buy crypto with card.
 
-2. Use method [GET /lib/currencies](https://u3-1-api.mrcr.io/v1.6/comm-docs/index.html#api-Public-PublicCurrencies)
+2. You will need to authorize user and check if he can use Mercuryo API. Please check (link to ligin md here ) for more information.
 
-3. Use method [GET /lib/countries](https://u3-1-api.mrcr.io/v1.6/comm-docs/index.html#api-Public-PublicCountries)
+3. Use method [GET /lib/currencies](https://u3-1-api.mrcr.io/v1.6/comm-docs/index.html#api-Public-PublicCurrencies) - to show user available cuurencies.
 
 4. After that you need to log in Mercuryo API with [`POST /sdk-partner/sign-in`](https://u3-1-api.mrcr.io/v1.6/comm-docs/index.html#api-SDK-SDKLogin).
 

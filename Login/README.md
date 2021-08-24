@@ -12,7 +12,7 @@ All the users need to pass KYS authorization to use their crypto-wallets or crea
 
 ***
 
-# Acceptance
+## Acceptance
 
 1. You need to add to your Terms and Policy agreement to share user data with Mercuryo.
 2. You need to make an agreement with Mercuryo that Mercuryo will use the data for registration and will use it to third parties.
@@ -24,11 +24,11 @@ All the users need to pass KYS authorization to use their crypto-wallets or crea
 
 **Cases**
 
-1. [Sign up](README.md/#1-sign-up)
-2. [Partner has phone sign up](README.md/#2-partner-has-phone-sign-up)
-3. [User from US](README.md/#3-user-from-us)
-4. [Log in by uuid](README.md/#4-log-in-by-uuid)
-5. [Log in by phone](README.md/#5-log-in-by-phone)
+1. [Sign up](login.md/#1-sign-up)
+2. [Partner has phone sign up](login.md/#2-partner-has-phone-sign-up)
+3. [User from US](login.md/#3-user-from-us)
+4. [Log in by uuid](login.md/#4-log-in-by-uuid)
+5. [Log in by phone](login.md/#5-log-in-by-phone)
 
 ***
 
@@ -40,7 +40,9 @@ User want to by crypto on your side. You do not have information about users pho
 
 **Steps:**
 
-1. Ask user about phone
+1. Ask user about phone. Please note that we don't work with some countries. You can get the list of available countries with [GET /lib/countries](https://u3-1-api.mrcr.io/v1.6/comm-docs/index.html#api-Public-PublicCountries)
+We recommend you to design a drop-down list of phone codes using this method.
+
 2. Use method [`POST /sdk-partner/sign-in`](https://u3-1-api.mrcr.io/v1.6/comm-docs/index.html#api-SDK-SDKLogin) to pass user's phone to Mercuryo API
 
 | Error  | Text | Description  |
@@ -189,5 +191,5 @@ User want to by crypto on your side. User have Mercuryo account. Login by phone.
 
 Flow is the same with log in by uuid but with little diffenrences:
 
-1. Use method `POST /sdk-partner/sign-in` to initiate login by phone
+1. Use method `POST /sdk-partner/sign-in`
 2. User do not need to verificate his phone
