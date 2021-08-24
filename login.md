@@ -1,8 +1,12 @@
-**You can use Mercuryo API only with your partner token. Ask your Mercuryo manager to get it**
+For methods in /sds/ domain you need your `sdk-partner-token`. Ask your Mercuryo manager to get it.
 
 ***
 
-**In Mercuryo users can be registrated and verificated only with phone. US users need to verificate their e-mail too. Users can be authorised with phone and uuid. uuid - uniq user id. As a partner you will get it as a response for sign-in method and we recommend to save it to user account on your side.**
+In Mercuryo users can be registered only with phone.
+Users can be authorised with phone and uuid. Uuid - uniq user id. As a partner you will get it as a response for sign-in method and we recommend to save it to user account on your side.
+
+All the users need to pass KYS authorization to use their crypto-wallets or create IBAN.
+*Note: US user also need verified email address to work with Mercuryo API*
 
 ***
 
@@ -37,7 +41,7 @@ User want to by crypto on your side. You do not have information about users pho
 1. Ask user about phone
 2. Use method [`POST /sdk-partner/sign-in`](https://u3-1-api.mrcr.io/v1.6/comm-docs/index.html#api-SDK-SDKLogin) to pass user's phone to Mercuryo API
 
-| Error  | Text | Description  | 
+| Error  | Text | Description  |
 | ------------- | -------------  | -------------  |
 | 403004 | `User not found.` | wrong uuid |
 | 403005 | `invalid country by phone number` |  wrong countrycode |
@@ -51,36 +55,36 @@ User want to by crypto on your side. You do not have information about users pho
 5. Use method [`POST /sdk-partner/phone-verify`](https://u3-1-api.mrcr.io/v1.6/comm-docs/index.html#api-SDK-SDKPhone_verify) to give Mercuryo API user's phone and verification code
 
 
-| Error  | Text | Description  | 
+| Error  | Text | Description  |
 | ------------- | -------------  | -------------  |
 | 403001 | `Verification failed.` | wrong key  |
 | 403002 | `Verification failed.` |  wrong code |
 
 6. User need to pass KYC. Use method [`GET /b2b/kyc-access-token`](https://u3-1-api.mrcr.io/v1.6/comm-docs/index.html#api-B2B-UserKycAccessToken) to get user's KYC token
 
-| Error  | Text | Description  | 
-| ------------- | -------------  | -------------  | 
+| Error  | Text | Description  |
+| ------------- | -------------  | -------------  |
 | 403004 | `User not found.` | user not found |
 
 
-7. You need to redirect user to Mercuryo side by link. 
+7. You need to redirect user to Mercuryo side by link.
 
 Link example: `https://payments.mrcr.io/buy?init_token=123&scheme=dark`
 
-Link must contains this parameters: 
+Link must contains this parameters:
 
-| Parameter  |  Description  | 
-| ------------- | -------------  | 
-| `access_token` | your access token | 
+| Parameter  |  Description  |
+| ------------- | -------------  |
+| `access_token` | your access token |
 | `flow` | user's action: `buy`, `sell` etc |
 | `scheme` | `dark` or `light`. This one is optional |
-| `lang` | language. By default it is `en`. Supported languages: `en`, `zh`, `ru`, `fr`, `hi` , `id`, `ja`, `ko`, `pt`, `es`, `tr`, `vi`  | 
+| `lang` | language. By default it is `en`. Supported languages: `en`, `zh`, `ru`, `fr`, `hi` , `id`, `ja`, `ko`, `pt`, `es`, `tr`, `vi`  |
 | `success_url` | redirect to your site with successful result |
 | `failure_url` | redirect to your site with failed result |
 
 8. Use [`GET /b2b/user/data`](https://u3-1-api.mrcr.io/v1.6/comm-docs/index.html#api-B2B-UserData) to get info about user's status
 
-| Error  | Text | Description  | 
+| Error  | Text | Description  |
 | ------------- | -------------  | -------------  |
 | 500001 | `try later` | smth going wrong |
 
@@ -88,7 +92,7 @@ Link must contains this parameters:
 What to do if user still inactive:
 1. Check if all parameters are filled
 2. Ask user's e-mail. US users need to verify their e-mail
-3. User need to pass KYC successful. 
+3. User need to pass KYC successful.
 4. If user status is `temporary-blocked` user will be able to use Mercuryo in 15 min.
 5. If user sill has problem -- ask Mercuryo support
 
@@ -125,7 +129,7 @@ US users need to verificate their e-mail too
 
 1. Use  method [`POST /b2b/user/set-email`](https://u3-1-api.mrcr.io/v1.6/comm-docs/index.html#api-SDK-SDKLogin) to send user e-mail to Mercuryo API
 
-| Error  | Text | Description  | 
+| Error  | Text | Description  |
 | ------------- | -------------  | -------------  |
 | 403006 | `Email cannot be blank.` |  wrong e-mail |
 | 403006 | `Email is not a valid email address.` | invalid e-mail |
@@ -133,7 +137,7 @@ US users need to verificate their e-mail too
 
 3. Use method [`POST /b2b/user/email-verify`](https://u3-1-api.mrcr.io/v1.6/comm-docs/index.html#api-SDK-SDKLogin) to give Mercuryo API user's phone and verification code
 
-| Error  | Text | Description  | 
+| Error  | Text | Description  |
 | ------------- | -------------  | -------------  |
 | 403007 | `Token somehow contains invalid data.` | token data is invalid |
 | 401008 | `Verification failed.` | invalid token |
@@ -155,7 +159,7 @@ User want to by crypto on your side. User have Mercuryo account. Login by uuid. 
 
 1. Use  method [`POST /sdk-partner/sign-in`](https://u3-1-api.mrcr.io/v1.6/comm-docs/index.html#api-SDK-SDKLogin) to initiate login by uuid
 
-| Error  | Text | Description  | 
+| Error  | Text | Description  |
 | ------------- | -------------  | -------------  |
 | 403004 | `User not found.` | wrong uuid |
 | 400305 | `invalid country by phone number` |  wrong countrycode |
@@ -185,4 +189,3 @@ Flow is the same with log in by uuid but with little diffenrences:
 
 1. Use method `POST /sdk-partner/sign-in`
 2. User do not need to verificate his phone
-
