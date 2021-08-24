@@ -24,11 +24,11 @@ All the users need to pass KYS authorization to use their crypto-wallets or crea
 
 **Cases**
 
-1. [Sign up](login.md/#1-sign-up)
-2. [Partner has phone sign up](login.md/#2-partner-has-phone-sign-up)
-3. [User from US](login.md/#3-user-from-us)
-4. [Log in by uuid](login.md/#4-log-in-by-uuid)
-5. [Log in by phone](login.md/#5-log-in-by-phone)
+1. [Sign up](README.md/#1-sign-up)
+2. [Partner has phone sign up](README.md/#2-partner-has-phone-sign-up)
+3. [User from US](README.md/#3-user-from-us)
+4. [Log in by uuid](README.md/#4-log-in-by-uuid)
+5. [Log in by phone](README.md/#5-log-in-by-phone)
 
 ***
 
@@ -189,5 +189,5 @@ User want to by crypto on your side. User have Mercuryo account. Login by phone.
 
 Flow is the same with log in by uuid but with little diffenrences:
 
-1. Use method `POST /sdk-partner/sign-in`
+1. Use method `POST /sdk-partner/sign-in` to initiate login by phone
 2. User do not need to verificate his phone
