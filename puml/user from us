@@ -1,0 +1,26 @@
+@startuml
+' This UML source uses PlantUML format.
+' https://plantuml.com/sequence-diagram for syntax details.
+' Optional styles
+
+skinparam shadowing false
+skinparam SequenceMessageAlign direction
+
+autonumber
+
+actor User as user
+participant "Partner" as part
+participant "Mercuryo API" as merc
+
+== User from US ==
+part -> merc: /b2b/user/data
+merc --> part: email: required, user-status: not active
+part -> user: Email Form
+user -> part: Email
+part -> merc: /b2b/user/set-email
+note right
+Mercuryo will send a verefication code by e-mail
+end note
+merc --> part: Code Length, Key, Masked Email
+part -> merc: /b2b/user/email-verify
+@enduml
