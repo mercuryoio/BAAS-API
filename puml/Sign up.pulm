@@ -20,7 +20,7 @@ part -> merc: /sdk-partner/sign-in
 merc --> part: Code Length, Key, Masked phone
 part -> user: Code Form
 note right
-Mercuryo will send code to user
+Mercuryo will send a verefication code by SMS
 end note
 user --> part: Code
 part -> merc: /sdk-partner/phone-verify
