@@ -8,11 +8,15 @@ The Mercuryo API is structured around a your and user's wallets. Users create wa
 
 ***
 
+## Methods
+
 You can find reference documentation with methods description [here](link)
 
 All the methods in b2b domain have to be signed up with `b2b-bearer-token`. You can get it in authorization flow described here.
 
 ***
+
+## Sign up/ Log in
 
 *Note: For authorization you need your `sdk-partner-token`. Ask your Mercuryo manager to get it.*
 
@@ -22,13 +26,13 @@ All the methods in b2b domain have to be signed up with `b2b-bearer-token`. You 
 ***
 
 
-Creating new IBAN for user:
+## Creating new IBAN for user
 
 [Link Comming soon](link)
 
 ***
 
-Popular scenarios for using API:
+## Popular scenarios for using API:
 
 1. Buy crypto with card
 2. Buy crypto by bank transfer (Comming soon)
