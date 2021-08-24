@@ -1,0 +1,24 @@
+@startuml
+' This UML source uses PlantUML format.
+' https://plantuml.com/sequence-diagram for syntax details.
+' Optional styles
+
+skinparam shadowing false
+skinparam SequenceMessageAlign direction
+
+autonumber
+
+actor User as user
+participant "Partner" as part
+participant "Mercuryo API" as merc
+
+
+== Log In By Uuid ==
+part -> merc: /sdk-partner/sign-in
+merc --> part: Code Length, Key, Masked phone
+part -> user: Code Form
+user --> part: Code
+part -> merc: /sdk-partner/phone-verify
+merc --> part: b2b-bearer-token, uuid
+merc --> part: user-status
+@enduml
