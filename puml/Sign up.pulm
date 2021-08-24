@@ -13,6 +13,7 @@ participant "Partner" as part
 participant "Mercuryo API" as merc
 
 user -> part: Operation with crypto
+part -> merc: /lib/countries
 == Sign up ==
 part -> user: Phone Form
 user --> part: Phone
