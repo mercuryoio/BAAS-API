@@ -32,6 +32,8 @@ All the users need to pass KYS authorization to use their crypto-wallets or crea
 
 ***
 
+We do not work with all countries. To get list of supported countries use method [`GET /lib/countries`](https://u3-1-api.mrcr.io/v1.6/comm-docs/index.html#api-Public-PublicCountries)
+
 #### 1. Sing up
 
 **Case:**
@@ -73,14 +75,14 @@ We recommend you to design a drop-down list of phone codes using this method.
 
 7. You need to redirect user to Mercuryo side by link.
 
-Link example: `https://payments.mrcr.io/buy?init_token=123&scheme=dark`
+Link example: `https://payments.mrcr.io/kyc?init_token=123&scheme=dark`
 
 Link must contains this parameters:
 
 | Parameter  |  Description  |
 | ------------- | -------------  |
 | `access_token` | your access token |
-| `flow` | user's action: `buy`, `sell` etc |
+| `flow` | user's action: `kyc`,`buy`, `sell` etc|
 | `scheme` | `dark` or `light`. This one is optional |
 | `lang` | language. By default it is `en`. Supported languages: `en`, `zh`, `ru`, `fr`, `hi` , `id`, `ja`, `ko`, `pt`, `es`, `tr`, `vi`  |
 | `success_url` | redirect to your site with successful result |
@@ -94,13 +96,12 @@ Link must contains this parameters:
 
 
 What to do if user still inactive:
-1. Check if all parameters are filled
+1. User need to pass KYC successful.
 2. Ask user's e-mail. US users need to verify their e-mail
-3. User need to pass KYC successful.
-4. If user status is `temporary-blocked` user will be able to use Mercuryo in 15 min.
-5. If user sill has problem -- ask Mercuryo support
+3. If user status is `temporary-blocked` user will be able to use Mercuryo in 15 min.
+4. If user sill has problem -- ask Mercuryo support
 
-![img](https://github.com/mercuryoio/Commercial-API/blob/master/Sing%20up.png)
+![img](https://github.com/mercuryoio/Commercial-API/blob/master/Login/Sign%20up.png)
 
 ***
 
@@ -149,7 +150,7 @@ US users need to verificate their e-mail too
 
 4. Mercuryo API response with user status
 
-![img]( https://github.com/mercuryoio/Commercial-API/blob/master/User%20from%20US.png)
+![img](https://github.com/mercuryoio/Commercial-API/blob/master/Login/User%20from%20US.png)
 
 ***
 
@@ -176,7 +177,7 @@ User want to by crypto on your side. User have Mercuryo account. Login by uuid. 
 
 3. Then Mercuryo API will send users status to you
 
-![img](https://github.com/mercuryoio/Commercial-API/blob/master/Log%20In.png)
+![img](https://github.com/mercuryoio/Commercial-API/blob/master/Login/Log%20in%20by%20uuid.png)
 
 
 ***
