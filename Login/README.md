@@ -12,7 +12,7 @@ All the users need to pass KYS authorization to use their crypto-wallets or crea
 
 ***
 
-#Acceptance
+# Acceptance
 
 1. You need to add to your Terms and Policy agreement to share user data with Mercuryo.
 2. You need to make an agreement with Mercuryo that Mercuryo will use the data for registration and will use it to third parties.
