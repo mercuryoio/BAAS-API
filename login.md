@@ -41,8 +41,8 @@ User want to by crypto on your side. You do not have information about users pho
 | ------------- | -------------  | -------------  |
 | 403004 | `User not found.` | wrong uuid |
 | 403005 | `invalid country by phone number` |  wrong countrycode |
-| 403005 | `Country `%s` is not active or not exist.` | country is inactive |
-| 403005 | `Country `%s` is in black list.` | country in black list |
+| 403005 | `Country %s is not active or not exist.` | country is inactive |
+| 403005 | `Country %s is in black list.` | country in black list |
 | 403010 | `Phone is invalid` | phone is invalid |
 | 403006 | `Accept cannot be blank for new users` | there is no `acception` parameter |
 
