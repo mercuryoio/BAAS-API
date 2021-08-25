@@ -38,7 +38,7 @@ All the methods in b2b domain have to be signed up with `b2b-bearer-token`. You 
 2. Buy crypto with bank transfer (Comming soon)
 3. Buy crypto using user's IBAN (Comming soon)
 4. Top Up user's IBAN (Comming soon)
-5. [Sell crypto and withdraw card](https://github.com/mercuryoio/Commercial-API/blob/master/Sell/README.md)
+5. [Sell crypto and withdraw fiat to card](https://github.com/mercuryoio/Commercial-API/blob/master/Sell/README.md)
 6. Sell crypto and withdraw to rendom Iban (Comming soon)
 7. Sell crypto and withdraw to User's Iban (Comming soon)
 8. Withdraw from User's IBAN to rendom Iban (Comming soon)
