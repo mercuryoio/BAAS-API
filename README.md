@@ -34,10 +34,10 @@ All the methods in b2b domain have to be signed up with `b2b-bearer-token`. You 
 
 ## Popular scenarios for using API:
 
-1. Buy crypto with card
+1. [Buy crypto with card](https://github.com/mercuryoio/Commercial-API/blob/master/Buy/README.md)
 2. Buy crypto by bank transfer (Comming soon)
 3. Buy crypto using user's IBAN (Comming soon)
-4. Sell crypto with card
+4. [Sell crypto with card](https://github.com/mercuryoio/Commercial-API/blob/master/Sell/README.md)
 5. (Comming soon)
 6. (Comming soon)
 7. (Comming soon)
