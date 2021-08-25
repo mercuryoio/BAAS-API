@@ -8,7 +8,7 @@
 <a name="steps"></a>
 #### 1. Steps
 
-1. The Customer wants buy crypto.
+1. The Customer wants to buy crypto.
 2. You will need to authorize customer and check if he can use Mercuryo API. Please check [this](https://github.com/mercuryoio/Commercial-API/blob/master/Login/README.md) for more information.
 3. Use method [`GET /lib/currencies`](https://u3-1-api.mrcr.io/v1.6/comm-docs/index.html#api-Public-PublicCurrencies) - to show to the Custome available curencies.
 4. Use method [`GET /b2b/buy/methods`](https://u3-1-api.mrcr.io/v1.6/comm-docs/index.html#api-Buy-BuyMethods) to get avaliable buy methods.
@@ -16,8 +16,8 @@
 
 While using this method pay attention to the flag `is total` which affects on fee limits value:
 
-* if the Customer is buying crypto and enter fiat value first, then converted crypto value must be counted with the commission `is total=true`;
-* if the Customer is buying crypto and enter crypto value first, then converted fiat value must be counted with the commission `is_total=false`.
+* if the Customer enters fiat value first, then converted crypto value must be counted with the commission `is total=true`;
+* if the Customer enters crypto value first, then converted fiat value must be counted with the commission `is_total=false`.
 
 Rates are freezed and associated with buy-token.
 
@@ -32,13 +32,13 @@ Rates are freezed and associated with buy-token.
 
 6. Payment Details.  
 The Customer can use new card or saved card.  
-To get list of saved cards use method [`GET /b2b/user/cards`](https://u3-1-api.mrcr.io/v1.6/comm-docs/index.html#api-User-UserCards).  
+To get the list of saved cards use method [`GET /b2b/user/cards`](https://u3-1-api.mrcr.io/v1.6/comm-docs/index.html#api-User-UserCards).  
 You will receive a list of masked customer's cards and `card_ids`.  
 For the reason of PCI-DSS complience Mercuryo need to get payment details on Mercuryo side. In case of passing valid card_id in method [`POST /b2b/buy`] the Customer will asked for CVV only.  
 
 7. Use method [`POST /b2b/buy`](https://u3-1-api.mrcr.io/v1.6/comm-docs/index.html#api-Buy-Buy) to initiate buy. 
 
-`merch_trx_id` - transaction ID, using it you can find out the transaction status. It is also needed to Mercuryo technical support if something going wrong. You can generate it by yourself, or Mercuryo can make it for you. We strongly recommend you to save this parameter.
+`merch_trx_id` - transaction ID, using it you can find out the transaction status. It is also needed to Mercuryo technical support if something going wrong. You can generate it by yourself, or Mercuryo can make it for you. We strongly recommend you save this parameter.
 
 8. You need to redirect the Customer to Mercuryo side by link. The User will add his card on the Mercuryo side
 
@@ -50,11 +50,11 @@ Link must contains this parameters:
 | ------------- | -------------  | -------------  |
 | `init_token` | your access token, you get it from method `POST /b2b/buy` | obligatory |
 | `scheme` | `dark` or `light` | optional |
-| `lang` | language. By default it is `en`. Supported languages: `en`, `zh`, `ru`, `fr`, `hi` , `id`, `ja`, `ko`, `pt`, `es`, `tr`, `vi`  | optional |
+| `lang` | language. By default it is `en`. Supported languages: `en`, `zh`, `ru`, `fr`, `hi`, `id`, `ja`, `ko`, `pt`, `es`, `tr`, `vi`  | optional |
 
 9. Mercuryo will redirect the Customer back to the success or failed url that you specified in the [admin panel](https://github.com/mercuryoio/Commercial-API/blob/master/admin.md). Mercuryo will initiate a withdrawal transaction to the specified Customer's wallet. 
 
-10. Mercuryo API will send callback to you  when transaction will be completed.
+10. Mercuryo API will send the callback to you when the transaction will be completed.
 
 11. To show transaction status to the Customer before you get the callback with status use method [`GET /b2b/buy/:merchant_trx_id/status`](https://u3-1-api.mrcr.io/v1.6/comm-docs/index.html#api-Buy-BuyTransactionStatus).
 
@@ -62,4 +62,6 @@ Link must contains this parameters:
 
 <a name="scheme"></a>
 #### 2. Scheme
+
+![buy](https://github.com/mercuryoio/Commercial-API/blob/master/Buy/buy.png)
 
