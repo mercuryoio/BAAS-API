@@ -3,15 +3,14 @@
 **You can use Mercuryo API only with your partner token. Ask your Mercuryo manager to get it.**
 
 
-[1. Steps to buy crypto](#steps)
+[1. Steps](#steps)
 
 [2. Scheme](#scheme)
 
+***
 
 <a name="steps"></a>
-#### 1. Steps to buy crypto
-
-**User can buy crypto on your side.**
+#### 1. Steps
 
 1. User wants buy crypto.
 
