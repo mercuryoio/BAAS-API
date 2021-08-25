@@ -2,8 +2,8 @@
 
 ***
 
-1. [Steps](/README.md#1-steps)
-2. [Scheme](/README.md#2-scheme)
+1. [Steps](README.md#1-steps)
+2. [Scheme](README.md#2-scheme)
 
 ***
 
