@@ -9,7 +9,7 @@
 1. Open partners admin
 2. Tap on Profile on the menu bar on the left
 3. Tap on Settings
-4. Fill link boxes with your links
+4. Fill url boxes with your links
 
    ***NB:** all of them must be filled*
    
