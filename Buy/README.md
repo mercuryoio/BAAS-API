@@ -5,10 +5,11 @@
 [2. Scheme](#scheme)
 
 
-<a name="steps"></a>
-## 1. Steps to buy crypto
+***
 
-**User can buy crypto on your side with Mercuryo API.**
+<a name="steps"></a>
+### 1. Steps to buy crypto
+
 
 1. On your side user wants to buy crypto with card.
 
@@ -16,25 +17,16 @@
 
 3. Use method [GET /lib/currencies](https://u3-1-api.mrcr.io/v1.6/comm-docs/index.html#api-Public-PublicCurrencies) - to show user available cuurencies.
 
-4. After that you need to log in Mercuryo API with [`POST /sdk-partner/sign-in`](https://u3-1-api.mrcr.io/v1.6/comm-docs/index.html#api-SDK-SDKLogin).
+4. Use method [`GET /b2b/buy/methods`](https://u3-1-api.mrcr.io/v1.6/comm-docs/index.html#api-B2B-BuyMethods) to get avaliable buy methods.
 
-| Error | Text | Description|
-|:--|:--|:--|
-| 403004  | `User not found` | wrong uuid |
-| 403005 | `invalid country by phone number`  | wrong countrycode  |
-| 403005  | `Country `%s` is not active or not exist`  | country is inactive  |
-| 403005  | `Country `%s` is in black list`  | country in black list  |
-| 403010  | `Phone is invalid`  | Phone is invalid  |
-| 403006  | `Accept cannot be blank for new users`  | there is no `acception` parameter  |
-| 40304  | `Invalid uuid4 ` | wrong uuid format  |
+5. You get rates using API-method [`GET /b2b/buy/rate`](https://u3-1-api.mrcr.io/v1.6/comm-docs/index.html#api-B2B-GetBuyRate).
 
+While using this method pay attention to the flag `is total` which affects on fee limits value:
 
-5. Mercuryo API returns to you available payment methods.
+* if user is buying crypto and enter fiat value first, then converted crypto value must be counted with the commission `is total=true`;
+* if user is buying crypto and enter crypto value first, then converted fiat value must be counted with the commission `is_total=false`.
 
-6. On your side user selects paramenters to buy crypto.
-
-7. You send users's data to Mercuryo API using API-method [`/b2b/buy/rate`](https://u3-1-api.mrcr.io/v1.6/comm-docs/index.html#api-B2B-GetBuyRate).
-
+Rates are freezed and associated with buy-token.
 
 | Error | Text | Description|
 |:--|:--|:--|
@@ -46,19 +38,36 @@
 | 500001  | `try later`  | Failed to get rates for various reasons  |
 | 500002  | amount off limits  | Failed to get rates  |
 
-8. Mercuryo API returns to you buy-token.
+6. Payment Details.  
+User can use new card or saved card.
+To get list of saved cards use method [`GET /b2b/user/cards`](https://u3-1-api.mrcr.io/v1.6/comm-docs/index.html#api-B2B-User_cards).
+You will receive a list of masked user cards and card_ids.
+For the reason of PCI-DSS complience m need to get payment details on m side. In case of passing valid card_id in method [`POST /b2b/buy`] user will asked for CVV only.
 
-**While the transaction is in progress, the user is redirected to the 3D-secure page of his bank to confirm the payment.**
+7. Use method [`POST /b2b/buy`](https://u3-1-api.mrcr.io/v1.6/comm-docs/index.html#api-B2B-Buy) to initiate buy
 
-9. Mercuryo API sends to you callback.
+`merch_trx_id` - transaction ID, using it you can find out its status. It is also needed to Mercuryo technical support if something going wrong. You can generate it by yourself, or Mercuryo can make it for you. We strongly recommend you to save this parameter.
 
-10. The response to this callback must have a status of the transaction using API-method [`/b2b/buy/:merch_trx_id:/status`](https://u3-1-api.mrcr.io/v1.6/comm-docs/index.html#api-B2B-BuyTransactionStatus).
+7. You need to redirect user to Mercuryo side by link. The User will add his card on the Mercuryo side
 
-11. Mercuryo API sends to you trx status array.
+Link example: `https://payments.mrcr.io/buy?parameters`
 
-12. User get transaction result from you.
+Link must contains this parameters:
+
+| Parameter  |  Description  | Type |
+| ------------- | -------------  | -------------  |
+| `init_token` | your access token, you get it from method `GET /b2b/kyc-access-token` | obligatory |
+| `scheme` | `dark` or `light` | optional |
+| `lang` | language. By default it is `en`. Supported languages: `en`, `zh`, `ru`, `fr`, `hi` , `id`, `ja`, `ko`, `pt`, `es`, `tr`, `vi`  | optional |
+
+8. Mercuryo will redirect the User back to the success or failed url that you specified in the [admin panel](ADD_LINK). Mercuryo  will initiate a withdrawal transaction to the specified user wallet. The User get transaction result from you.
+
+9. Mercuryo API will send callback to you  when transaction will be completed.
+
+10. To show transaction status to user before you get the callback with status use method [`GET /b2b/buy/:merchant_trx_id/status`](https://u3-1-api.mrcr.io/v1.6/comm-docs/index.html#api-B2B-BuyTransactionStatus).
+
+***
 
 <a name="scheme"></a>
-## 2. Scheme
-
-![buy_scheme](img/buy_scheme_edit.png)
+#### 2. Scheme
+![buy_scheme](scheme/buy.png)
