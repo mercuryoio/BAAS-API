@@ -24,11 +24,11 @@ All the users need to pass KYS authorization to use their crypto-wallets or crea
 
 **Cases**
 
-1. [Sign up](login.md/#1-sign-up)
-2. [Partner has phone sign up](login.md/#2-partner-has-phone-sign-up)
-3. [User from US](login.md/#3-user-from-us)
-4. [Log in by uuid](login.md/#4-log-in-by-uuid)
-5. [Log in by phone](login.md/#5-log-in-by-phone)
+1. [Sign up](README.md/#1-sign-up)
+2. [Partner has phone sign up](README.md/#2-partner-has-phone-sign-up)
+3. [User from US](README.md/#3-user-from-us)
+4. [Log in by uuid](README.md/#4-log-in-by-uuid)
+5. [Log in by phone](README.md/#5-log-in-by-phone)
 
 ***
 
@@ -67,7 +67,7 @@ We recommend you to design a drop-down list of phone codes using this method.
 | 403002 | `Verification failed.` |  wrong code |
 
 
-6. Use [`GET /b2b/user/data`](https://u3-1-api.mrcr.io/v1.6/comm-docs/index.html#api-B2B-UserData) to get info about user's status
+6. Use [`GET /b2b/user/data`](https://u3-1-api.mrcr.io/v1.6/comm-docs/index.html#api-User-UserData) to get info about user's status
 
 | Error  | Text | Description  |
 | ------------- | -------------  | -------------  |
@@ -131,7 +131,7 @@ User want to by crypto on your side. User have not got Mercuryo account. User fr
 
 US users need to verificate their e-mail too
 
-1. Use  method [`POST /b2b/user/set-email`](https://u3-1-api.mrcr.io/v1.6/comm-docs/index.html#api-SDK-SDKLogin) to send user e-mail to Mercuryo API
+1. Use  method [`POST /b2b/user/set-email`](https://u3-1-api.mrcr.io/v1.6/comm-docs/index.html#api-User-UserSetEmail) to send user e-mail to Mercuryo API
 
 | Error  | Text | Description  |
 | ------------- | -------------  | -------------  |
@@ -139,7 +139,7 @@ US users need to verificate their e-mail too
 | 403006 | `Email is not a valid email address.` | invalid e-mail |
 | 403006 | `Email "ff@dd.dd" has already been taken.` | e-mail is already taken |
 
-3. Use method [`POST /b2b/user/email-verify`](https://u3-1-api.mrcr.io/v1.6/comm-docs/index.html#api-SDK-SDKLogin) to give Mercuryo API user's phone and verification code
+3. Use method [`POST /b2b/user/email-verify`](https://u3-1-api.mrcr.io/v1.6/comm-docs/index.html#api-User-UserEmailVerify) to give Mercuryo API user's phone and verification code
 
 | Error  | Text | Description  |
 | ------------- | -------------  | -------------  |
