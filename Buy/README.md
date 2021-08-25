@@ -62,4 +62,4 @@ Link must contains this parameters:
 
 <a name="scheme"></a>
 #### 2. Scheme
-![buy_scheme](scheme/buy.png)
+
