@@ -12,7 +12,7 @@
 
 2. Use method [`GET /lib/currencies`](https://u3-1-api.mrcr.io/v1.6/comm-docs/index.html#api-Public-PublicCurrencies)
 
-3. Use method [`POST /sdk-partner/sign-in`](https://u3-1-api.mrcr.io/v1.6/comm-docs/index.html#api-SDK-SDKLogin) to authorize the Customer. More about login is [here](login.md).
+3. Use method [`POST /sdk-partner/sign-in`](https://u3-1-api.mrcr.io/v1.6/comm-docs/index.html#api-SDK-SDKLogin) to authorize the Customer. More about login is [here](https://github.com/mercuryoio/Commercial-API/blob/master/Login/README.md).
 
 4. Use method [`GET /b2b/buy/methods`](https://u3-1-api.mrcr.io/v1.6/comm-docs/index.html#api-B2B-BuyMethods) to get avaliable buy methods.
 
