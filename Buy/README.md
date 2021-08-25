@@ -1,4 +1,7 @@
-# Buying crypto on Partner side
+
+
+1. [Steps](README.md/#1-steps)
+2. [Scheme](README.md/#2-scheme)
 
 ***
 
@@ -27,10 +30,9 @@ Rates are freezed and associated with buy-token.
 | 403011  | `From cannot be blank`  | parameter **From** not set  |
 | 403012   | `To cannot be blank`  | parameter **To** not set |
 | 403013   | `Amount cannot be blank` or `Unable to find currency options` | parameter **Amount** not set or the value is not valid  |
-| 403014  | `Invalid widget` | parameter **widget_id** not set or widget not found  |
 | 403015 | `Invalid payment flow`  | non-existent flow specified  |
-| 500001  | `try later`  | Failed to get rates for various reasons  |
-| 500002  | amount off limits  | Failed to get rates  |
+| 500001  | `try later`  | failed to get rates for various reasons  |
+| 500002  | amount off limits  | failed to get rates  |
 
 6. Payment Details.  
 The Customer can use new card or saved card.  
@@ -38,8 +40,7 @@ To get list of saved cards use method [`GET /b2b/user/cards`](https://u3-1-api.m
 You will receive a list of masked customer's cards and `card_ids`.  
 For the reason of PCI-DSS complience Mercuryo need to get payment details on Mercuryo side. In case of passing valid card_id in method [`POST /b2b/buy`] the Customer will asked for CVV only.  
 
-7. Use method [`POST /b2b/buy`](https://u3-1-api.mrcr.io/v1.6/comm-docs/index.html#api-B2B-Buy) to initiate buy
-
+7. Use method [`POST /b2b/buy`](https://u3-1-api.mrcr.io/v1.6/comm-docs/index.html#api-B2B-Buy) to initiate buy. 
 `merch_trx_id` - transaction ID, using it you can find out the transaction status. It is also needed to Mercuryo technical support if something going wrong. You can generate it by yourself, or Mercuryo can make it for you. We strongly recommend you to save this parameter.
 
 7. You need to redirect the Customer to Mercuryo side by link. The User will add his card on the Mercuryo side
