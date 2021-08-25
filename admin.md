@@ -10,8 +10,11 @@
 2. Tap on Profile on the menu bar on the left
 3. Tap on Settings
 4. Fill link boxes with your links
+
    ***NB:** all of them must be filled*
+   
 5. Save changes
+
    You can change links whenever you want
    
  ![Profile settings]()
