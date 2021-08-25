@@ -28,7 +28,7 @@ Rates are freezed and associated with `sell-token`.
  
  7. Use method [`POST /b2b/sell`](https://u3-1-api.mrcr.io/v1.6/comm-docs/index.html#api-B2B-Sell) to initiate sell
 
-`flow_id` has two options. You can give user an option to choose one of them or using default method:
+`flow_id` has two options. You can give user an option to choose one of them or use default method:
 - The User needs to choose what to do: sell in any cases or refund if rate will change more than 5%. 
 For this case you need to integrate interface for the Users on your side. 
 - Do not give user any options. By default the chosen option is sell in any cases
