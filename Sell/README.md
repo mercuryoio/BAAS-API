@@ -13,7 +13,7 @@
 2. Use method [`GET /lib/currencies`](https://u3-1-api.mrcr.io/v1.6/comm-docs/index.html#api-B2B-GetSellRate) - to show user available curencies.
 3. Use method [`POST /sdk-partner/sign-in`](https://u3-1-api.mrcr.io/v1.6/comm-docs/index.html#api-SDK-SDKLogin) to authorise user. More about login is [here](https://github.com/mercuryoio/Commercial-API/blob/master/Login/README.md)
 4. Use method [`POST /b2b/sell/methods`](https://u3-1-api.mrcr.io/v1.6/comm-docs/index.html#api-B2B-SellMethods) to get avaliable sell methods
-5. To pass to Mercuryo parameters of crypto currency, fiat currency, etc from the User and to get rates use metod [`GET /b2b/sell/rate`](https://u3-1-api.mrcr.io/v1.6/comm-docs/index.html#api-B2B-GetSellRate)
+5. Use metod [`GET /b2b/sell/rate`](https://u3-1-api.mrcr.io/v1.6/comm-docs/index.html#api-B2B-GetSellRate) to get rates .
 
 ***NB**: pay attention to the flag `is_total` which affects on fee limits value.*
 
