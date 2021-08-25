@@ -64,3 +64,5 @@ Link must contain these parameters:
 ***
 
 #### 2. Scheme
+
+![sell](https://github.com/mercuryoio/Commercial-API/blob/master/Sell/sell.png)
