@@ -66,26 +66,8 @@ We recommend you to design a drop-down list of phone codes using this method.
 | 403001 | `Verification failed.` | wrong key  |
 | 403002 | `Verification failed.` |  wrong code |
 
-6. User need to pass KYC. Use method [`GET /b2b/kyc-access-token`](https://u3-1-api.mrcr.io/v1.6/comm-docs/index.html#api-B2B-UserKycAccessToken) to get user's KYC token
 
-| Error  | Text | Description  |
-| ------------- | -------------  | -------------  |
-| 403004 | `User not found.` | user not found |
-
-
-7. You need to redirect user to Mercuryo side by link.
-
-Link example: `https://payments.mrcr.io/kyc?parameters`
-
-Link must contains this parameters:
-
-| Parameter  |  Description  | 
-| ------------- | -------------  | -------------  |
-| `access_token` | your access token, you get it from method `GET /b2b/kyc-access-token` |
-| `scheme` | `dark` or `light`. This one is optional |
-| `lang` | language. By default it is `en`. Supported languages: `en`, `zh`, `ru`, `fr`, `hi` , `id`, `ja`, `ko`, `pt`, `es`, `tr`, `vi`  |
-
-8. Use [`GET /b2b/user/data`](https://u3-1-api.mrcr.io/v1.6/comm-docs/index.html#api-B2B-UserData) to get info about user's status
+6. Use [`GET /b2b/user/data`](https://u3-1-api.mrcr.io/v1.6/comm-docs/index.html#api-B2B-UserData) to get info about user's status
 
 | Error  | Text | Description  |
 | ------------- | -------------  | -------------  |
@@ -97,6 +79,26 @@ What to do if user still inactive:
 2. Ask user's e-mail. US users need to verify their e-mail
 3. If user status is `temporary-blocked` user will be able to use Mercuryo in 15 min.
 4. If user sill has problem -- ask Mercuryo support
+
+7. User need to pass KYC. Use method [`GET /b2b/kyc-access-token`](https://u3-1-api.mrcr.io/v1.6/comm-docs/index.html#api-B2B-UserKycAccessToken) to get user's KYC token
+
+| Error  | Text | Description  |
+| ------------- | -------------  | -------------  |
+| 403004 | `User not found.` | user not found |
+
+
+8. You need to redirect user to Mercuryo side by link.
+
+Link example: `https://payments.mrcr.io/kyc?parameters`
+
+Link must contains this parameters:
+
+| Parameter  |  Description  | Type |
+| ------------- | -------------  | -------------  |
+| `access_token` | your access token, you get it from method `GET /b2b/kyc-access-token` | obligatory |
+| `scheme` | `dark` or `light` | optional |
+| `lang` | language. By default it is `en`. Supported languages: `en`, `zh`, `ru`, `fr`, `hi` , `id`, `ja`, `ko`, `pt`, `es`, `tr`, `vi`  | optional |
+
 
 ![img](https://github.com/mercuryoio/Commercial-API/blob/master/Login/Sign%20up.png)
 
