@@ -20,7 +20,7 @@ All the methods in b2b domain have to be signed up with `b2b-bearer-token`. You 
 
 *Note: For authorization you need your `sdk-partner-token`. Ask your Mercuryo manager to get it.*
 
-[Sign up/Log in](https://github.com/mercuryoio/Commercial-API/blob/master/login.md)
+[Sign up/Log in](https://github.com/mercuryoio/Commercial-API/blob/master/Login/README.md)
 
 
 ***
