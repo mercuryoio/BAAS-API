@@ -75,18 +75,15 @@ We recommend you to design a drop-down list of phone codes using this method.
 
 7. You need to redirect user to Mercuryo side by link.
 
-Link example: `https://payments.mrcr.io/kyc?init_token=123&scheme=dark`
+Link example: `https://payments.mrcr.io/kyc?parameters`
 
 Link must contains this parameters:
 
-| Parameter  |  Description  |
-| ------------- | -------------  |
-| `access_token` | your access token |
-| `flow` | user's action: `kyc`,`buy`, `sell` etc|
+| Parameter  |  Description  | 
+| ------------- | -------------  | -------------  |
+| `access_token` | your access token, you get it from method `GET /b2b/kyc-access-token` |
 | `scheme` | `dark` or `light`. This one is optional |
 | `lang` | language. By default it is `en`. Supported languages: `en`, `zh`, `ru`, `fr`, `hi` , `id`, `ja`, `ko`, `pt`, `es`, `tr`, `vi`  |
-| `success_url` | redirect to your site with successful result |
-| `failure_url` | redirect to your site with failed result |
 
 8. Use [`GET /b2b/user/data`](https://u3-1-api.mrcr.io/v1.6/comm-docs/index.html#api-B2B-UserData) to get info about user's status
 
