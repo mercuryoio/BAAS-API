@@ -18,7 +18,7 @@
 
 3. Use method [`POST /sdk-partner/sign-in`](https://u3-1-api.mrcr.io/v1.6/comm-docs/index.html#api-SDK-SDKLogin) to authorize user. More about login is [here](login.md).
 
-4. Mercuryo API returns to you available payment methods.
+4. Use method [`GET /b2b/buy/methods`](https://u3-1-api.mrcr.io/v1.6/comm-docs/index.html#api-B2B-BuyMethods) to get avaliable buy methods.
 
 5. You get rates using API-method [`GET /b2b/buy/rate`](https://u3-1-api.mrcr.io/v1.6/comm-docs/index.html#api-B2B-GetBuyRate).
 
@@ -41,6 +41,7 @@ Rates are freezed and associated with buy-token.
 
 6. Use method [`GET /b2b/user/cards`](https://u3-1-api.mrcr.io/v1.6/comm-docs/index.html#api-B2B-User_cards). to get list of users card. If response is empty or if user want to add new card - user can add card on Mercuryo side.
 7. Use method [`POST /b2b/buy`](https://u3-1-api.mrcr.io/v1.6/comm-docs/index.html#api-B2B-Buy) to initiate buy
+
 `merch_trx_id` - transaction ID, by it you can find out its status. It is also needed to Mercuryo technical support if something going wrong. You can generate it by yourself, or Mercuryo can make it for you. We strongly recommend to save this parameter.
 
 7. You need to redirect user to Mercuryo side by link. The User will add his card on the Mercuryo side
