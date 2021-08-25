@@ -9,13 +9,13 @@
 
 
 <a name="steps"></a>
-## 1. Steps to buy crypto
+#### 1. Steps to buy crypto
 
 **User can buy crypto on your side.**
 
 1. User wants buy crypto.
 
-2. Use method [GET /lib/currencies](https://u3-1-api.mrcr.io/v1.6/comm-docs/index.html#api-Public-PublicCurrencies)
+2. Use method [`GET /lib/currencies`](https://u3-1-api.mrcr.io/v1.6/comm-docs/index.html#api-Public-PublicCurrencies)
 
 3. Use method [`POST /sdk-partner/sign-in`](https://u3-1-api.mrcr.io/v1.6/comm-docs/index.html#api-SDK-SDKLogin) to authorize user. More about login is [here](login.md).
 
@@ -62,9 +62,8 @@ Link must contains this parameters:
 
 10. To show transaction status to user before you get the callback with status use method [`GET /b2b/buy/:merchant_trx_id/status`](https://u3-1-api.mrcr.io/v1.6/comm-docs/index.html#api-B2B-BuyTransactionStatus). 
 
-`merch_trx_id` - transaction ID, by it you can find out its status. It is also needed to Mercuryo technical support if something going wrong. You can generate it by yourself, or Mercuryo can make it for you. We strongly recommend to save this parameter.
-
+***
 
 <a name="scheme"></a>
-## 2. Scheme
+#### 2. Scheme
 ![buy_scheme](scheme/buy.png)
