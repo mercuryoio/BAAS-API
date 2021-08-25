@@ -41,9 +41,10 @@ You will receive a list of masked customer's cards and `card_ids`.
 For the reason of PCI-DSS complience Mercuryo need to get payment details on Mercuryo side. In case of passing valid card_id in method [`POST /b2b/buy`] the Customer will asked for CVV only.  
 
 7. Use method [`POST /b2b/buy`](https://u3-1-api.mrcr.io/v1.6/comm-docs/index.html#api-B2B-Buy) to initiate buy. 
+
 `merch_trx_id` - transaction ID, using it you can find out the transaction status. It is also needed to Mercuryo technical support if something going wrong. You can generate it by yourself, or Mercuryo can make it for you. We strongly recommend you to save this parameter.
 
-7. You need to redirect the Customer to Mercuryo side by link. The User will add his card on the Mercuryo side
+8. You need to redirect the Customer to Mercuryo side by link. The User will add his card on the Mercuryo side
 
 Link example: `https://payments.mrcr.io/buy?parameters`
 
@@ -55,11 +56,11 @@ Link must contains this parameters:
 | `scheme` | `dark` or `light` | optional |
 | `lang` | language. By default it is `en`. Supported languages: `en`, `zh`, `ru`, `fr`, `hi` , `id`, `ja`, `ko`, `pt`, `es`, `tr`, `vi`  | optional |
 
-8. Mercuryo will redirect the Customer back to the success or failed url that you specified in the [admin panel](https://github.com/mercuryoio/Commercial-API/blob/master/admin.md). Mercuryo will initiate a withdrawal transaction to the specified Customer's wallet. 
+9. Mercuryo will redirect the Customer back to the success or failed url that you specified in the [admin panel](https://github.com/mercuryoio/Commercial-API/blob/master/admin.md). Mercuryo will initiate a withdrawal transaction to the specified Customer's wallet. 
 
-9. Mercuryo API will send callback to you  when transaction will be completed.
+10. Mercuryo API will send callback to you  when transaction will be completed.
 
-10. To show transaction status to the Customer before you get the callback with status use method [`GET /b2b/buy/:merchant_trx_id/status`](https://u3-1-api.mrcr.io/v1.6/comm-docs/index.html#api-B2B-BuyTransactionStatus).
+11. To show transaction status to the Customer before you get the callback with status use method [`GET /b2b/buy/:merchant_trx_id/status`](https://u3-1-api.mrcr.io/v1.6/comm-docs/index.html#api-B2B-BuyTransactionStatus).
 
 ***
 
