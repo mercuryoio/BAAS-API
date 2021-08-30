@@ -42,7 +42,7 @@ User want to by crypto on your side. You do not have information about users pho
 
 **Steps:**
 
-1. Ask user about phone. Please note that we don't work with some countries. You can get the list of available countries with [GET /lib/countries](https://u3-1-api.mrcr.io/v1.6/comm-docs/index.html#api-Public-PublicCountries)
+1. Ask user about phone. Please note that we don't work with some countries. You can get the list of available countries with [`GET /lib/countries`](https://u3-1-api.mrcr.io/v1.6/comm-docs/index.html#api-Public-PublicCountries)
 We recommend you to design a drop-down list of phone codes using this method.
 
 2. Use method [`POST /sdk-partner/sign-in`](https://u3-1-api.mrcr.io/v1.6/comm-docs/index.html#api-SDK-SDKLogin) to pass user's phone to Mercuryo API
