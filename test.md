@@ -26,7 +26,7 @@ Sandbox do not charge money from real cards. So you can use your own cards for t
 
 User need to pass KYS on the SumSub side. Ask your Mercuryo manager to help with this. 
 
-THis parameter is reqaried: `applicant_id`
+This parameter is reqaried: `applicant_id`
 
 You will get it in responthe from method `/b2b/user/kyc-access-token`
 
