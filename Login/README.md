@@ -17,7 +17,7 @@ All the users need to pass KYS authorization to use their crypto-wallets or crea
 1. You need to add to your Terms and Policy agreement to share user data with Mercuryo.
 2. You need to make an agreement with Mercuryo that Mercuryo will use the data for registration and will use it to third parties.
 3. You need to ask users to accept the Mercurio term in your interface before signing user in.
-4. If you create a new user you need to pass user acception to Mercuryo API. When the user is new for Mercuryo `acception` parameter is required.
+4. If you create a new user you need to pass user acception to Mercuryo API. When the user is new for Mercuryo `accept` parameter is required.
 
 ***
 ***
@@ -38,7 +38,7 @@ We do not work with all countries. To get list of supported countries use method
 
 **Case:**
 
-User want to by crypto on your side. You do not have information about users phone. User have not got Mercuryo account. `acception` parameter is required.
+User want to by crypto on your side. You do not have information about users phone. User have not got Mercuryo account. `accept` parameter is required.
 
 **Steps:**
 
@@ -74,6 +74,21 @@ We recommend you to design a drop-down list of phone codes using this method.
 | 500001 | `try later` | smth going wrong |
 
 
+
+| Status  |  Description  | 
+| ------------- | -------------  | 
+| KYC status |  |
+| `true` | KYC is passed successfully| 
+| `falce`| KYC isn't passed |
+| Email status |  |
+| `email_empty` | user do not has an email |
+| `confirmed` | user has an email. It is confirmed |
+| `not_confirmed` | user has an email. But it isn't confirmed |
+| User status | |
+| `active` | user is active. User can do transaction. To get this status user must has KYC status true, verified phone and email (only for US users)
+| `inactive` | user is inactive. To get this status user must has KYS status falce, unconfirmed phone and uncomfirmed or empty email (only for US users)
+| `blocked` | user is blocked. To get this status user must be blocked |
+
 What to do if user still inactive:
 1. User need to pass KYC successful.
 2. Ask user's e-mail. US users need to verify their e-mail
@@ -108,7 +123,7 @@ Link must contains this parameters:
 
 **Case:**
 
-User want to by crypto on your side. You have information about users phone. User have not got Mercuryo account. `acception` parameter is required.
+User want to by crypto on your side. You have information about users phone. User have not got Mercuryo account. `accept` parameter is required.
 
 **Steps:**
 
@@ -157,7 +172,7 @@ US users need to verificate their e-mail too
 
 **Case:**
 
-User want to by crypto on your side. User have Mercuryo account. Login by uuid. `acception` parameter isn't required becouse uuid have only already registrated users
+User want to by crypto on your side. User have Mercuryo account. Login by uuid. `accept` parameter isn't required becouse uuid have only already registrated users
 
 **Steps:**
 
@@ -185,7 +200,7 @@ User want to by crypto on your side. User have Mercuryo account. Login by uuid. 
 
 **Case:**
 
-User want to by crypto on your side. User have Mercuryo account. Login by phone. If you are not shure is user already registrated or not - pass `acception` parameter to Mercuryo API
+User want to by crypto on your side. User have Mercuryo account. Login by phone. If you are not shure is user already registrated or not - pass `accept` parameter to Mercuryo API
 
 **Steps:**
 
