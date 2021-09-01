@@ -148,7 +148,7 @@ How to detect that the User is from US:
 
 | Parameter  |  Description  | 
 | ------------- | -------------  | 
-| `country_code` | us | 
+| `country_code` | `us` | 
  
 **Steps:**
 
