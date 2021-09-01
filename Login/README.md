@@ -74,7 +74,6 @@ We recommend you to design a drop-down list of phone codes using this method.
 | 500001 | `try later` | smth going wrong |
 
 
-
 | Status  |  Description  | 
 | ------------- | -------------  | 
 | KYC status |  |
@@ -85,8 +84,8 @@ We recommend you to design a drop-down list of phone codes using this method.
 | `confirmed` | user has an email. It is confirmed |
 | `not_confirmed` | user has an email. But it isn't confirmed |
 | User status | |
-| `active` | user is active. User can do transaction. To get this status user must has KYC status true, verified phone and email (only for US users)
-| `inactive` | user is inactive. To get this status user must has KYS status falce, unconfirmed phone and uncomfirmed or empty email (only for US users)
+| `active` | user is active. User can do transaction. To get this status user must has KYC status true, verified phone and email (only for US users) |
+| `inactive` | user is inactive. To get this status user must has KYS status falce, unconfirmed phone and uncomfirmed or empty email (only for US users) |
 | `blocked` | user is blocked. To get this status user must be blocked |
 
 What to do if user still inactive:
@@ -142,6 +141,15 @@ All other steps are same with previous case
 
 User want to by crypto on your side. User have not got Mercuryo account. User from US
 
+How to detect that the User is from US:
+
+1. Phone code is +1
+2. Response on method `/b2b/user/email-verify` contains this:
+
+| Parameter  |  Description  | 
+| ------------- | -------------  | 
+| `country_code` | us | 
+ 
 **Steps:**
 
 US users need to verificate their e-mail too
