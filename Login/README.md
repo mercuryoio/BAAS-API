@@ -94,7 +94,7 @@ What to do if user still inactive:
 3. If user status is `temporary-blocked` user will be able to use Mercuryo in 15 min.
 4. If user sill has problem -- ask Mercuryo support
 
-7. User need to pass KYC. Use method [`GET /b2b/kyc-access-token`](https://u3-1-api.mrcr.io/v1.6/comm-docs/index.html#api-B2B-UserKycAccessToken) to get user's KYC token
+7. User need to pass KYC. Use method [`GET /b2b/user/kyc-access-token`](https://u3-1-api.mrcr.io/v1.6/comm-docs/index.html#api-B2B_User-UserKycAccessToken) to get user's KYC token
 
 | Error  | Text | Description  |
 | ------------- | -------------  | -------------  |
