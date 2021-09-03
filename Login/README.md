@@ -103,15 +103,17 @@ What to do if user still inactive:
 
 8. You need to redirect user to Mercuryo side by link.
 
-Link example: `https://payments.mrcr.io/kyc?parameters`
+Link example: `https://payments.mrcr.io/kyc?flow=ID%2BSelfie&access_token=your_token8&scheme=your_scheme&lang=lang_code`
 
 Link must contains this parameters:
 
 | Parameter  |  Description  | Type |
 | ------------- | -------------  | -------------  |
 | `access_token` | your access token, you get it from method `GET /b2b/kyc-access-token` | obligatory |
+| `flow` |  `ID+Selfie`  | optional |
 | `scheme` | `dark` or `light` | optional |
 | `lang` | language. By default it is `en`. Supported languages: `en`, `zh`, `ru`, `fr`, `hi` , `id`, `ja`, `ko`, `pt`, `es`, `tr`, `vi`  | optional |
+
 
 
 ![img](https://github.com/mercuryoio/Commercial-API/blob/master/Login/Sign%20up.png)
