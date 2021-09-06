@@ -20,7 +20,7 @@ All the methods in b2b domain have to be signed up with `b2b-bearer-token`. You 
 
 *Note: For authorization you need your `sdk-partner-token`. Ask your Mercuryo manager to get it.*
 
-[Sign up/Log in](https://github.com/mercuryoio/Commercial-API/blob/master/Login/README.md)
+[Sign up/Log in](https://github.com/mercuryoio/Commercial-API/tree/master/0%20Login)
 
 
 ***
@@ -34,11 +34,11 @@ All the methods in b2b domain have to be signed up with `b2b-bearer-token`. You 
 
 ## Popular scenarios for using API:
 
-1. [Buy crypto with card](https://github.com/mercuryoio/Commercial-API/blob/master/Buy/README.md)
+1. [Buy crypto with card](https://github.com/mercuryoio/Commercial-API/tree/master/1%20Buy%20Card)
 2. Buy crypto with bank transfer (Comming soon)
 3. Buy crypto using user's IBAN (Comming soon)
 4. Top Up user's IBAN (Comming soon)
-5. [Sell crypto and withdraw fiat to card](https://github.com/mercuryoio/Commercial-API/blob/master/Sell/README.md)
+5. [Sell crypto and withdraw fiat to card](https://github.com/mercuryoio/Commercial-API/tree/master/5%20Sell%20Card)
 6. Sell crypto and withdraw to random IBAN (Comming soon)
 7. Sell crypto and withdraw to User's IBAN (Comming soon)
 8. Withdraw from User's IBAN to random IBAN (Comming soon)
