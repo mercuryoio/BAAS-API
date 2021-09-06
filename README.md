@@ -10,7 +10,7 @@ The Mercuryo API is structured around a your and user's wallets. Users create wa
 
 ## Methods
 
-You can find reference documentation with methods description [here](https://u3-1-api.mrcr.io/v1.6/comm-docs/index.html){:target="_blank"}
+You can find reference documentation with methods description [here](https://u3-1-api.mrcr.io/v1.6/comm-docs/index.html)
 
 All the methods in b2b domain have to be signed up with `b2b-bearer-token`. You can get it in authorization flow described here.
 
