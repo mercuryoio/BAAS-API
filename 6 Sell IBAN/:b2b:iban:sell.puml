@@ -1,0 +1,90 @@
+@startuml
+' This UML source uses PlantUML format.
+' https://plantuml.com/sequence-diagram for syntax details.
+' Optional styles
+
+skinparam shadowing false
+skinparam SequenceMessageAlign direction
+
+autonumber
+
+actor User as user
+participant "Partner/Merchant" as part
+participant "Mercuryo WebApp" as merc
+participant "Mercuryo Wallet" as wall
+participant "BCGateWay" as bc
+
+user -> part: Продажа криптовалюты
+part -> merc: /lib/currencies()
+part -> merc: /lib/countries()
+part -> merc: /sdk-partner/sign-in()
+part -> merc: /b2b/sell/methods()
+merc -> merc: card meths availability
+merc -> wall: iban meths availability
+merc -> wall: rapid meths availability
+merc --> part: iban, rapid, card, mobile
+user -> part: F-Curr, Cr-Curr, Amount
+part -> merc: /b2b/sell/rate(From C, To C, Amount, base=from, PM-ID)
+note right
+Замораживает новое значение
+курса при каждом запросе **""/b2b/buy/rate""**
+end note
+user -> part: Wallet
+== sell_request + fiat_withdraw to IBAN from interface 6 ==
+user -> part: IBAN
+merc --> part: Sell-token
+part -> merc: /b2b/sell(m-trx-id opt, s-token, IBAN, setting)
+merc->merc: sell_request
+note right
+setting
+- продавать ли в любом случае (по умолчанию - да)
+- куда выводить остаток (по умолчанию - на кошелек пользователя)
+end note
+merc --> part: merchant-trx-id, mercuryo-wallet
+bc -> bc: deposit
+bc -> bc: (deposit,sell req)
+merc -> merc: check requests in cron
+merc -> merc: create iban-fiat payout (складываем все выводы на айбаны)
+merc -> wall: createMercuryoToUserIban(IBAN, Amount)
+note right
+ (moneyswap to user)
+end note
+wall -> wall: trx_id iban
+wall -> merc: oki
+merc -> merc: sell crypto
+merc -> merc: sell_request status complete
+merc o-> part: Trx Pending Status Callback
+wall -> wall: trx_id crypto2fiat
+merc o-> part: Trx W Complete Status Callback
+==  sell_request + fiat_withdraw to User Mercuryo IBAN 7 ==
+user -> part: IBAN
+merc --> part: Sell-token
+part -> merc: /b2b/sell/create(mrch-trx-id opt, s-token, IBAN, setting)
+merc --> part: merchant-trx-id, mercuryo-wallet
+bc -> bc: deposit
+bc -> bc: deposit + sell request
+merc -> merc: check requests in cron
+merc -> merc: create fiat payout (складываем все выводы на айбаны)
+merc -> wall: createMercuryoToUserIban(IBAN, Amount)
+note right
+ (moneyswap to user)
+end note
+wall -> merc: oki
+wall -> wall: trx_id iban
+wall -> wall: fiat_payout status got_money
+merc -> merc: check fiat_payout in cron
+merc -> merc: sell_request status complete
+merc o-> part: Trx Pending Status Callback
+wall -> wall: trx_id crypto2fiat
+merc o-> part: Trx W Complete Status Callback
+====
+'part -> merc: /b2b/validate-descriptor()
+merc --> merc: Transaction
+part -> merc: /b2b/buy/:merch_trx_id:/status()
+merc --> part: 'complete'
+part --> user: Transaction Result
+
+'token webapp rates currencies limits rates
+'token go
+
+@enduml
