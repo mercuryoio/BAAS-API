@@ -1,0 +1,45 @@
+@startuml
+' This UML source uses PlantUML format.
+' https://plantuml.com/sequence-diagram for syntax details.
+' Optional styles
+
+skinparam shadowing false
+skinparam SequenceMessageAlign direction
+
+autonumber
+
+actor User as user
+participant "Partner/Merchant" as part
+participant "Mercuryo WebApp" as merc
+participant "Mercuryo Wallet" as wall
+participant "BCGateWay" as bc
+
+user -> part: Продажа криптовалюты
+part -> merc: /lib/currencies()
+part -> merc: /lib/countries()
+part -> merc: /sdk-partner/sign-in()
+== fiat_withdraw from User M IBAN to IBAN from interface 8 ==
+part -> merc: IBAN withdraw
+merc -> merc: create fiat iban-payout (складываем все выводы на айбаны)
+note right
+ IBAN From
+ IBAN To
+ Amount
+ Currency
+end note
+merc -> wall: IBAN API send(IBAN, Amount)
+note right
+ (moneyswap to user)
+end note
+wall -> wall: trx_id iban
+wall -> merc: oki
+merc o-> part: Trx Pending Status Callback
+wall -> wall: trx_id crypto2fiat
+merc o-> part: Trx W Complete Status Callback
+====
+merc --> merc: Transaction
+part -> merc: /b2b/buy/:merch_trx_id:/status()
+merc --> part: 'complete'
+part --> user: Transaction Result
+
+@enduml

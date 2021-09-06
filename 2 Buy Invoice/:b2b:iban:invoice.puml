@@ -1,0 +1,68 @@
+@startuml
+' This UML source uses PlantUML format.
+' https://plantuml.com/sequence-diagram for syntax details.
+' Optional styles
+
+skinparam shadowing false
+skinparam SequenceMessageAlign direction
+
+autonumber
+
+actor User as user
+participant "Partner/Merchant" as part
+participant "Mercuryo WebApp" as merc
+participant "Mercuryo Wallet" as wall
+
+user -> part: Покупка криптовалюты
+part -> merc: /lib/currencies()
+part -> merc: /lib/countries()
+part -> merc: /sdk-partner/sign-in()
+part -> merc: /b2b/buy/methods()
+merc -> merc: card meths availability
+merc -> wall: iban meths availability
+merc -> wall: rapid meths availability
+merc --> part: iban, rapid, card, mobile
+user -> part: F-Curr, Cr-Curr, Amount
+part -> merc: /b2b/buy/rate(From C, To C, Amount, base=from, PM-ID)
+note right
+Замораживает новое значение
+курса при каждом запросе **""/b2b/buy/rate""**
+end note
+user -> part: Wallet
+== Invoice Payment (MoneySwap IBAN) 2 ==
+merc -> wall: exchengeRaits
+wall --> merc: Buy-token
+merc --> part: Buy-token
+part -> merc: /b2b/buy(mrch-trx-id opt, buy-token, wallet)
+merc -> wall: /iban/Invoice(uid, buy-token, wallet, m-trx-id, is-merc-ib)
+wall --> merc: instructions(bank-invoice)
+merc --> part: instructions(bank-Invoice) merchant-trx-id
+wall -> wall: trx_id aquiering
+wall -> wall: trx_id fiat2crypto
+wall -> wall: trx_id withdraw
+' f2c callback нужен?
+' реферальные начисления не забыть (партнерам клиентам)
+wall o-> part: Trx Pending Status Callback
+wall o-> part: Trx W Complete Status Callback
+== User IBAN Payment 3 ==
+merc -> merc: fiat balance
+merc -> wall: iban rates
+wall --> merc: Buy-token
+merc --> part: Buy-token
+part -> merc: /b2b/buy/create(m-trx-id opt, buy-token)
+merc -> wall: createIbanPayment(user_id, buy-token, wallet, m-trx-id)
+note right
+Возможно будет несколько методов
+end note
+wall --> merc: 200, errors
+merc --> part: merchant-trx-id
+wall -> wall: move from user Ib to M-Swap Ib
+wall -> wall: trx_id fiat2crypto
+wall -> wall: trx_id withdraw
+wall o-> part: Trx Pending Status Callback
+wall o-> part: Trx W Complete Status Callback
+part -> merc: /b2b/buy/:merch_trx_id:/status()
+merc --> part: 'complete'
+part --> user: Transaction Result
+
+@enduml
