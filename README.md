@@ -10,7 +10,7 @@ The Mercuryo API is structured around a your and user's wallets. Users create wa
 
 ## Methods
 
-You can find reference documentation with methods description [here](https://u3-1-api.mrcr.io/v1.6/comm-docs/index.html)
+You can find reference documentation with methods description [here](https://u3-1-api.mrcr.io/v1.6/comm-docs/index.html){:target="_blank"}
 
 All the methods in b2b domain have to be signed up with `b2b-bearer-token`. You can get it in authorization flow described here.
 
@@ -20,7 +20,7 @@ All the methods in b2b domain have to be signed up with `b2b-bearer-token`. You 
 
 *Note: For authorization you need your `sdk-partner-token`. Ask your Mercuryo manager to get it.*
 
-[Sign up/Log in](https://github.com/mercuryoio/Commercial-API/tree/master/0%20Login)
+[Sign up/Log in](https://github.com/mercuryoio/Commercial-API/tree/master/0%20Login){:target="_blank"}
 
 
 ***
@@ -34,11 +34,11 @@ All the methods in b2b domain have to be signed up with `b2b-bearer-token`. You 
 
 ## Popular scenarios for using API:
 
-1. [Buy crypto with card](https://github.com/mercuryoio/Commercial-API/tree/master/1%20Buy%20Card)
+1. [Buy crypto with card](https://github.com/mercuryoio/Commercial-API/tree/master/1%20Buy%20Card){:target="_blank"}
 2. Buy crypto with bank transfer (Comming soon)
 3. Buy crypto using user's IBAN (Comming soon)
 4. Top Up user's IBAN (Comming soon)
-5. [Sell crypto and withdraw fiat to card](https://github.com/mercuryoio/Commercial-API/tree/master/5%20Sell%20Card)
+5. [Sell crypto and withdraw fiat to card](https://github.com/mercuryoio/Commercial-API/tree/master/5%20Sell%20Card){:target="_blank"}
 6. Sell crypto and withdraw to random IBAN (Comming soon)
 7. Sell crypto and withdraw to User's IBAN (Comming soon)
 8. Withdraw from User's IBAN to random IBAN (Comming soon)
