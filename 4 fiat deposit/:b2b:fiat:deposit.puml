@@ -9,17 +9,12 @@ skinparam SequenceMessageAlign direction
 autonumber
 
 actor User as user
-participant "Mercuryo Front" as front
-participant "Partner/Merchant" as part
-participant "Mercuryo WebApp" as merc
-participant "Mercuryo Wallet" as wall
+participant "Partner" as part
+participant "Mercuryo" as merc
 
+user -> part: Купить крипту
+part -> merc: /lib/currencies()
 part -> merc: /sdk-partner/sign-in()
-part -> merc: getUserIban()
-merc --> part: IBAN
-part -> merc: getUserIbanBalance()
-merc --> part: Balance
-part --> user: Iban, Balance
 user -> part: Пополнрить счет
 part -> merc: /b2b/user/data()
 alt#gold #lightblue KYC1
@@ -27,30 +22,11 @@ merc --> part: KYC1
 part -> merc: get/kyc-access-token
 merc --> part: redirect_url
 part -> user: redirect
-user -> front: KYC2
-front -> user: redirect to Partner
 part -> merc: /b2b/user/data()
 end
 merc --> part: KYC2
-== Top Up User IBAN Balance ==
-part -> merc: topUpBalance()
-merc -> merc: check user KYC tier
-note right
-Вдруг теперь у пользователя нет прав
-end note
-alt#gold #lightblue KYC1
-merc -> part: fail, not KYC
-merc -> part: redirect_url
-part -> user: redirect
-user -> front: KYC2
-front -> user: redirect to Partner
-part -> merc: /b2b/user/data()
-merc --> part: KYC2
-part -> merc: topUpBalance()
-end
-merc -> wall: getUserIban()
-wall --> merc: IBAN number
-merc --> part: IBAN number
-part --> user: IBAN number
-====
+part -> merc: getUserIban()
+merc --> part: IBAN
+part --> user: IBAN number + Instructions
+
 @enduml

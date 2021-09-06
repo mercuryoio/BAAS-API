@@ -14,17 +14,12 @@ participant "Mercuryo" as merc
 
 user -> part: Купить крипту
 part -> merc: /lib/currencies()
-part -> merc: /lib/countries()
 part -> merc: /sdk-partner/sign-in()
 part -> merc: /b2b/buy/methods()
 merc --> part: Payment methods
 user -> part: Купить крипту переводом на счет
 user -> part: Currency, Amount
-part -> merc: /b2b/buy/rate(From, To, Amount, PM-ID)
-note right
-Замораживает новое значение
-курса при каждом запросе **""/b2b/buy/rate""**
-end note
+part -> merc: /b2b/buy/rate(From, To, Amount, PM-Alias)
 merc --> part: Buy-token
 user -> part: Wallet для вывода криптовалюты
 part -> merc: /b2b/buy(mrch-trx-id opt, buy-token, wallet)
