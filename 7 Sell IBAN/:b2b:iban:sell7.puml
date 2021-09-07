@@ -1,0 +1,33 @@
+@startuml
+' This UML source uses PlantUML format.
+' https://plantuml.com/sequence-diagram for syntax details.
+' Optional styles
+
+skinparam shadowing false
+skinparam SequenceMessageAlign direction
+
+autonumber
+
+actor User as user
+participant "Partner" as part
+participant "Mercuryo" as merc
+
+user -> part: Продать крипту
+part -> merc: /lib/currencies()
+part -> merc: /sdk-partner/sign-in()
+part -> merc: /b2b/sell/methods()
+user -> part: Currency, Amount
+part -> merc: /b2b/sell/rate(From, To, Amount, PM-Alias)
+merc --> part: Sell-token
+user -> part: IBAN
+part -> merc: /b2b/sell(m-trx-id opt, s-token, setting)
+merc --> part: merchant-trx-id, mercuryo-wallet
+merc --> merc: Transaction
+part -> merc: /b2b/buy/:merch_trx_id:/status()
+merc --> part: 'complete'
+part --> user: Transaction Result
+
+'token webapp rates currencies limits rates
+'token go
+
+@enduml
