@@ -9,11 +9,20 @@ skinparam SequenceMessageAlign direction
 autonumber
 
 actor User as user
+<<<<<<< HEAD
 participant "Partner" as part
 participant "Mercuryo" as merc
 
 user -> part: Купить крипту
 part -> merc: /lib/currencies()
+=======
+participant "Mercuryo Front" as front
+participant "Partner/Merchant" as part
+participant "Mercuryo WebApp" as merc
+participant "Mercuryo Wallet" as wall
+
+user -> part: Хочу IBAN
+>>>>>>> ee548d4a4b31c6ec7d186da904bedf460012f1ff
 part -> merc: /sdk-partner/sign-in()
 part -> merc: /b2b/user/data()
 alt#gold #lightblue KYC1
@@ -26,7 +35,28 @@ front -> user: redirect to Partner
 part -> merc: /b2b/user/data()
 end
 merc --> part: KYC2
+<<<<<<< HEAD
 part -> merc: /createIban()
 merc --> part: IBAN number
 part --> user: IBAN number
+=======
+== Create User IBAN  ==
+part -> merc: /createIban()
+merc -> merc: check user KYC tier
+alt#gold #lightblue KYC1
+merc -> part: fail, not KYC
+merc -> part: redirect_url
+part -> user: redirect
+user -> front: KYC2
+front -> user: redirect to Partner
+part -> merc: /b2b/user/data()
+merc --> part: KYC2
+part -> merc: createIban()
+end
+merc -> wall: createIban()
+wall --> merc: IBAN number
+merc --> part: IBAN number
+part --> user: IBAN number
+====
+>>>>>>> ee548d4a4b31c6ec7d186da904bedf460012f1ff
 @enduml
