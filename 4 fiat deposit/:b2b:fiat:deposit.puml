@@ -13,18 +13,8 @@ participant "Partner" as part
 participant "Mercuryo" as merc
 
 user -> part: Пополнрить счет
-part -> merc: /b2b/user/data()
-alt#gold #lightblue KYC1
-merc --> part: KYC1
-part -> merc: get/kyc-access-token
-merc --> part: redirect_url
-part -> user: redirect
-user -> front: KYC2
-front -> user: redirect to Partner
-part -> merc: /b2b/user/data()
-end
-merc --> part: KYC2
-merc --> part: IBAN number
+part -> /b2b/user/iban-get
+merc --> part: IBAN credentials
 part --> user: IBAN number
 
 @enduml
