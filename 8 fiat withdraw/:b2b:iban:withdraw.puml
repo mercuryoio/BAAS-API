@@ -9,19 +9,15 @@ skinparam SequenceMessageAlign direction
 autonumber
 
 actor User as user
-<<<<<<< HEAD
 participant "Partner" as part
 participant "Mercuryo" as merc
 
-user -> part: Купить крипту
-part -> merc: /lib/currencies()
-part -> merc: /sdk-partner/sign-in()
 part -> merc: /b2b/user/data()
-part -> merc: getUserIban()
-part -> merc: IBAN withdraw
-merc --> merc: Transaction
-part -> merc: /b2b/buy/:merch_trx_id:/status()
-merc --> part: 'complete'
-part --> user: Transaction Result
+part -> merc: /b2b/user/iban-get
+part -> merc: /b2b/user/iban-balance
+user -> part: Вывести средства со своего IBAN
+part -> merc: /b2b/user/iban-withdraw
+merc --> part: Done 
+part --> user: Done 
 
 @enduml
