@@ -10,8 +10,14 @@
 1. The Customer wants to buy crypto.
 2. You will need to authorize customer and check if he can use Mercuryo API. Please check [this](https://github.com/mercuryoio/Commercial-API/blob/master/Login/README.md) for more information.
 3. Use method [`GET /lib/currencies`](https://u3-1-api.mrcr.io/v1.6/comm-docs/index.html#api-Public-PublicCurrencies) - to show to the Custome available curencies.
-4. Use method [`GET /b2b/buy/methods`](https://u3-1-api.mrcr.io/v1.6/comm-docs/index.html#api-Buy-BuyMethods) to get avaliable buy methods.
+4. Use method [`GET /b2b/buy/methods`](https://u3-1-api.mrcr.io/v1.6/comm-docs/index.html#api-Buy-BuyMethods) to get avaliable buy methods. The User need to choose one of avaliable methods
 5. Use method [`GET /b2b/buy/rate`](https://u3-1-api.mrcr.io/v1.6/comm-docs/index.html#api-Buy-GetBuyRate) to get rates.
+
+If the User choose IBAN in previous step: 
+
+| Parameter | Description |
+|:--|:--|
+| PM-Alias | |
 
 While using this method pay attention to the flag `is total` which affects on fee limits value:
 
