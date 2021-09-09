@@ -27,15 +27,14 @@ All the methods in b2b domain have to be signed up with `b2b-bearer-token`. You 
 
 ## KYC
 
-There are two types of KYC and KYC2.
-1. User need to pass KYC to start using Mercuryo. If user passed KYC he can:
+There are two types of KYC: KYC and KYC2.
+1. The Customer need to pass KYC to start using Mercuryo. If the Customer passed KYC he can:
  - Buy or Sell with a card
- - Buy invoice
- - Get information about his IBAN number and balance
+ - Buy crypto with bank transfer
+2. The Customer need to pass KYC2 too to make operations with IBAN.
+3. The Customer can get information about his IBAN number and balance with expired KYC.
 
-2. User need to pass KYC2 too to make a operations with IBAN
-
-*NB: KYC and KYC2 can expire. In this case user will need to pass it again.*
+*NB: KYC and KYC2 can expire. In this case the Customer will need to pass it again.*
 
 ## Creating new IBAN for user
 
