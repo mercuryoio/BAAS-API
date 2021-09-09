@@ -67,7 +67,6 @@ There are two types of KYC and KYC2.
 
 | Error code  | Description  | 
 | ------------- | -------------  |
-
 | 400 | validation error. Wrong parameters etc | 
 | 401 | unauthorized, client token authentication timeout |
 | 403 | access  error |
