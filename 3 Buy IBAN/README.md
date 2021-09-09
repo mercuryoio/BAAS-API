@@ -1,3 +1,5 @@
+***
+
 1. [Steps](README.md/#1-steps)
 2. [Scheme](README.md/#2-scheme)
 
@@ -28,7 +30,7 @@ Rates are freezed and associated with buy-token.
 | 500001  | `try later`  | failed to get rates for various reasons  |
 | 500002  | amount off limits  | failed to get rates  |
 
-6. 6. You need to realize a form on your side in which the Customer can choose his IBAN. 
+6. You need to realize a form on your side in which the Customer can choose his IBAN. 
 7. Use method [`POST /b2b/buy`](https://u3-1-api.mrcr.io/v1.6/comm-docs/index.html#api-Buy-Buy) to initiate buy. 
 
 `merch_trx_id` - transaction ID, using it you can find out the transaction status. It is also needed to Mercuryo technical support if something going wrong. You can generate it by yourself, or Mercuryo can make it for you. We strongly recommend you save this parameter.
