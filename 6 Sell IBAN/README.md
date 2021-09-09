@@ -20,7 +20,7 @@
 
 Rates are freezed and associated with `sell-token`.
 
-6. You need to realize form on your side in which the Customer can choose his IBAN. 
+6. You need to realize a form on your side in which the Customer can choose his IBAN. 
 7. Use method [`POST /b2b/sell`](https://u3-1-api.mrcr.io/v1.6/comm-docs/index.html#api-Sell-Sell) to initiate sell
 
 `flow_id` has two options. You can give the customer an option to choose one of them or use the default method:
