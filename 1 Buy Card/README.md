@@ -34,7 +34,7 @@ Rates are freezed and associated with buy-token.
 The Customer can use new card or saved card.  
 To get the list of saved cards use method [`GET /b2b/user/cards`](https://u3-1-api.mrcr.io/v1.6/comm-docs/index.html#api-User-UserCards).  
 You will receive a list of masked customer's cards and `card_ids`.  
-For the reason of PCI-DSS complience Mercuryo need to get payment details on Mercuryo side. In case of passing valid card_id in method [`POST /b2b/buy`] the Customer will asked for CVV only.  
+For the reason of PCI-DSS complience Mercuryo need to get payment details on Mercuryo side. In case of passing valid card_id in method `POST /b2b/buy` the Customer will asked for CVV only.  
 
 7. Use method [`POST /b2b/buy`](https://u3-1-api.mrcr.io/v1.6/comm-docs/index.html#api-Buy-Buy) to initiate buy. 
 
