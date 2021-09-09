@@ -21,9 +21,7 @@
 Rates are freezed and associated with `sell-token`.
 
 6. You need to realize form on your side in which the Customer can choose his IBAN. 
-
-7.  Transaction will be completed on the Mercuryo side.
-  
+7. Transaction will be completed on the Mercuryo side.
 8. Use method [`GET /b2b/sell/:merch_trx_id:/status`](https://u3-1-api.mrcr.io/v1.6/comm-docs/index.html#api-Sell-SellTransactionStatus) to get transaction status
 
 ***
