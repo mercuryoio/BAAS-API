@@ -53,3 +53,23 @@ There are two types of KYC and KYC2.
 6. Sell crypto and withdraw to random IBAN (Comming soon)
 7. Sell crypto and withdraw to User's IBAN (Comming soon)
 8. Withdraw from User's IBAN to random IBAN (Comming soon)
+
+## Errors
+
+| Error code  | Description  | 
+| ------------- | -------------  |
+| 2xx | all is okay. The request was successfully received, understood, and accepted |
+| 4xx | most of them are a part of our normal flow, so all of those codes are coming from the backend and processed normally by our frontend. Don’t care much if you see any of those in your logs, as they don’t indicate any serious problem related with service |
+| 5xx | server errors. Mercuryo team have already seen them in monitor and already chasing the problem, this is normally resolved as quickly as possible, because it might affects all Mercuryo partners. So if you see that error was detected 3 days ago or even half day ago — 100% it’s fixed |
+
+
+**Most common cases of 4xx**
+
+| Error code  | Description  | 
+| ------------- | -------------  |
+
+| 400 | validation error. Wrong parameters etc | 
+| 401 | unauthorized, client token authentication timeout |
+| 403 | access  error |
+| 404 |  method not found |
+
