@@ -29,8 +29,15 @@ Rates are freezed and associated with buy-token.
 | 500001  | `try later`  | failed to get rates for various reasons  |
 | 500002  | amount off limits  | failed to get rates  |
 
-6. Use method [`POST /b2b/buy`](https://u3-1-api.mrcr.io/v1.6/comm-docs/index.html#api-Buy-Buy) to initiate buy. 
+6. You need to realize form on your side in which the Customer can type his wallet.
+7. Use method [`POST /b2b/buy`](https://u3-1-api.mrcr.io/v1.6/comm-docs/index.html#api-Buy-Buy) to initiate buy. 
 
 `merch_trx_id` - transaction ID, using it you can find out the transaction status. It is also needed to Mercuryo technical support if something going wrong. You can generate it by yourself, or Mercuryo can make it for you. We strongly recommend you save this parameter.
 
 7. Use method [`GET /b2b/buy/:merchant_trx_id/status`](https://u3-1-api.mrcr.io/v1.6/comm-docs/index.html#api-Buy-BuyTransactionStatus) to get transaction status.
+
+***
+
+#### 2. Scheme
+
+![buy_invoice]()
