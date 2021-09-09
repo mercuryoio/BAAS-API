@@ -25,7 +25,7 @@ Link must contains this parameters:
 | `flow` |  `ID+Selfie`  | optional |
 | `scheme` | `dark` or `light` | optional |
 | `lang` | language. By default it is `en`. Supported languages: `en`, `zh`, `ru`, `fr`, `hi` , `id`, `ja`, `ko`, `pt`, `es`, `tr`, `vi`  | optional |
-7. Then again use method [`GET `]() to get customer's status.
+7. Then again use method [`GET `]() to get customer's status. 
 8. If KYC2 is passed use method [`GET /b2b/createIban`]() to create IBAN.
 9. You need to realize a form on your side and show to the Customer his IBAN. 
 
