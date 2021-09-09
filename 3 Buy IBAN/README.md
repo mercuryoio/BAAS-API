@@ -12,10 +12,6 @@
 4. Use method [`GET /b2b/buy/methods`](https://u3-1-api.mrcr.io/v1.6/comm-docs/index.html#api-Buy-BuyMethods) to get avaliable buy methods. You need to realize a form on your side in which the Customer can choose one of available methods.
 5. Use method [`GET /b2b/buy/rate`](https://u3-1-api.mrcr.io/v1.6/comm-docs/index.html#api-Buy-GetBuyRate) to get rates.
 
-| Parameter | Description |
-|:--|:--|
-| | |
-
 While using this method pay attention to the flag `is total` which affects on fee limits value:
 
 * if the Customer enters fiat value first, then converted crypto value must be counted with the commission `is total=true`;
