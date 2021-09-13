@@ -51,7 +51,7 @@ The Customer can create IBAN. [Here](https://github.com/mercuryoio/Commercial-AP
 3. [Buy crypto using user's IBAN](https://github.com/mercuryoio/Commercial-API/blob/master/3%20Buy%20IBAN/README.md)
 4. [Top Up user's IBAN](https://github.com/mercuryoio/Commercial-API/blob/master/4%20fiat%20deposit/README.md)
 5. [Sell crypto and withdraw fiat to card](https://github.com/mercuryoio/Commercial-API/blob/master/Sell/README.md)
-6. [Sell crypto and withdraw to random IBAN](https://github.com/mercuryoio/Commercial-API/blob/master/7%20Sell%20IBAN/README.md)
+6. Sell crypto and withdraw to random IBAN - tbd
 7. [Withdraw from User's IBAN to random IBAN](https://github.com/mercuryoio/Commercial-API/blob/master/8%20fiat%20withdraw/README.md)
 
 ## Errors
