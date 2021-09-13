@@ -65,4 +65,4 @@ Link must contain these parameters:
 
 #### 2. Scheme
 
-![sell](https://github.com/mercuryoio/Commercial-API/blob/master/Sell/sell.png)
+![sell](https://github.com/mercuryoio/Commercial-API/blob/master/5%20Sell%20Card/sell.png)
