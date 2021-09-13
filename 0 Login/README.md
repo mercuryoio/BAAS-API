@@ -32,20 +32,20 @@ All the users need to pass KYS authorization to use their crypto-wallets or crea
 
 ***
 
-We do not work with all countries. To get list of supported countries use method [`GET /lib/countries`](https://u3-1-api.mrcr.io/v1.6/comm-docs/index.html#api-Public-PublicCountries)
+We do not work with all countries. To get list of supported countries use method [`GET /lib/countries`](https://sandbox-cryptosaas.mrcr.io/v1.6/comm-docs/index.html#api-Public-PublicCountries)
 
 #### 1. Sing up
 
 **Case:**
 
-User want to by crypto on your side. You do not have information about users phone. User have not got Mercuryo account. `accept` parameter is required.
+The customer wants to by crypto on your side. You do not have information about users phone. User have not got Mercuryo account. `accept` parameter is required.
 
 **Steps:**
 
-1. Ask user about phone. Please note that we don't work with some countries. You can get the list of available countries with [`GET /lib/countries`](https://u3-1-api.mrcr.io/v1.6/comm-docs/index.html#api-Public-PublicCountries)
+1. Ask user about phone. Please note that we don't work with some countries. You can get the list of available countries with [`GET /lib/countries`](https://sandbox-cryptosaas.mrcr.io/v1.6/comm-docs/index.html#api-Public-PublicCountries)
 We recommend you to design a drop-down list of phone codes using this method.
 
-2. Use method [`POST /sdk-partner/sign-in`](https://u3-1-api.mrcr.io/v1.6/comm-docs/index.html#api-SDK-SDKLogin) to pass user's phone to Mercuryo API
+2. Use method [`POST /sdk-partner/sign-in`](https://sandbox-cryptosaas.mrcr.io/v1.6/comm-docs/index.html#api-SDK-SDKLogin) to pass user's phone to Mercuryo API
 
 | Error  | Text | Description  |
 | ------------- | -------------  | -------------  |
@@ -58,7 +58,7 @@ We recommend you to design a drop-down list of phone codes using this method.
 
 
 4. Get verification code from user
-5. Use method [`POST /sdk-partner/phone-verify`](https://u3-1-api.mrcr.io/v1.6/comm-docs/index.html#api-SDK-SDKPhone_verify) to give Mercuryo API user's phone and verification code
+5. Use method [`POST /sdk-partner/phone-verify`](https://sandbox-cryptosaas.mrcr.io/v1.6/comm-docs/index.html#api-SDK-SDKPhone_verify) to give Mercuryo API user's phone and verification code
 
 
 | Error  | Text | Description  |
@@ -67,7 +67,7 @@ We recommend you to design a drop-down list of phone codes using this method.
 | 403002 | `Verification failed.` |  wrong code |
 
 
-6. Use [`GET /b2b/user/data`](https://u3-1-api.mrcr.io/v1.6/comm-docs/index.html#api-User-UserData) to get info about user's status
+6. Use [`GET /b2b/user/data`](https://sandbox-cryptosaas.mrcr.io/v1.6/comm-docs/index.html#api-User-UserData) to get info about user's status
 
 | Error  | Text | Description  |
 | ------------- | -------------  | -------------  |
@@ -94,7 +94,7 @@ What to do if user still inactive:
 3. If user status is `temporary-blocked` user will be able to use Mercuryo in 15 min.
 4. If user sill has problem -- ask Mercuryo support
 
-7. User need to pass KYC. Use method [`GET /b2b/user/kyc-access-token`](https://u3-1-api.mrcr.io/v1.6/comm-docs/index.html#api-B2B_User-UserKycAccessToken) to get user's KYC token
+7. User need to pass KYC. Use method [`GET /b2b/user/kyc-access-token`](https://sandbox-cryptosaas.mrcr.io/v1.6/comm-docs/index.html#api-B2B_User-UserKycAccessToken) to get user's KYC token
 
 | Error  | Text | Description  |
 | ------------- | -------------  | -------------  |
@@ -124,7 +124,7 @@ Link must contains this parameters:
 
 **Case:**
 
-User want to by crypto on your side. You have information about users phone. User have not got Mercuryo account. `accept` parameter is required.
+The Customer wants to by crypto on your side. You have information about users phone. User have not got Mercuryo account. `accept` parameter is required.
 
 **Steps:**
 
@@ -141,9 +141,9 @@ All other steps are same with previous case
 
 **Case:**
 
-User want to by crypto on your side. User have not got Mercuryo account. User from US
+The Customer wants to by crypto on your side. User have not got Mercuryo account. User from US
 
-How to detect that the User is from US:
+How to detect that the Customer is from US:
 
 1. Phone code is +1
 2. Response on method `/b2b/user/email-verify` contains this:
@@ -156,7 +156,7 @@ How to detect that the User is from US:
 
 US users need to verificate their e-mail too
 
-1. Use  method [`POST /b2b/user/set-email`](https://u3-1-api.mrcr.io/v1.6/comm-docs/index.html#api-User-UserSetEmail) to send user e-mail to Mercuryo API
+1. Use  method [`POST /b2b/user/set-email`](https://sandbox-cryptosaas.mrcr.io/v1.6/comm-docs/index.html#api-User-UserSetEmail) to send user e-mail to Mercuryo API
 
 | Error  | Text | Description  |
 | ------------- | -------------  | -------------  |
@@ -164,7 +164,7 @@ US users need to verificate their e-mail too
 | 403006 | `Email is not a valid email address.` | invalid e-mail |
 | 403006 | `Email "ff@dd.dd" has already been taken.` | e-mail is already taken |
 
-3. Use method [`POST /b2b/user/email-verify`](https://u3-1-api.mrcr.io/v1.6/comm-docs/index.html#api-User-UserEmailVerify) to give Mercuryo API user's phone and verification code
+3. Use method [`POST /b2b/user/email-verify`](https://sandbox-cryptosaas.mrcr.io/v1.6/comm-docs/index.html#api-User-UserEmailVerify) to give Mercuryo API user's phone and verification code
 
 | Error  | Text | Description  |
 | ------------- | -------------  | -------------  |
@@ -182,11 +182,11 @@ US users need to verificate their e-mail too
 
 **Case:**
 
-User want to by crypto on your side. User have Mercuryo account. Login by uuid. `accept` parameter isn't required becouse uuid have only already registrated users
+The Customer wants to by crypto on your side. User have Mercuryo account. Login by uuid. `accept` parameter isn't required becouse uuid have only already registrated users
 
 **Steps:**
 
-1. Use  method [`POST /sdk-partner/sign-in`](https://u3-1-api.mrcr.io/v1.6/comm-docs/index.html#api-SDK-SDKLogin) to initiate login by uuid
+1. Use  method [`POST /sdk-partner/sign-in`](https://sandbox-cryptosaas.mrcr.io/v1.6/comm-docs/index.html#api-SDK-SDKLogin) to initiate login by uuid
 
 | Error  | Text | Description  |
 | ------------- | -------------  | -------------  |
@@ -197,7 +197,7 @@ User want to by crypto on your side. User have Mercuryo account. Login by uuid. 
 | 403005 | `Phone is invalid` | phone is invalid |
 | 403005 | `Invalid uuid4` | wrong uuid format |
 
-2. If as a responce you get user's token - you do not need to verify user's phone. If as a response you get `code length` you need to verify user's phone by method [`POST /sdk-partner/phone-verify`](https://u3-1-api.mrcr.io/v1.6/comm-docs/index.html#api-SDK-SDKPhone_verify) to give Mercuryo API user's phone and verefication code
+2. If as a responce you get user's token - you do not need to verify user's phone. If as a response you get `code length` you need to verify user's phone by method [`POST /sdk-partner/phone-verify`](https://sandbox-cryptosaas.mrcr.io/v1.6/comm-docs/index.html#api-SDK-SDKPhone_verify) to give Mercuryo API user's phone and verefication code
 
 3. Then Mercuryo API will send users status to you
 
@@ -210,7 +210,7 @@ User want to by crypto on your side. User have Mercuryo account. Login by uuid. 
 
 **Case:**
 
-User want to by crypto on your side. User have Mercuryo account. Login by phone. If you are not shure is user already registrated or not - pass `accept` parameter to Mercuryo API
+The Customer wants to by crypto on your side. User have Mercuryo account. Login by phone. If you are not shure is user already registrated or not - pass `accept` parameter to Mercuryo API
 
 **Steps:**
 
