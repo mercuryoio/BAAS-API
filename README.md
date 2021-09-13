@@ -36,22 +36,24 @@ There are two types of KYC: KYC and KYC2.
 
 *NB: KYC and KYC2 can expire. In this case the Customer will need to pass it again.*
 
+**NB: The customer does not pass the KYC instantly. It is failed if KYC takes more than 15 minutes. SO try to get KYC status during this time.**
+
 ## Creating new IBAN for user
 
-*Link Comming soon*
+The Customer can create IBAN. [Here](https://github.com/mercuryoio/Commercial-API/blob/master/9%20IBAN%20Create/README.md) is the instruction.
 
 ***
 
 ## Popular scenarios for using API:
 
 1. [Buy crypto with card](https://github.com/mercuryoio/Commercial-API/tree/master/1%20Buy%20Card)
-2. Buy crypto with bank transfer (Comming soon)
-3. Buy crypto using user's IBAN (Comming soon)
-4. Top Up user's IBAN (Comming soon)
+2. [Buy crypto with bank transfer](https://github.com/mercuryoio/Commercial-API/blob/master/2%20Buy%20Invoice/README.md)
+3. [Buy crypto using user's IBAN](https://github.com/mercuryoio/Commercial-API/blob/master/3%20Buy%20IBAN/README.md)
+4. [Top Up user's IBAN](https://github.com/mercuryoio/Commercial-API/blob/master/4%20fiat%20deposit/README.md)
 5. [Sell crypto and withdraw fiat to card](https://github.com/mercuryoio/Commercial-API/blob/master/Sell/README.md)
-6. Sell crypto and withdraw to random IBAN (Comming soon)
-7. Sell crypto and withdraw to User's IBAN (Comming soon)
-8. Withdraw from User's IBAN to random IBAN (Comming soon)
+6. [Sell crypto and withdraw to random IBAN](https://github.com/mercuryoio/Commercial-API/blob/master/7%20Sell%20IBAN/README.md)
+7. [Sell crypto and withdraw to User's IBAN](https://github.com/mercuryoio/Commercial-API/blob/master/6%20Sell%20IBAN/README.md)
+8. [Withdraw from User's IBAN to random IBAN](https://github.com/mercuryoio/Commercial-API/blob/master/8%20fiat%20withdraw/README.md)
 
 ## Errors
 
