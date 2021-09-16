@@ -40,6 +40,8 @@ There are two types of KYC: KYC and KYC2.
 
 ## Creating new IBAN for user
 
+IBANs is available only for EU users.
+
 The Customer can create IBAN. [Here](https://github.com/mercuryoio/Commercial-API/blob/master/9%20IBAN%20Create/README.md) is the instruction.
 
 ***
