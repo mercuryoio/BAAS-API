@@ -53,6 +53,8 @@ Link must contain these parameters:
 | Parameter  |  Description  | Type |
 | ------------- | -------------  | -------------  |
 | `init_token` | your access token, you get it from method `POST /b2b/sell` | obligatory |
+| `success_url` | [how to set](https://github.com/mercuryoio/Commercial-API/blob/master/admin.md) urlencoded JSON | obligatory |
+| `failure_url` | [how to set](https://github.com/mercuryoio/Commercial-API/blob/master/admin.md) urlencoded JSON | obligatory |
 | `scheme` | `dark` or `light` | optional |
 | `lang` | language. By default it is `en`. Supported languages: `en`, `zh`, `ru`, `fr`, `hi` , `id`, `ja`, `ko`, `pt`, `es`, `tr`, `vi`  | optional |
 
