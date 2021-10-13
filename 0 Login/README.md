@@ -91,7 +91,7 @@ We recommend you to design a drop-down list of phone codes using this method.
 | `blocked` | user is blocked. To get this status user must be blocked |
 | IBAN allowed | |
 | `true` | user can create IBAN or do transactions by it |
-| `false' | user cannot create IBAN or do transactions by it |
+| `false` | user cannot create IBAN or do transactions by it |
 
 What to do if user still inactive:
 1. User need to pass KYC successful.
