@@ -77,8 +77,10 @@ We recommend you to design a drop-down list of phone codes using this method.
 | Status  |  Description  | 
 | ------------- | -------------  | 
 | KYC status |  |
-| `true` | KYC is passed successfully| 
-| `falce`| KYC isn't passed |
+| `complete` | KYC is passed successfully| 
+| `under_review` | KYC is in progress | 
+| `failed` | KYC is failed |
+| `incomplete`| KYC isn't passed |
 | Email status |  |
 | `email_empty` | user do not has an email |
 | `confirmed` | user has an email. It is confirmed |
@@ -87,6 +89,9 @@ We recommend you to design a drop-down list of phone codes using this method.
 | `active` | user is active. User can do transaction. To get this status user must has KYC status true, verified phone and email (only for US users) |
 | `inactive` | user is inactive. To get this status user must has KYS status falce, unconfirmed phone and uncomfirmed or empty email (only for US users) |
 | `blocked` | user is blocked. To get this status user must be blocked |
+| IBAN allowed | |
+| `true` | user can create IBAN or do transactions by it |
+| `false' | user cannot create IBAN or do transactions by it |
 
 What to do if user still inactive:
 1. User need to pass KYC successful.
