@@ -41,7 +41,7 @@ For this case, you need to integrate an interface for the Users on your side.
 | `flow_id` | sell in any cases | `payout` |
 | `flow_id` | refund if rate will change more than 5% | `refund` |
 
-`merch_trx_id` - transaction ID, by it you can find out its status. It is also needed to Mercuryo technical support if something going wrong. You can generate it by yourself, or Mercuryo can make it for you. Mercuryo strongly recommends you save this parameter.
+`merch_tansaction_id` - transaction ID, by it you can find out its status. It is also needed to Mercuryo technical support if something going wrong. You can generate it by yourself, or Mercuryo can make it for you. Mercuryo strongly recommends you save this parameter.
 
 
 8. You need to redirect the Customer to Mercuryo side by link.
