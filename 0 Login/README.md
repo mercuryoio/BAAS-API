@@ -117,6 +117,8 @@ Link must contains this parameters:
 | `access_token` | your access token, you get it from method `GET /b2b/kyc-access-token` | obligatory |
 | `success_url` | [how to set](https://github.com/mercuryoio/Commercial-API/blob/master/admin.md) urlencoded JSON | obligatory |
 | `failure_url`  | [how to set](https://github.com/mercuryoio/Commercial-API/blob/master/admin.md) urlencoded JSON | obligatory |
+| `status` | add to `failure_url` if the User taped on the back button - `status: back`, if you get an error as a response `status: fail` | obligatory |
+| `msg` | string. This is a error message that you can get as a response from any api method | obligatory if `status: fail` |
 | `flow` |  `ID+Selfie`  | optional |
 | `scheme` | `dark` or `light` | optional |
 | `lang` | language. By default it is `en`. Supported languages: `en`, `zh`, `ru`, `fr`, `hi` , `id`, `ja`, `ko`, `pt`, `es`, `tr`, `vi`  | optional |
