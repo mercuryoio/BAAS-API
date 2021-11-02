@@ -125,7 +125,7 @@ Link must contains this parameters:
 
 
 
-![img](https://github.com/mercuryoio/Commercial-API/blob/master/Login/Sign%20up.png)
+![img](https://github.com/mercuryoio/Commercial-API/blob/master/0%20Login/Sign%20up.png)
 
 ***
 
@@ -183,7 +183,7 @@ US users need to verificate their e-mail too
 
 4. Mercuryo API response with user status
 
-![img](https://github.com/mercuryoio/Commercial-API/blob/master/Login/User%20from%20US.png)
+![img](https://github.com/mercuryoio/Commercial-API/blob/master/0%20Login/User%20from%20US.png)
 
 ***
 
@@ -195,7 +195,7 @@ The Customer wants to by crypto on your side. User have Mercuryo account. Login 
 
 **Steps:**
 
-1. Use  method [`POST /sdk-partner/sign-in`](https://sandbox-cryptosaas.mrcr.io/v1.6/comm-docs/index.html#api-SDK-SDKLogin) to initiate login by uuid
+1. Use method [`POST /sdk-partner/sign-in`](https://sandbox-cryptosaas.mrcr.io/v1.6/comm-docs/index.html#api-SDK-SDKLogin) to initiate login by uuid
 
 | Error  | Text | Description  |
 | ------------- | -------------  | -------------  |
@@ -210,7 +210,7 @@ The Customer wants to by crypto on your side. User have Mercuryo account. Login 
 
 3. Then Mercuryo API will send users status to you
 
-![img](https://github.com/mercuryoio/Commercial-API/blob/master/Login/Log%20in%20by%20uuid.png)
+![img](https://github.com/mercuryoio/Commercial-API/blob/master/0%20Login/Log%20in%20by%20uuid.png)
 
 
 ***
