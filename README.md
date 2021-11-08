@@ -56,6 +56,55 @@ The Customer can create IBAN. [Here](https://github.com/mercuryoio/Commercial-AP
 6. Sell crypto and withdraw to random IBAN - tbd
 7. [Withdraw from User's IBAN to random IBAN](https://github.com/mercuryoio/Commercial-API/blob/master/8%20fiat%20withdraw/README.md)
 
+##  Transaction status types 
+
+#### BUY
+There are two internal operations "buy" and "withdraw" per 1 transaction
+
+**Type: `buy`**
+
+| Status  | Description  | 
+| ------------- | -------------  |
+| `new` | transaction initiated |
+| `pending` | waiting for any action from the user to continue the transaction (waiting for 3ds input or descriptor) |
+| `cancelled` | transaction cancelled (usually due to timeout of descriptor or 3ds) |
+| `paid` | transaction completed successfully (money debited from the card) |
+| `order_failed` | transaction was rejected by the issuer bank |
+|`descriptor_failed` | the user entered an invalid descriptor three times |
+
+**Type: `withdraw`**
+
+| Status  | Description  | 
+| ------------- | -------------  |
+| `new` | transaction initiated |
+| `pending` | transaction in progress |
+| `failed` | completed unsuccessfully (this is rare) |
+| `order_scheduled` | transaction is successful, the money is held off/frozen on the card by the bank, we are waiting for the client to pass KYC. As soon as the client passes KYC crypto will be sent to the address, if the client fails KYC transaction will be canceled within 1 hour abd client’s bank will return money to the card.|
+| `completed` | successfully completed (received transaction hash) |
+
+#### SELL
+
+There are two internal operations "deposit" and "sell" per 1 transaction
+
+**Type:** `deposit`
+
+| Status  | Description  | 
+| ------------- | -------------  |
+| `new` | new deposit |
+| `pending`| deposit in progress |
+| `succeeded` | deposit is done |
+| `failed` | something went wrong |
+
+**Type:** `sell`
+
+| Status  | Description  | 
+| ------------- | -------------  |
+|`new` | transaction created |
+| `pending` | transaction in progress |
+| `completed` | successfully completed (money transferred to the card) |
+| `failed` | not completed successfully (crypto is refunded to `refund_address`) |
+
+
 ## Errors
 
 | Error code  | Description  | 
