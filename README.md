@@ -61,7 +61,7 @@ The Customer can create IBAN. [Here](https://github.com/mercuryoio/Commercial-AP
 ##  Transaction status types 
 
 #### BUY
-There are two internal operations "buy" and "withdraw" per 1 transaction. They are the same for cards and IBANs
+There are two internal operations `buy` and `withdraw` per 1 transaction. They are the same for cards and IBANs
 
 **Type: `buy`**
 
@@ -88,7 +88,7 @@ There are two internal operations "buy" and "withdraw" per 1 transaction. They a
 
 #### SELL
 
-There are two internal operations "deposit" and "payout"\"iban-payout" per 1 transaction. Payout is different for cards or IBAN
+There are two internal operations `deposit` and `payout`\`iban-payout` per 1 transaction. Payout is different for cards or IBAN
 
 **Type:** `deposit`
 
