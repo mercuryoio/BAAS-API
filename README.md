@@ -56,10 +56,12 @@ The Customer can create IBAN. [Here](https://github.com/mercuryoio/Commercial-AP
 6. Sell crypto and withdraw to random IBAN - tbd
 7. [Withdraw from User's IBAN to random IBAN](https://github.com/mercuryoio/Commercial-API/blob/master/8%20fiat%20withdraw/README.md)
 
+***
+
 ##  Transaction status types 
 
 #### BUY
-There are two internal operations "buy" and "withdraw" per 1 transaction
+There are two internal operations "buy" and "withdraw" per 1 transaction. They are the same for cards and IBANs
 
 **Type: `buy`**
 
@@ -70,21 +72,23 @@ There are two internal operations "buy" and "withdraw" per 1 transaction
 | `cancelled` | transaction cancelled (usually due to timeout of descriptor or 3ds) |
 | `paid` | transaction completed successfully (money debited from the card) |
 | `order_failed` | transaction was rejected by the issuer bank |
-|`descriptor_failed` | the user entered an invalid descriptor three times |
+| `descriptor_failed` | the user entered an invalid descriptor three times |
+| `failed_exchange' | exchange is failed |
+| `order_scheduled` | transaction is successful, the money is held off/frozen on the card by the bank, Mercuryo are waiting for the client to pass KYC. As soon as the client passes KYC crypto will be sent to the address, if the client fails KYC transaction will be canceled within 1 hour abd client’s bank will return money to the card.|
 
 **Type: `withdraw`**
 
-| Status  | Description  | 
-| ------------- | -------------  |
+| Status  | Description  |
+| ------------- | -------------  | 
 | `new` | transaction initiated |
 | `pending` | transaction in progress |
 | `failed` | completed unsuccessfully (this is rare) |
-| `order_scheduled` | transaction is successful, the money is held off/frozen on the card by the bank, we are waiting for the client to pass KYC. As soon as the client passes KYC crypto will be sent to the address, if the client fails KYC transaction will be canceled within 1 hour abd client’s bank will return money to the card.|
+| `failed_exchange` | exchange is failed | 
 | `completed` | successfully completed (received transaction hash) |
 
 #### SELL
 
-There are two internal operations "deposit" and "sell" per 1 transaction
+There are two internal operations "deposit" and "payout"\"iban-payout" per 1 transaction. Payout is different for cards or IBAN
 
 **Type:** `deposit`
 
@@ -94,16 +98,29 @@ There are two internal operations "deposit" and "sell" per 1 transaction
 | `pending`| deposit in progress |
 | `succeeded` | deposit is done |
 | `failed` | something went wrong |
+| `payout_failed` | |
 
-**Type:** `sell`
+**Type:** `payout` This one is for card operation
 
 | Status  | Description  | 
 | ------------- | -------------  |
-|`new` | transaction created |
+| `new` | transaction created |
 | `pending` | transaction in progress |
 | `completed` | successfully completed (money transferred to the card) |
 | `failed` | not completed successfully (crypto is refunded to `refund_address`) |
 
+**Type:** `iban-payout` This one is  for IBAN operation
+
+| Status  | Description  | 
+| ------------- | -------------  |
+| `new` | this status is shown before IBAN transaction has created |
+| `pending` | transaction in progress |
+| `completed` | successfully completed (money transferred to the card) |
+| `failed` | not completed successfully (crypto is refunded to `refund_address`) |
+| `cancelled` | transaction is cancelled | 
+| `hold` | smth going wrong. Users fiat is holded |
+
+***
 
 ## Errors
 
