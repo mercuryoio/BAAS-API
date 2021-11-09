@@ -2,9 +2,9 @@
 
 Mercuryo API is a set of crypto and fiat balances that allows users to quickly and easily exchange crypto to fiat and fiat to crypto, and top up and withdraw funds from fiat balance too.
 
-If you have a crypto wallet or other crypto service, your users can create Mercuryo wallet and see an additional fiat balance in the interface. They can use Mercuryo wallet as simple as other that already exist in your service.
+If you have a crypto wallet or other crypto service, your users can create Mercuryo wallet and see an additional fiat balance in the interface. They can use Mercuryo wallet as simple as others that already exist in your service.
 
-The Mercuryo API is structured around a your and user's wallets. Users create wallets and perform operations with them, and you monitors the transactions of these users and manages your own savings earned from each user transaction.
+The Mercuryo API has structured around your and users' wallets. Users create wallets and perform operations with them, and you monitor the transactions of these users and manage your own savings earned from each user transaction.
 
 ***
 
@@ -12,13 +12,13 @@ The Mercuryo API is structured around a your and user's wallets. Users create wa
 
 You can find reference documentation with methods description [here](https://sandbox-cryptosaas.mrcr.io/v1.6/comm-docs/index.html)
 
-All the methods in b2b domain have to be signed up with `b2b-bearer-token`. You can get it in authorization flow described here.
+All the methods in b2b domain have to be signed up with `b2b-bearer-token`. You can get it in the authorization flow described [here](https://github.com/mercuryoio/Commercial-API/blob/master/0%20Login/README.md).
 
 ***
 
 ## Sign up/ Log in
 
-*Note: For authorization you need your `sdk-partner-token`. Ask your Mercuryo manager to get it.*
+*Note: For authorization, you need your `sdk-partner-token`. Ask your Mercuryo manager to get it.*
 
 [Sign up/Log in](https://github.com/mercuryoio/Commercial-API/tree/master/0%20Login)
 
@@ -31,16 +31,16 @@ There are two types of KYC: KYC and KYC2.
 1. The Customer need to pass KYC to start using Mercuryo. If the Customer passed KYC he can:
  - Buy or Sell with a card
  - Buy crypto with bank transfer
-2. The Customer need to pass KYC2 too to make operations with IBAN.
-3. The Customer can get information about his IBAN number and balance with expired KYC.
+2. The Customer needs to pass KYC2 too to make operations with IBAN.
+3. The Customer can get information about his IBAN and balance with expired KYC.
 
-*NB: KYC and KYC2 can expire. In this case the Customer will need to pass it again.*
+*NB: KYC and KYC2 can expire. In this case, the Customer will need to pass it again.*
 
 **NB: The customer does not pass the KYC instantly. It is failed if KYC takes more than 15 minutes. SO try to get KYC status during this time.**
 
 ## Creating new IBAN for user
 
-IBANs is available only for EU users.
+IBANs are available only for EU users.
 
 The Customer can create IBAN. [Here](https://github.com/mercuryoio/Commercial-API/blob/master/9%20IBAN%20Create/README.md) is the instruction.
 
@@ -53,18 +53,18 @@ The Customer can create IBAN. [Here](https://github.com/mercuryoio/Commercial-AP
 3. [Buy crypto using user's IBAN](https://github.com/mercuryoio/Commercial-API/blob/master/3%20Buy%20IBAN/README.md)
 4. [Top Up user's IBAN](https://github.com/mercuryoio/Commercial-API/blob/master/4%20fiat%20deposit/README.md)
 5. [Sell crypto and withdraw fiat to card](https://github.com/mercuryoio/Commercial-API/blob/master/5%20Sell%20Card/README.md)
-6. Sell crypto and withdraw to random IBAN - tbd
+6. Sell crypto and withdraw to random IBAN - TBD
 7. [Withdraw from User's IBAN to random IBAN](https://github.com/mercuryoio/Commercial-API/blob/master/8%20fiat%20withdraw/README.md)
 
 ***
 
 ## Transaction operations
 
-Every transaction contains one or two internal operation:
+Every transaction contains one or two internal operations:
 
 | Transaction  | Internal operations  | 
 | ------------- | -------------  |
-| buy crypto  with a card or using user's IBAN | `buy` and `withdraw` |
+| buy crypto with a card or using user's IBAN | `buy` and `withdraw` |
 | sell crypto with a card | `sell` and `payout` |
 | sell crypto using user's IBAN | `deposit` and `iban_payout` |
 | top up user's IBAN | `deposit` |
