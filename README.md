@@ -64,7 +64,7 @@ Every transaction contains one or two internal operation:
 
 | Transaction  | Internal operations  | 
 | ------------- | -------------  |
-| buy crypto  with a card or using user's IBAN | `buy` and `exchange` |
+| buy crypto  with a card or using user's IBAN | `buy` and `withdraw` |
 | sell crypto with a card | `sell` and `payout` |
 | sell crypto using user's IBAN | `deposit` and `iban_payout` |
 | top up user's IBAN | `deposit` |
