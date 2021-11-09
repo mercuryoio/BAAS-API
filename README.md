@@ -70,12 +70,11 @@ Every transaction contains one or two internal operation:
 | top up user's IBAN | `deposit` |
 | withdraw from user's IBAN | `iban_payout` |
 
-##  Operations status types 
+***
 
-#### BUY
-There are two internal operations `buy` and `withdraw` per 1 transaction. They are the same for cards and IBANs
+##  Operation statuses 
 
-**Type: `buy`**
+#### Type: `buy`
 
 | Status  | Description  | 
 | ------------- | -------------  |
@@ -88,7 +87,7 @@ There are two internal operations `buy` and `withdraw` per 1 transaction. They a
 | `failed_exchange' | exchange is failed |
 | `order_scheduled` | transaction is successful, the money is held off/frozen on the card by the bank, Mercuryo are waiting for the client to pass KYC. As soon as the client passes KYC crypto will be sent to the address, if the client fails KYC transaction will be canceled within 1 hour abd client’s bank will return money to the card.|
 
-**Type: `withdraw`**
+#### Type:  `withdraw`
 
 | Status  | Description  |
 | ------------- | -------------  | 
@@ -98,11 +97,7 @@ There are two internal operations `buy` and `withdraw` per 1 transaction. They a
 | `failed_exchange` | exchange is failed | 
 | `completed` | successfully completed (received transaction hash) |
 
-#### SELL
-
-There are two internal operations `deposit` and `payout`\`iban-payout` per 1 transaction. Payout is different for cards or IBAN
-
-**Type:** `deposit`
+#### Type: `deposit`
 
 | Status  | Description  | 
 | ------------- | -------------  |
@@ -112,7 +107,7 @@ There are two internal operations `deposit` and `payout`\`iban-payout` per 1 tra
 | `failed` | something went wrong |
 | `payout_failed` | |
 
-**Type:** `payout` This one is for card operation
+#### Type:  `payout` 
 
 | Status  | Description  | 
 | ------------- | -------------  |
@@ -121,7 +116,7 @@ There are two internal operations `deposit` and `payout`\`iban-payout` per 1 tra
 | `completed` | successfully completed (money transferred to the card) |
 | `failed` | not completed successfully (crypto is refunded to `refund_address`) |
 
-**Type:** `iban-payout` This one is  for IBAN operation
+#### Type:  `iban-payout` 
 
 | Status  | Description  | 
 | ------------- | -------------  |
