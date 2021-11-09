@@ -58,7 +58,19 @@ The Customer can create IBAN. [Here](https://github.com/mercuryoio/Commercial-AP
 
 ***
 
-##  Transaction status types 
+## Transaction operations
+
+Every transaction contains one or two internal operation:
+
+| Transaction  | Internal operations  | 
+| ------------- | -------------  |
+| buy crypto  with a card or using user's IBAN | `buy` and `exchange` |
+| sell crypto with a card | `sell` and 'payout' |
+| sell crypto using user's IBAN | `deposit` and `iban_payout` |
+| top up user's IBAN | `deposit` |
+| withdraw from user's IBAN | `iban_payout` |
+
+##  Operations status types 
 
 #### BUY
 There are two internal operations `buy` and `withdraw` per 1 transaction. They are the same for cards and IBANs
