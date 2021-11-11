@@ -66,16 +66,34 @@ Every transaction contains one or two internal operations:
 | ------------- | -------------  |
 | buy crypto with a card| `buy` and `withdraw` |
 | buy crypto using user's IBAN | `fiat_buy` and `withdraw` |
+| buy crypto by invoice | `fiat_deposit`, `fiat_buy` and `withdraw` |
 | sell crypto with a card | `sell` and `payout` |
 | sell crypto using user's IBAN | `deposit` and `iban_payout` |
-| top up user's IBAN | `fiat_deposit`, `fiat_buy` and `withdraw` |
+| top up user's IBAN | `fiat_deposit` |
 | withdraw from user's IBAN | `iban_payout` |
 
 ***
 
+##  Operations
+
+
+| Internal operations  | Description |
+| ------------- | -------------  |
+| `buy` | start of buy transaction. If it was successful - fiat would be charged from user card. If not - not. |
+| `fiat_buy`| same as `buy` but with IBAN |
+| `withdraw` |  |
+| `sell` | start of sell transaction. If it was successful - fiat would be payouted to the users card. If not - they would be returned to the `return_address`. This is card flow|
+| `deposit` | |
+| `fiat_deposit` | |
+| `payout` | |
+| `fiat_payout` | start of sell transaction. If it was successful - fiat would be payouted to the users IBAN. If not - they would be returned to the `return_address`. |
+
+
 ##  Operation statuses 
 
 #### Type: `buy`
+
+This operation start
 
 | Status  | Description  | 
 | ------------- | -------------  |
@@ -117,7 +135,7 @@ Every transaction contains one or two internal operations:
 | `completed` | successfully completed (money transferred to the card) |
 | `failed` | not completed successfully (crypto is refunded to `refund_address`) |
 
-#### Type:  `iban-payout` 
+#### Type:  `fiat-payout` 
 
 | Status  | Description  | 
 | ------------- | -------------  |
