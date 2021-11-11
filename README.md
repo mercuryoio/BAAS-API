@@ -64,10 +64,11 @@ Every transaction contains one or two internal operations:
 
 | Transaction  | Internal operations  | 
 | ------------- | -------------  |
-| buy crypto with a card or using user's IBAN | `buy` and `withdraw` |
+| buy crypto with a card| `buy` and `withdraw` |
+| buy crypto using user's IBAN | `fiat_buy` and `withdraw` |
 | sell crypto with a card | `sell` and `payout` |
 | sell crypto using user's IBAN | `deposit` and `iban_payout` |
-| top up user's IBAN | `deposit` |
+| top up user's IBAN | `fiat_deposit`, `fiat_buy` and `withdraw` |
 | withdraw from user's IBAN | `iban_payout` |
 
 ***
