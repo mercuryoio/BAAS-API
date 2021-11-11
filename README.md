@@ -67,7 +67,7 @@ Every transaction contains one or two internal operations:
 | buy crypto with a card| `buy` and `withdraw` |
 | buy crypto using user's IBAN | `fiat_buy` and `withdraw` |
 | buy crypto by invoice | `fiat_deposit`, `fiat_buy` and `withdraw` |
-| sell crypto with a card | `sell` and `payout` |
+| sell crypto with a card | `deposite` and `sell` |
 | sell crypto using user's IBAN | `deposit` and `iban_payout` |
 | top up user's IBAN | `fiat_deposit` |
 | withdraw from user's IBAN | `iban_payout` |
@@ -79,14 +79,13 @@ Every transaction contains one or two internal operations:
 
 | Internal operations  | Description |
 | ------------- | -------------  |
-| `buy` | start of buy transaction. If it was successful - fiat would be charged from user card. If not - not. |
-| `fiat_buy`| same as `buy` but with IBAN |
-| `withdraw` |  |
-| `sell` | start of sell transaction. If it was successful - fiat would be payouted to the users card. If not - they would be returned to the `return_address`. This is card flow|
-| `deposit` | |
+| `buy` | start of buy transaction. If it was successful - fiat would be charged from user card. If not - not. This is card flow |
+| `fiat_buy`| same as `buy` but for IBAN flow |
+| `withdraw` |  move crypto to the users wallet. If this operation is successful - user get crypto on his wallet. If not - fiat would be returned to his card/IBAN |
+| `sell` | end of sell transaction. If it was successful - fiat would be payouted to the users card. If not - crypto would be returned to the `return_address`. This is card flow|
+| `deposit` | start of sell transaction. Creating a deposite with users crypto. If operation is successful - crypto would be sold. If not - crypto would be returned to the `return_address`|
 | `fiat_deposit` | |
-| `payout` | |
-| `fiat_payout` | start of sell transaction. If it was successful - fiat would be payouted to the users IBAN. If not - they would be returned to the `return_address`. |
+| `fiat_payout` | end of sell transaction. If it was successful - fiat would be payouted to the users IBAN. If not - crypto would be returned to the `return_address`. |
 
 
 ##  Operation statuses 
@@ -126,7 +125,7 @@ This operation start
 | `failed` | something went wrong |
 | `payout_failed` | |
 
-#### Type:  `payout` 
+#### Type:  `sell` 
 
 | Status  | Description  | 
 | ------------- | -------------  |
