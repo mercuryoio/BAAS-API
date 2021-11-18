@@ -84,7 +84,7 @@ Every transaction contains one or two internal operations:
 | `withdraw` |  move crypto to the users wallet. If this operation is successful - user get crypto on his wallet. If not - fiat would be returned to his card/IBAN |
 | `sell` | end of sell transaction. If it was successful - fiat would be payouted to the users card. If not - crypto would be returned to the `return_address`. This is card flow|
 | `deposit` | start of sell transaction. Creating a deposite with users crypto. If operation is successful - crypto would be sold. If not - crypto would be returned to the `return_address`|
-| `fiat_deposit` | |
+| `fiat_deposit` | top up Mercuryos IBAN in case of buy crypto by invoice or Top up users iBAN in case of top up user's IBAN |
 | `fiat_payout` | end of sell transaction. If it was successful - fiat would be payouted to the users IBAN. If not - crypto would be returned to the `return_address`. |
 
 
@@ -123,7 +123,6 @@ This operation start
 | `pending`| deposit in progress |
 | `succeeded` | deposit is done |
 | `failed` | something went wrong |
-| `payout_failed` | |
 
 #### Type:  `sell` 
 
@@ -144,6 +143,23 @@ This operation start
 | `failed` | not completed successfully (crypto is refunded to `refund_address`) |
 | `cancelled` | transaction is cancelled | 
 | `hold` | smth going wrong. Users fiat is holded |
+
+#### Type:  `fiat-buy` 
+
+| Status  | Description  | 
+| ------------- | -------------  |
+| `new` | this status is shown before IBAN transaction has created |
+| `pending` | transaction in progress only for invoice or exchange invoice. NB: not for IBAN |
+| `completed` | transaction completed successfully (money debited from the IBAN) |
+| `failed` | start of exchange order on MErcuryos side | 
+
+#### Type:  `fiat-deposite` 
+
+| Status  | Description  | 
+| ------------- | -------------  |
+| `new` | new fiat deposit |
+| `pending`| fiat deposit in progress |
+| `succeeded` | fiat deposit is done |
 
 ***
 
