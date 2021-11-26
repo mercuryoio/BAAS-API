@@ -94,47 +94,25 @@ Response example:
 
 `
 {
-
   "status": 200,
-  
   "total": 1,
-  
   "next": null,
-  
   "prev": null,
-  
   "data": [
-  
     {
-    
       "id": 123456789",
-      
       "parent_id": "123456789",
-      
       "user_id": 1234,
-      
       "currency": "USDT",
-      
       "status": "succeeded",
-      
       "amount": "110",
-      
       "fiat_amount": "0",
-      
       "created_at": "2021-10-26 08:25:28",
-      
       "updated_at": "2021-10-26 08:27:20",
-      
       "fiat_currency": "EUR",
-      
       "type": "buy_card",
-      
       "merchant_transaction_id": "123456789"
-      
-    }
-    
-  ]
-  
+    ]}
 }
 `
 
