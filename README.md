@@ -79,6 +79,42 @@ The Customer can create IBAN. [Here](https://github.com/mercuryoio/Commercial-AP
 Fail flow:
 1. Buy: fiat would be returned to the users card\IBAN\etc.
 2. Sell: crypto would be returned to the users `refund_address`.
+
+Request example: 
+
+`GET https://sandbox-cryptosaas.mrcr.io/v1.6/b2b/transactions?merchant_transaction_id=123456789&date_start=1606210749&date_end=1637833150`
+
+| Parameter  | Description  | Obligatory |
+| ------------- | -------------  | -------------  |
+| merchant_transaction_id | filter by transaction ID | optional |
+| date_start | start of a date period | optional |
+| date_end | end of a date period | optional |
+
+Response example:
+
+`{
+  "status": 200,
+  "total": 1,
+  "next": null,
+  "prev": null,
+  "data": [
+    {
+      "id": 123456789",
+      "parent_id": "123456789",
+      "user_id": 1234,
+      "currency": "USDT",
+      "status": "succeeded",
+      "amount": "110",
+      "fiat_amount": "0",
+      "created_at": "2021-10-26 08:25:28",
+      "updated_at": "2021-10-26 08:27:20",
+      "fiat_currency": "EUR",
+      "type": "buy_card",
+      "merchant_transaction_id": "123456789"
+    }
+  ]
+}`
+
 ***
 
 ## Errors
