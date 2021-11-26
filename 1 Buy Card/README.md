@@ -50,7 +50,7 @@ For the reason of PCI-DSS complience Mercuryo need to get payment details on Mer
 
 `merch_tansaction_id` - transaction ID, using it you can find out the transaction status. It is also needed to Mercuryo technical support if something going wrong. You can generate it by yourself, or Mercuryo can make it for you. We strongly recommend you save this parameter.
 
-| Parameter  |  Description  | Type | Oblygatory |
+| Parameter  |  Description  | Type | Obligatory |
 | ------------- | -------------  | -------------  | -------------  |
 | `trx_token` | transaction token | string | obligatory |
 | `address` | crypto wallet address | string | obligatory |
