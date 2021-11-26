@@ -78,7 +78,7 @@ The Customer can create IBAN. [Here](https://github.com/mercuryoio/Commercial-AP
 
 Fail flow:
 1. Buy: fiat would be returned to the users card\IBAN\etc.
-2. Sell: rypto would be returned to the users `refund_address`.
+2. Sell: crypto would be returned to the users `refund_address`.
 ***
 
 ## Errors
