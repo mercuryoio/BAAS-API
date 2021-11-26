@@ -10,7 +10,7 @@ The Mercuryo API has structured around your and users' wallets. Users create wal
 
 ## Methods
 
-You can find reference documentation with methods description [here](https://sandbox-cryptosaas.mrcr.io/v1.6/comm-docs/index.html)
+You can find reference documentation with methods description [here](https://sandbox-cryptosaas.mrcr.io/v1.6/comm-docs/index.html).
 
 All the methods in b2b domain have to be signed up with `b2b-bearer-token`. You can get it in the authorization flow described [here](https://github.com/mercuryoio/Commercial-API/blob/master/0%20Login/README.md).
 
@@ -29,8 +29,8 @@ All the methods in b2b domain have to be signed up with `b2b-bearer-token`. You 
 
 There are two types of KYC: KYC and KYC2.
 1. The Customer need to pass KYC to start using Mercuryo. If the Customer passed KYC he can:
- - Buy or Sell with a card
- - Buy crypto with bank transfer
+ - Buy or Sell with a card.
+ - Buy crypto with bank transfer.
 2. The Customer needs to pass KYC2 too to make operations with IBAN.
 3. The Customer can get information about his IBAN and balance with expired KYC.
 
@@ -58,109 +58,27 @@ The Customer can create IBAN. [Here](https://github.com/mercuryoio/Commercial-AP
 
 ***
 
-## Transaction operations
+## Transactions 
 
-Every transaction contains one or two internal operations:
-
-| Transaction  | Internal operations  | 
+| Transaction  | trx_type  | 
 | ------------- | -------------  |
-| buy crypto with a card| `buy` and `withdraw` |
-| buy crypto using user's IBAN | `fiat_buy` and `withdraw` |
-| buy crypto by invoice | `fiat_deposit`, `fiat_buy` and `withdraw` |
-| sell crypto with a card | `deposite` and `sell` |
-| sell crypto using user's IBAN | `deposit` and `iban_payout` |
-| top up user's IBAN | `fiat_deposit` |
-| withdraw from user's IBAN | `iban_payout` |
+| buy crypto with a card| `buy_card` |
+| buy crypto using user's IBAN | `buy_iban` |
+| buy crypto by invoice | `buy_iban_invoice` |
+| sell crypto with a card | `sell_card` |
+| sell crypto using user's IBAN | `sell_iban` |
+| top up user's IBAN | `deposit` |
+| withdraw from user's IBAN | `withdraw` |
 
-***
-
-##  Operations
-
-
-| Internal operations  | Description |
+| Transaction  | trx_type  | 
 | ------------- | -------------  |
-| `buy` | start of buy transaction. If it was successful - fiat would be charged from user card. If not - not. This is card flow |
-| `fiat_buy`| same as `buy` but for IBAN flow |
-| `withdraw` |  move crypto to the users wallet. If this operation is successful - user get crypto on his wallet. If not - fiat would be returned to his card/IBAN |
-| `sell` | end of sell transaction. If it was successful - fiat would be payouted to the users card. If not - crypto would be returned to the `return_address`. This is card flow|
-| `deposit` | start of sell transaction. Creating a deposite with users crypto. If operation is successful - crypto would be sold. If not - crypto would be returned to the `return_address`|
-| `fiat_deposit` | top up Mercuryos IBAN in case of buy crypto by invoice or Top up users iBAN in case of top up user's IBAN |
-| `fiat_payout` | end of sell transaction. If it was successful - fiat would be payouted to the users IBAN. If not - crypto would be returned to the `return_address`. |
+| pending  | transaction is in progress |
+| failed | transaction is failed |
+| success | transaction is successfully completed |
 
-
-##  Operation statuses 
-
-#### Type: `buy`
-
-This operation start
-
-| Status  | Description  | 
-| ------------- | -------------  |
-| `new` | transaction initiated |
-| `pending` | waiting for any action from the user to continue the transaction (waiting for 3ds input or descriptor) |
-| `cancelled` | transaction cancelled (usually due to timeout of descriptor or 3ds) |
-| `paid` | transaction completed successfully (money debited from the card) |
-| `order_failed` | transaction was rejected by the issuer bank |
-| `descriptor_failed` | the user entered an invalid descriptor three times |
-| `failed_exchange' | exchange is failed |
-| `order_scheduled` | transaction is successful, the money is held off/frozen on the card by the bank, Mercuryo are waiting for the client to pass KYC. As soon as the client passes KYC crypto will be sent to the address, if the client fails KYC transaction will be canceled within 1 hour abd client’s bank will return money to the card.|
-
-#### Type:  `withdraw`
-
-| Status  | Description  |
-| ------------- | -------------  | 
-| `new` | transaction initiated |
-| `pending` | transaction in progress |
-| `failed` | completed unsuccessfully (this is rare) |
-| `failed_exchange` | exchange is failed | 
-| `completed` | successfully completed (received transaction hash) |
-
-#### Type: `deposit`
-
-| Status  | Description  | 
-| ------------- | -------------  |
-| `new` | new deposit |
-| `pending`| deposit in progress |
-| `succeeded` | deposit is done |
-| `failed` | something went wrong |
-
-#### Type:  `sell` 
-
-| Status  | Description  | 
-| ------------- | -------------  |
-| `new` | transaction created |
-| `pending` | transaction in progress |
-| `completed` | successfully completed (money transferred to the card) |
-| `failed` | not completed successfully (crypto is refunded to `refund_address`) |
-
-#### Type:  `fiat-payout` 
-
-| Status  | Description  | 
-| ------------- | -------------  |
-| `new` | this status is shown before IBAN transaction has created |
-| `pending` | transaction in progress |
-| `completed` | successfully completed (money transferred to the card) |
-| `failed` | not completed successfully (crypto is refunded to `refund_address`) |
-| `cancelled` | transaction is cancelled | 
-| `hold` | smth going wrong. Users fiat is holded |
-
-#### Type:  `fiat-buy` 
-
-| Status  | Description  | 
-| ------------- | -------------  |
-| `new` | this status is shown before IBAN transaction has created |
-| `pending` | transaction in progress only for invoice or exchange invoice. NB: not for IBAN |
-| `completed` | transaction completed successfully (money debited from the IBAN) |
-| `failed` | start of exchange order on MErcuryos side | 
-
-#### Type:  `fiat-deposite` 
-
-| Status  | Description  | 
-| ------------- | -------------  |
-| `new` | new fiat deposit |
-| `pending`| fiat deposit in progress |
-| `succeeded` | fiat deposit is done |
-
+Fail flow:
+1. Buy: fiat would be returned to the users card\IBAN\etc.
+2. Sell: rypto would be returned to the users `refund_address`.
 ***
 
 ## Errors
