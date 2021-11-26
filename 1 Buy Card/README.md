@@ -52,7 +52,7 @@ Link example: `https://payments.mrcr.io/buy?parameters`
 
 Link must contains this parameters:
 
-| Parameter  |  Description  | Type |
+| Parameter  |  Description  | Obligatory |
 | ------------- | -------------  | -------------  |
 | `init_token` | your access token, you get it from method `POST /b2b/buy` | obligatory |
 | `success_url` | [how to set](https://github.com/mercuryoio/Commercial-API/blob/master/admin.md) urlencoded JSON | obligatory |
