@@ -18,6 +18,14 @@
 - if the Customer enters fiat value first, then converted crypto value must be counted with the commission `is_total=true`;
 - if the Customer enters crypto value first, then converted fiat value must be counted with the commission `is_total=false`.
 
+| Parameter  |  Description  | Type | Oblygatory |
+| ------------- | -------------  | -------------  | -------------  |
+| `from` | transaction token | string | obligatory |
+| `to` | crypto wallet address | string | obligatory |
+| `amount` | amount to be converted | string | obligatory |
+| `is_total` | amount with or without fee | boolean | obligatory |
+| `payment` | payment method get form `/b2b/sell/methods` | string | obligatory |
+
 Rates are freezed and associated with `sell-token`.
 
 6. You need to implement form on your side in which the Customer can type any IBAN he wants to. 
