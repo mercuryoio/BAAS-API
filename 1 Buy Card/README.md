@@ -40,6 +40,12 @@ For the reason of PCI-DSS complience Mercuryo need to get payment details on Mer
 
 `merch_tansaction_id` - transaction ID, using it you can find out the transaction status. It is also needed to Mercuryo technical support if something going wrong. You can generate it by yourself, or Mercuryo can make it for you. We strongly recommend you save this parameter.
 
+| Parameter  |  Description  | Type | Oblygatory |
+| ------------- | -------------  | -------------  |
+| `trx_token` | transaction token | string | obligatory |
+| `address` | crypto wallet address | string | obligatory |
+| `merchant_transaction_id` | transaction ID | string | optional |
+
 8. You need to redirect the Customer to Mercuryo side by link. The User will add his card on the Mercuryo side
 
 Link example: `https://payments.mrcr.io/buy?parameters`
