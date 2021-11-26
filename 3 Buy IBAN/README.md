@@ -23,7 +23,7 @@ While using this method pay attention to the flag `is total` which affects on fe
 | ------------- | -------------  | -------------  | -------------  |
 | `from` | transaction token | string | obligatory |
 | `to` | crypto wallet address | string | obligatory |
-| `amount` | Amount to be converted | string | obligatory |
+| `amount` | amount to be converted | string | obligatory |
 | `is_total` | amount with or without fee | boolean | obligatory |
 | `payment` | payment method get form `/b2b/buy/methods` | string | obligatory |
 
