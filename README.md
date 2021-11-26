@@ -92,8 +92,7 @@ Request example:
 
 Response example:
 
-`
-{
+`{
   "status": 200,
   "total": 1,
   "next": null,
@@ -113,8 +112,7 @@ Response example:
       "type": "buy_card",
       "merchant_transaction_id": "123456789"
     ]}
-}
-`
+}`
 
 ***
 
