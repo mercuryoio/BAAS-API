@@ -60,7 +60,7 @@ The Customer can create IBAN. [Here](https://github.com/mercuryoio/Commercial-AP
 
 ## Transactions 
 
-| Transaction  | trx_type  | 
+| Transaction  | Type  | 
 | ------------- | -------------  |
 | buy crypto with a card| `buy_card` |
 | buy crypto using user's IBAN | `buy_iban` |
@@ -92,7 +92,8 @@ Request example:
 
 Response example:
 
-`{
+`
+{
   "status": 200,
   "total": 1,
   "next": null,
@@ -113,7 +114,8 @@ Response example:
       "merchant_transaction_id": "123456789"
     }
   ]
-}`
+}
+`
 
 ***
 
