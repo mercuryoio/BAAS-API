@@ -19,6 +19,14 @@ While using this method pay attention to the flag `is total` which affects on fe
 * if the Customer enters fiat value first, then converted crypto value must be counted with the commission `is total=true`;
 * if the Customer enters crypto value first, then converted fiat value must be counted with the commission `is_total=false`.
 
+| Parameter  |  Description  | Type | Oblygatory |
+| ------------- | -------------  | -------------  | -------------  |
+| `from` | transaction token | string | obligatory |
+| `to` | crypto wallet address | string | obligatory |
+| `amount` | Amount to be converted | string | obligatory |
+| `is_total` | amount with or without fee | boolean | obligatory |
+| `payment` | payment method get form `/b2b/buy/methods` | string | obligatory |
+
 Rates are freezed and associated with buy-token.
 
 | Error | Text | Description|
@@ -34,6 +42,12 @@ Rates are freezed and associated with buy-token.
 6. Use method [`POST /b2b/buy`](https://sandbox-cryptosaas.mrcr.io/v1.6/docs/index.html#api-B2B_Buy-Buy) to initiate buy. 
 
 `merch_tansaction_id` - transaction ID, using it you can find out the transaction status. It is also needed to Mercuryo technical support if something going wrong. You can generate it by yourself, or Mercuryo can make it for you. We strongly recommend you save this parameter.
+
+| Parameter  |  Description  | Type | Oblygatory |
+| ------------- | -------------  | -------------  | -------------  |
+| `trx_token` | transaction token | string | obligatory |
+| `address` | crypto wallet address | string | obligatory |
+| `merchant_transaction_id` | transaction ID | string | optional |
 
 7. Use method [`GET /b2b/buy/:merchant_trx_id/status`](https://u3-1-api.mrcr.io/v1.6/comm-docs/index.html#api-Buy-BuyTransactionStatus) to get transaction status.
 
