@@ -3,13 +3,13 @@
 Crypto as a Service (CaaS) is an API based, fully white labelled solution.
 CaaS will allow any bank, fintech and financial service provider to offer crypto services.
 
-1. [Methods](/caas/README.md/methods)
-2. [Schemas](/caas/README.md/schemas)
+1. [Methods](/caas/README.md/#1-methods)
+2. [Schemas](/caas/README.md/#2-schemas)
 
 
 ****
 
-## Methods
+## 1 Methods
 
 1. [Login](/caas/README.md/#1-login)
 
@@ -267,7 +267,7 @@ Request:
     
 ****
 
-## Schemas
+## 2 Schemas
 
 ### Withdraw
     
