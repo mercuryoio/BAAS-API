@@ -269,6 +269,10 @@ Request:
 
 ## 2 Schemas
 
+1. [Withdraws](/caas/README.md/#1-withdraw)
+2. [Buy](/caas/README.md/#2-buy) 
+3. [Sell](/caas/README.md/#3-sell) 
+   
 ### Withdraw
     
 ![imgcaas3](https://github.com/mercuryoio/Commercial-API/blob/master/caas/img/b2b-cs-send-external.svg)   
