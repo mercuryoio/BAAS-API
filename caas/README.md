@@ -3,15 +3,43 @@
 Crypto as a Service (CaaS) is an API based, fully white labelled solution.
 CaaS will allow any bank, fintech and financial service provider to offer crypto services.
 
+****
+
 ## Methods
 
+1. [Login](/README.md/#1-login)
 
+   1.1. [Login](/README.md/#11-login)
+ 
+   1.2. [KYC](/README.md/#12-kyc)
 
-### 1 Sign-in
+   1.3. [Countries](/README.md/#13-countries)
+2. [Transaction status](/README.md/#2-transaction-status)
+   2.1 [Transactions](/README.md/#21-еransactions)
+   2.2 [Transactions by merchant trx ide](/README.md/#22-transactions-by-merchant-trx-id)
+3. [User data](/README.md/#3-user-data)
+4. [Limits](/README.md/#4-limits)
+5. [Rates](/README.md/#5-rates)
+   5.1 [Buy rate](/README.md/#71-buy-rate)
+   5.2 [Sell rate](/README.md/#72-sell-rate)
+6. [Withdraw](/README.md/#6-withdraw)
+   6.1 [Estimate fee](/README.md/#61-estimate-fee)
+   6.2 [Withdraw](/README.md/#62-withdraw)
+   6.3 [Verify email](/README.md/#63-verify-email)
+7. [Buy](/README.md/#7-buy)
+   8.1 [Buy rates](/README.md/#71-buy-rates)
+   8.2 [Buy](/README.md/#72-buy)
+8. [Sell](/README.md/#8-sell)
+   8.1 [Sell rates](/README.md/#81-sell-rates)
+   8.2 [Sell](/README.md/#82-sell)
 
-#### 1.1 Sign-in
+***
 
-To sign in Customer
+### 1 Login
+
+#### 1.1 Login
+
+This method is to sign in Customer
 
 Request:
 `POST /sdk-partner/sign-in `
@@ -25,23 +53,25 @@ Request:
 
 #### 1.2 KYC
 
-To get KYC access token for Customer
+This method is to get KYC access token for Customer
 
 Request:
 `GET /b2b/user/kyc-access-token`
 
 #### 1.3 Countries
 
-to get list of available countries
+This method is to get list of available countries
 
 Request:
 `GET /lib/countries `
 
-### 2 Transactions
+***
+
+### 2 Transaction status
 
 #### 2.1 Transactions
 
-To get list of transactions
+This method is to get list of transactions
 
 Request:
 `GET /b2b/transactions`
@@ -56,27 +86,29 @@ Request:
 | `limit` | Limit of rows max 50, min 5. Default value: 50 |
 | `offset` | Type of client. Default value: 0|
 
-##### 2.2 Transactions by merchant trx id
+#### 2.2 Transactions by merchant trx id
 
-To sort transactions by merchant transaction id
+This method is to sort transactions by merchant transaction id
 
 Request:
 `GET /b2b/:merchant_trx_id/status`
 
+***
 
 ### 3 User data
 
-To get Customers data
+This method is to get Customers data
 
 Request:
 `GET /b2b/user/data`
 
+***
 
 ### 4 Limits
 
 #### 4.1 User limit
 
-to get fiat and crypto currency limits for current user & partner
+This method is to get fiat and crypto currency limits for current user & partner
 
 Request:
 `POST /b2b/user/limit`
@@ -85,7 +117,11 @@ Request:
 | ------------- | -------------  |
 | currency | crypto currency |
 
+***
+
 ### 5 Rates
+
+This methods are to get rates for 1 crypto token with Partners fee
 
 #### 5.1 Buy rate
 
@@ -108,12 +144,13 @@ Request:
 | ------------- | -------------  |
 | currency | fiat currency |
 
+***
 
 ### 6 Withdraw
 
 #### 6.1 Estimate fee
 
-Estimate fee for withdraw operation.
+This method is to get estimate fee for withdraw operation.
 
 Request:
 `GET /withdraw/estimate-fee`
@@ -126,7 +163,7 @@ Request:
 
 #### 6.2 Withdraw
 
-To create withdraw operation
+This method is to create withdraw operation
 
 Request:
 `GET /withdraw`
@@ -142,17 +179,18 @@ Request:
 
 #### 6.3 Verify email
 
-Thi method is to verify transaction by email.
+This method is to verify transaction by email.
 
 Request:
 `POST /withdraw/verify-email`
 
+***
 
 ### 7 Buy
 
 #### 7.1 Buy rate
 
-To get buy rates and trx_token.
+This method is to get buy rates and trx_token.
 
 Request:
 `GET /b2b/cs/buy/rate`
@@ -166,7 +204,7 @@ Request:
 
 #### 7.2 Buy
 
-To create buy operation
+This method is to create buy operation
 
 Request:
 `POST /b2b/cs/buy`
@@ -176,12 +214,14 @@ Request:
 | ------------- | -------------  |
 | `trx_token` | buy token returned by <code>/b2b/cs/buy/rate |
 | `merchant_trx_id` | custom ID for check transaction status. If empty, it will be generated |
+    
+***
 
 ### 8 Sell
 
 #### 8.1 Sell rate
 
-To get sell rates and trx_token.
+This method is to get sell rates and trx_token.
 
 Request:
 `GET /b2b/cs/sell/rate`
@@ -195,7 +235,7 @@ Request:
 
 #### 8.2 Sell 
 
-To create sell operation
+This method is to create sell operation
 
 Request:
 `POST /b2b/cs/sell`
@@ -205,9 +245,15 @@ Request:
 | ------------- | -------------  |
 | `trx_token` | buy token returned by <code>/b2b/cs/buy/rate |
 | `merchant_trx_id` | custom ID for check transaction status. If empty, it will be generated |
+    
+****
 
 ## Schemas
 
+### Withdraw
+    
+![imgcaas3](https://github.com/mercuryoio/Commercial-API/blob/master/caas/img/b2b-cs-send-external.svg)   
+    
 ### Buy 
     
 ![imgcaas1](https://github.com/mercuryoio/Commercial-API/blob/master/caas/img/b2b-cs-buy-external.svg)
@@ -215,7 +261,4 @@ Request:
 ### Sell 
     
 ![imgcaas2](https://github.com/mercuryoio/Commercial-API/blob/master/caas/img/b2b-cs-sell-external.svg)
-    
-### Withdraw
-    
-![imgcaas3](https://github.com/mercuryoio/Commercial-API/blob/master/caas/img/b2b-cs-send-external.svg)
+
