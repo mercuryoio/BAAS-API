@@ -7,31 +7,46 @@ CaaS will allow any bank, fintech and financial service provider to offer crypto
 
 ## Methods
 
-1. [Login](/README.md/#1-login)
+1. [Login](/caas/README.md/#1-login)
 
-   1.1. [Login](/README.md/#11-login)
+   1.1. [Login](/caas/README.md/#11-login)
  
-   1.2. [KYC](/README.md/#12-kyc)
+   1.2. [KYC](/caas/README.md/#12-kyc)
 
-   1.3. [Countries](/README.md/#13-countries)
-2. [Transaction status](/README.md/#2-transaction-status)
-   2.1 [Transactions](/README.md/#21-еransactions)
-   2.2 [Transactions by merchant trx ide](/README.md/#22-transactions-by-merchant-trx-id)
-3. [User data](/README.md/#3-user-data)
-4. [Limits](/README.md/#4-limits)
-5. [Rates](/README.md/#5-rates)
-   5.1 [Buy rate](/README.md/#71-buy-rate)
-   5.2 [Sell rate](/README.md/#72-sell-rate)
-6. [Withdraw](/README.md/#6-withdraw)
-   6.1 [Estimate fee](/README.md/#61-estimate-fee)
-   6.2 [Withdraw](/README.md/#62-withdraw)
-   6.3 [Verify email](/README.md/#63-verify-email)
-7. [Buy](/README.md/#7-buy)
-   8.1 [Buy rates](/README.md/#71-buy-rates)
-   8.2 [Buy](/README.md/#72-buy)
-8. [Sell](/README.md/#8-sell)
-   8.1 [Sell rates](/README.md/#81-sell-rates)
-   8.2 [Sell](/README.md/#82-sell)
+   1.3. [Countries](/caas/README.md/#13-countries)
+2. [Transaction status](/caas/README.md/#2-transaction-status)
+
+   2.1 [Transactions](/caas/README.md/#21-еransactions)
+
+   2.2 [Transactions by merchant trx ide](/caas/README.md/#22-transactions-by-merchant-trx-id)
+
+3. [User data](/caas/README.md/#3-user-data)
+4. [Limits](/caas/README.md/#4-limits)
+5. [Rates](/caas/README.md/#5-rates)
+
+   5.1 [Buy rate](/caas/README.md/#71-buy-rate)
+
+   5.2 [Sell rate](/caas/README.md/#72-sell-rate)
+
+6. [Withdraw](/caas/README.md/#6-withdraw)
+
+   6.1 [Estimate fee](/caas/README.md/#61-estimate-fee)
+
+   6.2 [Withdraw](/caas/README.md/#62-withdraw)
+
+   6.3 [Verify email](/caas/README.md/#63-verify-email)
+
+7. [Buy](/caas/README.md/#7-buy)
+
+   8.1 [Buy rates](/caas/README.md/#71-buy-rates)
+
+   8.2 [Buy](/caas/README.md/#72-buy)
+
+8. [Sell](/caas/README.md/#8-sell)
+
+   8.1 [Sell rates](/caas/README.md/#81-sell-rates)
+
+   8.2 [Sell](/caas/README.md/#82-sell)
 
 ***
 
