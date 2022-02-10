@@ -5,6 +5,8 @@ CaaS will allow any bank, fintech and financial service provider to offer crypto
 
 ## Methods
 
+
+
 ### 1 Sign-in
 
 #### 1.1 Sign-in
@@ -27,20 +29,6 @@ To get KYC access token for Customer
 
 Request:
 `GET /b2b/user/kyc-access-token`
-
-Response example:
-
-`HTTP/1.1 200 OK
-{
-    "status": 200
-    "data": {
-        "id": 4,
-        "token": "_act-ca4dae41-0ecd-468d-86e2-02d5ca697b8d"
-        "applicant_id": "_act-ca4dae41-0ecd-468d-86e2-02d5ca697b8d"
-    }
-}`
-
-
 
 #### 1.3 Countries
 
@@ -76,45 +64,19 @@ Request:
 `GET /b2b/:merchant_trx_id/status`
 
 
-| Parameter | Description  | 
-| ------------- | -------------  |
-| `merchant_trx_id` | merchant transaction id you want sort by |
-
-
 ### 3 User data
+
+To get Customers data
 
 Request:
 `GET /b2b/user/data`
 
-Example:
-`GET /b2b/user/data `
-
-
-| Parameter | Description  | 
-| ------------- | -------------  |
-|  |  |
-
-Response example:
-`{
-    "status": 200,
-    "data": {
-        "first_name": "John",
-        "last_name": "Smith",
-        "country_code": "ru",
-        "language_code": "ru-RU",
-        "kyc1_status": "complete",
-        "kyc2_status": "complete",
-        "email_status": "confirmed",
-        "user_status": "active"
-        }
-    }
-}`
 
 ### 4 Limits
 
 #### 4.1 User limit
 
-Fiat and crypto currency limits for current user & partner
+to get fiat and crypto currency limits for current user & partner
 
 Request:
 `POST /b2b/user/limit`
@@ -135,17 +97,6 @@ Request:
 | ------------- | -------------  |
 | currency | fiat currency |
 
-Response example:
-
-`{
-
-"data": 
-
-       "ETH":"0.277700638",
-       
-       "BTC": "0.277700638",
-       
-...}`
 
 #### 5.2 Sell rate
 
@@ -157,17 +108,6 @@ Request:
 | ------------- | -------------  |
 | currency | fiat currency |
 
-Response example:
-
-`{
-
-"data": 
-
-       "ETH":"0.277700638",
-       
-       "BTC": "0.277700638",
-       
-...}`
 
 ### 6 Withdraw
 
@@ -183,7 +123,6 @@ Request:
 | ------------- | -------------  |
 | `currency` | crypto currency. Allowed values: `BTC`, `ETH`, `BAT`, `USDT` |
 
-Response example:
 
 #### 6.2 Withdraw
 
@@ -200,7 +139,6 @@ Request:
 | `estimate_id` | estimate id |
 | `client` | client. Allowed values: `web`,`ios`,`android`,`widget`|
 
-Response example:
 
 #### 6.3 Verify email
 
