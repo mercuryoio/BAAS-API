@@ -273,15 +273,15 @@ Request:
 2. [Buy](/caas/README.md/#2-buy) 
 3. [Sell](/caas/README.md/#3-sell) 
    
-### Withdraw
+### 1 Withdraw
     
 ![imgcaas3](https://github.com/mercuryoio/Commercial-API/blob/master/caas/img/b2b-cs-send-external.svg)   
     
-### Buy 
+### 2 Buy 
     
 ![imgcaas1](https://github.com/mercuryoio/Commercial-API/blob/master/caas/img/b2b-cs-buy-external.svg)
     
-### Sell 
+### 3 Sell 
     
 ![imgcaas2](https://github.com/mercuryoio/Commercial-API/blob/master/caas/img/b2b-cs-sell-external.svg)
 
