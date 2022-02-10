@@ -1,8 +1,15 @@
-Caas is option
+## CAAS
 
-### Methods
+Crypto as a Service (CaaS) is an API based, fully white labelled solution.
+CaaS will allow any bank, fintech and financial service provider to offer crypto services.
 
-## Sign-in
+## Methods
+
+### 1 Sign-in
+
+#### 1.1 Sign-in
+
+To sign in Customer
 
 Request:
 `POST /sdk-partner/sign-in `
@@ -14,26 +21,12 @@ Request:
 | `accept` | required if get phone |
 | `user_uuid4` | SDK user_uuid4 (for login) |
 
-Response example:
+#### 1.2 KYC
 
-`{
-    "status": 200,
-    "data": {
-        "key": "74f490e26e20da1b713e41492b4343e952a4bd3d8faa301ff8ad6bce531522fcbG9naW4tdmVyaWZ5LXBob25lOONDI5-FSHL2EkGUkwF9C4pyv-16oxrh",
-        "code_length": 4,
-        "timeout": 20,
-        "phone": "+7********96"
-    }
-}`
-
-## KYC
+To get KYC access token for Customer
 
 Request:
 `GET /b2b/user/kyc-access-token`
-
-| Parameter | Description  | 
-| ------------- | -------------  |
-|  |  |
 
 Response example:
 
@@ -47,96 +40,20 @@ Response example:
     }
 }`
 
-## Set e-mail
-
-Request:
-`GET /b2b/user/set-email`
-
-| Parameter | Description  | 
-| ------------- | -------------  |
-| `email` | Email need to set |
-
-Response example:
-
-`{
-    "status": 200
-    "data": {
-        "key": "fa50f86f1af9459fc53075ae85fd5661b009f5433a624023d401b9094cc9adb9Y2hhbmdlLWVtYWlsLXZlcmlmeS1waG9uZQ==Zfgd-Mu6xRix2YA-0YTLXFEXL4c9XZqF",
-        "code_length": 4,
-        "timeout": 20,
-        "email": "d*****@list.ru"
-    }
-}`
-
-## Verify e-mail
-
-Request:
-`GET /b2b/user/email-verify`
-
-| Parameter | Description  | 
-| ------------- | -------------  |
-| `key` | Key from /b2b/user-email-verify |
-| `code` | Code from email |
-
-Response example:
-
-`{
-    "status": 200,
-    "data": {
-        "first_name": "John",
-        "last_name": "Smith",
-        "country_code": "ru",
-        "language_code": "ru-RU",
-        "kyc1_status": "complete",
-        "kyc2_status": "complete",
-        "email_status": "confirmed",
-        "user_status": "active"
-    }
-}`
-
-## Verify phone
-
-Request:
-`GET /sdk-partner/phone-verify`
 
 
-| Parameter | Description  | 
-| ------------- | -------------  |
-| `key` | From sdk-partner/sign-in |
-| `code` | Code that sent on mobile |
+#### 1.3 Countries
 
-Response example:
-
-`{
-   "status": 200,
-   "data": {
-       "user_uuid4": "3272133a-a683-4e80-8116-f219b1cf97c6",
-       "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJtcmNyLmlvIiwiaWF0IjoxNjMyMTQ0NTQxLCJqdGkiOiJtY0pnaW1QMFwvNzJLOG9qR0lWd0xyZHZEclEyb1R6MTNIUWNjNTZkVzRtYz0iLCJuYmYiOjE2MzIxNDQ1NDYsImRhdGEiOnsidXNlcl9pZCI6MzE3MiwiYWRkaXRpb25hbCI6eyJ3aWRnZXRfaWQiOiI0MzczOWQ2Yi02MzIzLTQ0OGEtYWM5Ny01MTVmNWI0MTk1YzMiLCJleGNoYW5nZV9wYXJ0bmVyX2lkIjo3MSwic2RrX3BhcnRuZXJfaWQiOjV9fX0.BjchFtGtricBwcMnWwhfNeezyjHlapkWi8ePM2zfYXo",
-       "timeout": 86400
-   }
-}
-`
-## Countries
+to get list of available countries
 
 Request:
 `GET /lib/countries `
 
-Response example:
+### 2 Transactions
 
-`{
-    "status": 200,
-    "data": [
-        {
-            "code": "au",
-            "title": "Australia",
-            "code3": "aus",
-            "phone_prefix": "7",
-            "phone_mask": "999 999 9999"
-        }
-    ]
-}`
+#### 2.1 Transactions
 
-## Transactions
+To get list of transactions
 
 Request:
 `GET /b2b/transactions`
@@ -151,31 +68,20 @@ Request:
 | `limit` | Limit of rows max 50, min 5. Default value: 50 |
 | `offset` | Type of client. Default value: 0|
 
-Response example:
-`{
-     "status": 200,
-     "total": 4,
-     "next": null,
-     "prev": null,
-     "data": [
-        {
-             "id": "0737d94bac6808650",
-             "transaction_id": "0737d956e71926059",
-             "currency": "ETH",
-             "status": "succeeded",
-             "amount": "0.19",
-             "created_at": "2021-10-30 15:03:39",
-             "updated_at": "2021-10-30 15:04:01",
-             "fiat_currency": "RUB",
-             "fiat_amount": "67919.60",
-             "vendor_id": "0737d9612a6823904",
-             "url": "https://www.blockchair.com/ethereum/transaction/0737d9612a6823904?from=mercuryo",
-             "type": "sell",
-             "merchant_transaction_id": "0737a2abf2a6c3660"
-        },
-...`
+##### 2.2 Transactions by merchant trx id
 
-## User data
+To sort transactions by merchant transaction id
+
+Request:
+`GET /b2b/:merchant_trx_id/status`
+
+
+| Parameter | Description  | 
+| ------------- | -------------  |
+| `merchant_trx_id` | merchant transaction id you want sort by |
+
+
+### 3 User data
 
 Request:
 `GET /b2b/user/data`
@@ -204,37 +110,174 @@ Response example:
     }
 }`
 
-##
+### 4 Limits
+
+#### 4.1 User limit
+
+Fiat and crypto currency limits for current user & partner
 
 Request:
-`GET `
+`POST /b2b/user/limit`
 
-Example:
-`GET `
+| Parameter | Description  | 
+| ------------- | -------------  |
+| currency | crypto currency |
+
+### 5 Rates
+
+#### 5.1 Buy rate
+
+Request:
+`GET /b2b/all/buy/rate`
 
 
 | Parameter | Description  | 
 | ------------- | -------------  |
-|  |  |
+| currency | fiat currency |
 
 Response example:
 
-##
+`{
+
+"data": 
+
+       "ETH":"0.277700638",
+       
+       "BTC": "0.277700638",
+       
+...}`
+
+#### 5.2 Sell rate
 
 Request:
-`GET `
-
-Example:
-`GET `
+`GET /b2b/all/sell/rate`
 
 
 | Parameter | Description  | 
 | ------------- | -------------  |
-|  |  |
+| currency | fiat currency |
 
 Response example:
 
+`{
 
-### Shema
+"data": 
 
-[imgcaas]()
+       "ETH":"0.277700638",
+       
+       "BTC": "0.277700638",
+       
+...}`
+
+### 6 Withdraw
+
+#### 6.1 Estimate fee
+
+Estimate fee for withdraw operation.
+
+Request:
+`GET /withdraw/estimate-fee`
+
+
+| Parameter | Description  | 
+| ------------- | -------------  |
+| `currency` | crypto currency. Allowed values: `BTC`, `ETH`, `BAT`, `USDT` |
+
+Response example:
+
+#### 6.2 Withdraw
+
+To create withdraw operation
+
+Request:
+`GET /withdraw`
+
+| Parameter | Description  | 
+| ------------- | -------------  |
+| `currency` | crypto currency |
+| `address` | withdraw address |
+| `amount` | amount withou fee |
+| `estimate_id` | estimate id |
+| `client` | client. Allowed values: `web`,`ios`,`android`,`widget`|
+
+Response example:
+
+#### 6.3 Verify email
+
+Thi method is to verify transaction by email.
+
+Request:
+`POST /withdraw/verify-email`
+
+
+### 7 Buy
+
+#### 7.1 Buy rate
+
+To get buy rates and trx_token.
+
+Request:
+`GET /b2b/cs/buy/rate`
+
+| Parameter | Description  | 
+| ------------- | -------------  |
+| `from` | currency to convert from. Allowed values: `EUR`, `USD`, `RUB`, `BTC`, `ETH`, `BAT`, `USDT`, `ALG`|
+| `to`  | currency to convert to. Allowed values: `EUR`, `USD`, `RUB`, `BTC`, `ETH`, `BAT`, `USDT`, `ALG` |
+| `amount` | amount to be converted |
+| `is_total` | Is passed amount with fee |
+
+#### 7.2 Buy
+
+To create buy operation
+
+Request:
+`POST /b2b/cs/buy`
+
+
+| Parameter | Description  | 
+| ------------- | -------------  |
+| `trx_token` | buy token returned by <code>/b2b/cs/buy/rate |
+| `merchant_trx_id` | custom ID for check transaction status. If empty, it will be generated |
+
+### 8 Sell
+
+#### 8.1 Sell rate
+
+To get sell rates and trx_token.
+
+Request:
+`GET /b2b/cs/sell/rate`
+
+| Parameter | Description  | 
+| ------------- | -------------  |
+| `from` | currency to convert from. Allowed values: `EUR`, `USD`, `RUB`, `BTC`, `ETH`, `BAT`, `USDT`, `ALG`|
+| `to`  | currency to convert to. Allowed values: `EUR`, `USD`, `RUB`, `BTC`, `ETH`, `BAT`, `USDT`, `ALG` |
+| `amount` | amount to be converted |
+| `is_total` | Is passed amount with fee |
+
+#### 8.2 Sell 
+
+To create sell operation
+
+Request:
+`POST /b2b/cs/sell`
+
+
+| Parameter | Description  | 
+| ------------- | -------------  |
+| `trx_token` | buy token returned by <code>/b2b/cs/buy/rate |
+| `merchant_trx_id` | custom ID for check transaction status. If empty, it will be generated |
+
+## Schemas
+
+### Buy 
+    
+![imgcaas1](https://github.com/mercuryoio/Commercial-API/blob/master/caas/img/b2b-cs-buy-external.svg)
+    
+### Sell 
+    
+![imgcaas2](https://github.com/mercuryoio/Commercial-API/blob/master/caas/img/b2b-cs-sell-external.svg)
+    
+### Withdraw
+    
+![imgcaas3](https://github.com/mercuryoio/Commercial-API/blob/master/caas/img/b2b-cs-send-external.svg)
