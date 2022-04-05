@@ -50,8 +50,6 @@ All Customers need to pass KYC authorization to use their crypto-wallets or crea
 
 ### 2. KYC. 
 
-**IN DEVELOPMENT**
-
 #### 2.1 Passing KYC with uploading documents to the SumSub widget
 
 In this method, the user will need to go through KYC through the web view of Mercuryo by uploading the necessary documents.
@@ -82,11 +80,15 @@ Link must contain these parameters:
 
 #### 2.2. Passing KYC with share token
 
+**IN DEVELOPMENT**
+
 Registering with a share-token allows to eliminate repeat KYC verification. Share-token allows you to exchange KYC data between you and Mercuryo. If the user has passed KYC verification in your app using the SumSub service, you can generate share-token containing the user’s data and documents with SumSub and provide it to Mercuryo.
 
 In order to use share-token use method [`POST /b2b/user/share-token`] to make The Customer pass KYC in SumSub.
 
 #### 2.3. Passing KYC with sharing verification documents with Mercuryo
+
+**IN DEVELOPMENT**
 
 Use method [`Post /b2b/user/kyc-docs`] to send Customers data and documents in pictures to Mercuryo. To make this method avaliable for you contact your Mercuryo Manager.
 
