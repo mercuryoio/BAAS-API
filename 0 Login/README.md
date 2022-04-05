@@ -1,3 +1,8 @@
+**NEW LOGIN FLOW IS IN DEVELOPMENT. FOR MORE INFORMATION LOOK [HERE](https://github.com/mercuryoio/Commercial-API/tree/master/New%20Login)**
+
+***
+***
+
 For methods in `/sdk/` domain you need your `sdk-partner-token`. Ask your Mercuryo manager to get it.
 
 ***
