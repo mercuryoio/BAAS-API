@@ -22,7 +22,7 @@ All Customers need to pass KYC authorization to use their crypto-wallets or crea
 **Cases**
 
 1. [Sign up](README.md/#1-sign-up)
-2. [KYC](README.md/#2-sign-up-with-share-documents-with-sumsub)
+2. [KYC](README.md/#2-kyc)
 
    2.1. [Passing KYC with uploading documents to the SumSub widget](README.md/#21-passing-kyc-with-uploading-documents-to-the-sumsub-widget)
    
