@@ -123,7 +123,6 @@ Use [`GET /b2b/user/data`](https://sandbox-cryptosaas.mrcr.io/v1.6/comm-docs/ind
 | `failed` | KYC is failed |
 | `incomplete`| KYC isn't passed |
 | Email status |  |
-| `email_empty` | The Customer does not have an email |
 | `confirmed` | The Customer has an email. It is confirmed |
 | `not_confirmed` | The Customer has an email. But it isn't confirmed |
 | User status | |
