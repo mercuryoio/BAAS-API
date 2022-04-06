@@ -118,6 +118,17 @@ Registering with a share-token allows to eliminate repeat KYC verification. Shar
 
 In order to use share-token use method [`POST /b2b/user/share-token`] to make The Customer pass KYC in SumSub.
 
+Request:
+
+| Parameter  | Type | Description  | Obligatory |
+| ------------- | -------------  | -------------  | -------------  |
+| `shareToken` | string | Share token from Partner from You | Yes |
+| `resetIdDocSetTypes` | string | Specify one or few comma-separated document types if an applicant has to resubmit those documents to be verified. Examples, SELFIE, IDENTITY, etc. | No |
+| `trustReview` | boolean | If you trust your partner's check result, then you should use true. If it is false, then the applicant will be rechecked. | No |
+| `userid` | string | Sets your own externalUserId for the imported applicant. In case of empty value we'll generate a random one | No |
+
+
+
 #### 2.3. Passing KYC with sharing verification documents with Mercuryo
 
 Use method [`Post /b2b/user/kyc-docs`] to send Customers data and documents in pictures to Mercuryo. To make this method avaliable for you contact your Mercuryo Manager.
@@ -138,7 +149,7 @@ Request:
 | `birthday` | string | SDK Customers's last birthday. Format '1995-05-25'. |
 | `document` | string | Customer's document. |
 | `type` | string | User's document type (eq passport, id_card, driver_license). |
-| `files` | string | User's document files. document.files must contain an array with filename as key and file content as value. For current document type requirements for list of files differs. `id_card` Count of files must be 3. File names must be 'face.', 'side-1.', 'side-2.'; `passport` Count of files must be 2. File names must be 'face.', 'side-1.'; `driver_license` Count of files must be 3. File names must be 'face.', 'side-1.', 'side-2.'. Extensions in file names must correspond .jpg, .png. |
+| `files` | string | User's document files. document.files must contain an array with filename as key and file content as value. For current document type requirements for list of files differs. `id_card` Count of files must be 3. File names must be `face.`, `side-1.`, `side-2.`; `passport` Count of files must be 2. File names must be `face.`, `side-1.`; `driver_license` Count of files must be 3. File names must be `face.`, `side-1.`, `side-2.`. Extensions in file names must correspond `.jpg`, .png. |
 
 ***
 
