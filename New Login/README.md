@@ -138,11 +138,7 @@ Request:
 | `birthday` | string | SDK Customers's last birthday. Format '1995-05-25'. |
 | `document` | string | Customer's document. |
 | `type` | string | User's document type (eq passport, id_card, driver_license). |
-| `files` | string | User's document files. document.files must contain an array with filename as key and file content as value. For current document type requirements for list of files differs.
-id_card. Count of files must be 3. File names must be 'face.', 'side-1.', 'side-2.';
-passport. Count of files must be 2. File names must be 'face.', 'side-1.';
-driver_license. Count of files must be 3. File names must be 'face.', 'side-1.', 'side-2.'.
-Extensions in file names must correspond .jpg, .png. |
+| `files` | string | User's document files. document.files must contain an array with filename as key and file content as value. For current document type requirements for list of files differs. `id_card` Count of files must be 3. File names must be 'face.', 'side-1.', 'side-2.'; `passport` Count of files must be 2. File names must be 'face.', 'side-1.'; `driver_license` Count of files must be 3. File names must be 'face.', 'side-1.', 'side-2.'. Extensions in file names must correspond .jpg, .png. |
 
 ***
 
