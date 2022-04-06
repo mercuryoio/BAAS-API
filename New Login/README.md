@@ -70,7 +70,7 @@ Response w/o e-mail verification:
 | ------------- | -------------  | -------------  |
 | `status` | number | response code |
 | data | object | |
-| `uuid` | string | Customer's uuid |
+| `user_uuid` | string | Customer's uuid |
 | `b2b-bearer-token` | string | Authorisation token |
 
 
@@ -140,7 +140,7 @@ Request:
 | **Header** | | |
 |`sdk-partner-token` | string | 	Authorization sdk partner token |
 | **Body** | | |
-| `uuid` | string | Customer's uuid |
+| `user_uuid` | string | Customer's uuid |
 | `country_code` | string | SDK Customers's country (like 'US') |
 | `first_name ` | string | SDK Customers's first name.|
 | `last_name` | string | SDK Customers's last name |
@@ -168,7 +168,7 @@ Request:
 |`sdk-partner-token` | string | 	Authorization sdk partner token |
 | **Body** | | |
 | `email` | string | Customers's email for login |
-| `uuid` | string | Customers's uuid for login |
+| `user_uuid` | string | Customers's uuid for login |
 | `phone` | string | Customers's phone for login |
 
 Response:
