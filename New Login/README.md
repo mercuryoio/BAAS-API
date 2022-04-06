@@ -43,6 +43,37 @@ All Customers need to pass KYC authorization to use their crypto-wallets or crea
 
 1. Ask the Customer about his e-mail
 2. Use method [`POST /b2b/user/sign-up`](https://sandbox-cryptosaas.mrcr.io/v1.6/docs/index.html#api-B2B-B2BSignIn) to pass Customer's e-mail and 'accept' parameter to Mercuryo API
+
+Request:
+
+| Parameter  | Type | Description  |
+| ------------- | -------------  | -------------  |
+| **Header** | | |
+|`sdk-partner-token` | string | 	Authorization sdk partner token |
+| **Body** | | |
+| `email` | string | Customers's email |
+| `accept` | string | Customer accepted terms and conditions |
+
+Response with e-mail verification:
+
+| Parameter  | Type | Description  |
+| ------------- | -------------  | -------------  |
+| `status` | number | response code |
+| data | object | |
+| `key` | string | Public key for verification |
+| `resend_timeout` | string | Time in seconds before next resend is allowed |
+| `code_length` | string | Verification code length |
+
+Response w/o e-mail verification:
+
+| Parameter  | Type | Description  |
+| ------------- | -------------  | -------------  |
+| `status` | number | response code |
+| data | object | |
+| `uuid` | string | Customer's uuid |
+| `b2b-bearer-token` | string | Authorisation token |
+
+
 3. Get verification code from the Customer. Code will be sent to Customers e-mail by Mercuryo
 4. Use method [`POST /b2b/user/verify-email`](https://sandbox-cryptosaas.mrcr.io/v1.6/docs/index.html#api-B2B-B2BEmail_verify) to verify Customers e-mail. 
 
@@ -91,6 +122,31 @@ In order to use share-token use method [`POST /b2b/user/share-token`] to make Th
 
 Use method [`Post /b2b/user/kyc-docs`] to send Customers data and documents in pictures to Mercuryo. To make this method avaliable for you contact your Mercuryo Manager.
 
+Request:
+
+| Parameter  | Type | Description  |
+| ------------- | -------------  | -------------  |
+| **Header** | | |
+|`sdk-partner-token` | string | 	Authorization sdk partner token |
+| **Body** | | |
+| `uuid` | string | Customer's uuid |
+| `country_code` | string | SDK Customers's country (like 'US') |
+| `first_name ` | string | SDK Customers's first name.|
+| `last_name` | string | SDK Customers's last name |
+| `first_name_en` | string | SDK Customers's first name |
+| `last_name_en` | string | SDK Customers's last name |
+| `birthday` | string | SDK Customers's last birthday. Format '1995-05-25'. |
+| `document` | string | Customer's document. |
+| `type` | string | User's document type (eq passport, id_card, driver_license). |
+| `files` | string | User's document files. document.files must contain an array with filename as key and file content as value. For current document type requirements for list of files differs.
+
+id_card. Count of files must be 3. File names must be 'face.', 'side-1.', 'side-2.';
+
+passport. Count of files must be 2. File names must be 'face.', 'side-1.';
+
+driver_license. Count of files must be 3. File names must be 'face.', 'side-1.', 'side-2.'.
+
+Extensions in file names must correspond .jpg, .png. |
 
 ***
 
@@ -100,6 +156,26 @@ Use method [`Post /b2b/user/kyc-docs`] to send Customers data and documents in p
 
 To sign in the Customer use method [`GET /b2b/user/sign-in`](https://sandbox-cryptosaas.mrcr.io/v1.6/docs/index.html#api-B2B-B2BSignUp). 
 As input parameters you will need to pass 'sdk-partner-token' in header and `uuid` **OR** `email` **OR** `phone'.
+
+Request:
+
+| Parameter  | Type | Description  |
+| ------------- | -------------  | -------------  |
+| **Header** | | |
+|`sdk-partner-token` | string | 	Authorization sdk partner token |
+| **Body** | | |
+| `email` | string | Customers's email for login |
+| `uuid` | string | Customers's uuid for login |
+| `phone` | string | Customers's phone for login |
+
+Response:
+
+| Parameter  | Type | Description  |
+| ------------- | -------------  | -------------  |
+| `status` | number | response code |
+| data | object | |
+| `user_uuid` | string | Customer's uuid |
+| `b2b-bearer-token` | string | Authorisation token |
 
 How to get:
 
