@@ -39,7 +39,7 @@ Rates are freezed and associated with buy-token.
 | 500002  | amount off limits  | failed to get rates  |
 
 
-6. Use method [`POST /b2b/buy`](https://sandbox-cryptosaas.mrcr.io/v1.6/docs/index.html#api-B2B_Buy-Buy) to initiate buy. 
+6. Use method [`POST /b2b/buy`](https://sandbox-cryptosaas.mrcr.io/v1.6/comm-docs/index.html#api-B2B_Buy-Buy) to initiate buy. 
 
 `merch_tansaction_id` - transaction ID, using it you can find out the transaction status. It is also needed to Mercuryo technical support if something going wrong. You can generate it by yourself, or Mercuryo can make it for you. We strongly recommend you save this parameter.
 
