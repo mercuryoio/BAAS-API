@@ -46,7 +46,7 @@ To get the list of saved cards use method [`GET /b2b/user/cards`](https://sandbo
 You will receive a list of masked customer's cards and `card_ids`.  
 For the reason of PCI-DSS complience Mercuryo need to get payment details on Mercuryo side. In case of passing valid card_id in method `POST /b2b/buy` the Customer will asked for CVV only.  
 
-7. Use method [`POST /b2b/buy`](https://sandbox-cryptosaas.mrcr.io/v1.6/docs/index.html#api-B2B_Buy-Buy) to initiate buy. 
+7. Use method [`POST /b2b/buy`](https://sandbox-cryptosaas.mrcr.io/v1.6/comm-docs/index.html#api-B2B_Buy-Buy) to initiate buy. 
 
 `merch_tansaction_id` - transaction ID, using it you can find out the transaction status. It is also needed to Mercuryo technical support if something going wrong. You can generate it by yourself, or Mercuryo can make it for you. We strongly recommend you save this parameter.
 
