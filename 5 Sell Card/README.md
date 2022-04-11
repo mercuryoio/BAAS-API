@@ -11,9 +11,9 @@
 
 1. The Customer wants to sell crypto
 2. You will need to authorize customer and check if he can use Mercuryo API. Please check [this](https://github.com/mercuryoio/Commercial-API/blob/master/Login/README.md) for more information.
-3. Use method [`GET /lib/currencies`](https://u3-1-api.mrcr.io/v1.6/comm-docs/index.html#api-Public-PublicCurrencies) - to show to the Custome available curencies.
-4. Use method [`POST /b2b/sell/methods`](https://u3-1-api.mrcr.io/v1.6/comm-docs/index.html#api-Sell-SellMethods) to get avaliable sell methods
-5. Use method [`GET /b2b/sell/rate`](https://u3-1-api.mrcr.io/v1.6/comm-docs/index.html#api-Sell-GetSellRate) to get rates .
+3. Use method [`GET /lib/currencies`]https://sandbox-cryptosaas.mrcr.io/v1.6/comm-docs/index.html#api-Public-PublicCurrencies) - to show to the Custome available curencies.
+4. Use method [`POST /b2b/sell/methods`](https://sandbox-cryptosaas.mrcr.io/v1.6/comm-docs/index.html#api-B2B_Sell-SellMethods) to get avaliable sell methods
+5. Use method [`GET /b2b/sell/rate`](https://sandbox-cryptosaas.mrcr.io/v1.6/comm-docs/index.html#api-B2B_Sell-GetSellRate) to get rates .
 
 ***NB**: pay attention to the flag `is_total` which affects fee limits value.*
 
@@ -32,12 +32,12 @@ Rates are freezed and associated with `sell-token`.
 
 6. Payment Details.  
 The Customer can use new card or saved card.  
-To get list of saved cards use method [`GET /b2b/user/cards`](https://u3-1-api.mrcr.io/v1.6/comm-docs/index.html#api-User-UserCards).  
+To get list of saved cards use method [`GET /b2b/user/cards`](https://sandbox-cryptosaas.mrcr.io/v1.6/comm-docs/index.html#api-B2B_User-UserCards).  
 You will receive a list of masked customer's cards and `card_ids`.  
 For the reason of PCI-DSS complience Mercuryo need to get payment details on Mercuryo side. In case of passing valid card_id in method `POST /b2b/sell` the Customer will be asked for CVV only.  
 `wallet` partameter is oprional. This is wallet address for the refund. By default, it is users Mercuryo wallet
  
- 7. Use method [`POST /b2b/sell`](https://u3-1-api.mrcr.io/v1.6/comm-docs/index.html#api-Sell-Sell) to initiate sell
+ 7. Use method [`POST /b2b/sell`](https://sandbox-cryptosaas.mrcr.io/v1.6/comm-docs/index.html#api-B2B_Sell-Sell) to initiate sell
 
 `flow_id` has two options. You can give the customer an option to choose one of them or use the default method:
 - The Customer needs to choose what to do: sell in any cases or refund if rate will change more than 5%. 
