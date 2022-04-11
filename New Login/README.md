@@ -42,7 +42,7 @@ All Customers need to pass KYC authorization to use their crypto-wallets or crea
 **Steps:**
 
 1. Ask the Customer about his e-mail
-2. Use method [`POST /b2b/user/sign-up`](https://sandbox-cryptosaas.mrcr.io/v1.6/docs/index.html#api-B2B-B2BSignIn) to pass Customer's e-mail and 'accept' parameter to Mercuryo API
+2. Use method [`POST /b2b/user/sign-up`](https://sandbox-cryptosaas.mrcr.io/v1.6/comm-docs/index.html#api-B2B-B2BSignUp) to pass Customer's e-mail and 'accept' parameter to Mercuryo API
 
 Request:
 
@@ -75,7 +75,7 @@ Response w/o e-mail verification:
 
 
 3. Get verification code from the Customer. Code will be sent to Customers e-mail by Mercuryo
-4. Use method [`POST /b2b/user/verify-email`](https://sandbox-cryptosaas.mrcr.io/v1.6/docs/index.html#api-B2B-B2BEmail_verify) to verify Customers e-mail. 
+4. Use method [`POST /b2b/user/verify-email`](https://sandbox-cryptosaas.mrcr.io/v1.6/comm-docs/index.html#api-B2B-B2BEmail_verify) to verify Customers e-mail. 
 
 **This is optional.** To On\Off e-mail verification ask your Mercuryo Manager.
 
@@ -87,7 +87,7 @@ Response w/o e-mail verification:
 
 In this method, the user will need to go through KYC through the web view of Mercuryo by uploading the necessary documents.
 
-Use method [`GET /b2b/user/kyc-access-token`](https://sandbox-cryptosaas.mrcr.io/v1.6/docs/index.html#api-B2B_User-UserKycAccessToken) to get user's KYC token
+Use method [`GET /b2b/user/kyc-access-token`](https://sandbox-cryptosaas.mrcr.io/v1.6/comm-docs/index.html#api-B2B_User-UserKycAccessToken) to get user's KYC token
 
 | Error  | Text | Description  |
 | ------------- | -------------  | -------------  |
@@ -157,7 +157,7 @@ Request:
 
 ### 3. Sign in
 
-To sign in the Customer use method [`GET /b2b/user/sign-in`](https://sandbox-cryptosaas.mrcr.io/v1.6/docs/index.html#api-B2B-B2BSignUp). 
+To sign in the Customer use method [`GET /b2b/user/sign-in`](https://sandbox-cryptosaas.mrcr.io/v1.6/comm-docs/index.html#api-B2B-B2BSignIn). 
 As input parameters you will need to pass 'sdk-partner-token' in header and `uuid` **OR** `email` **OR** `phone'.
 
 Request:
@@ -188,7 +188,7 @@ How to get:
 
 ### 4. User data
 
-Use [`GET /b2b/user/data`](https://sandbox-cryptosaas.mrcr.io/v1.6/comm-docs/index.html#api-User-UserData) to get info about Customers's status
+Use [`GET /b2b/user/data`](https://sandbox-cryptosaas.mrcr.io/v1.6/comm-docs/index.html#api-B2B_User-UserData) to get info about Customers's status
 
 | Error  | Text | Description  |
 | ------------- | -------------  | -------------  |
