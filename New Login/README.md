@@ -70,7 +70,7 @@ Response w/o e-mail verification:
 | ------------- | -------------  | -------------  |
 | `status` | number | response code |
 | data | object | |
-| `user_uuid` | string | Customer's uuid |
+| `user_uuid4` | string | Customer's uuid |
 | `b2b-bearer-token` | string | Authorisation token |
 
 
@@ -158,7 +158,7 @@ Request:
 ### 3. Sign in
 
 To sign in the Customer use method [`GET /b2b/user/sign-in`](https://sandbox-cryptosaas.mrcr.io/v1.6/comm-docs/index.html#api-B2B-B2BSignIn). 
-As input parameters you will need to pass 'sdk-partner-token' in header and `uuid` **OR** `email` **OR** `phone'.
+As input parameters you will need to pass 'sdk-partner-token' in header and `user_uuid4` **OR** `email` **OR** `phone'.
 
 Request:
 
@@ -168,7 +168,7 @@ Request:
 |`sdk-partner-token` | string | 	Authorization sdk partner token |
 | **Body** | | |
 | `email` | string | Customers's email for login |
-| `user_uuid` | string | Customers's uuid for login |
+| `user_uuid4` | string | Customers's uuid for login |
 | `phone` | string | Customers's phone for login |
 
 Response:
@@ -177,14 +177,13 @@ Response:
 | ------------- | -------------  | -------------  |
 | `status` | number | response code |
 | data | object | |
-| `user_uuid` | string | Customer's uuid |
+| `user_uuid4` | string | Customer's uuid |
 | `b2b-bearer-token` | string | Authorisation token |
 
 How to get:
 
-1. `uuid` as a response from method `POST /b2b/user/sign-up` if e-mail verification is off. Or as a response from method `POST /b2b/user/verify-email` if e-mail verification is on.
+1. `user_uuid4` as a response from method `POST /b2b/user/sign-up` if e-mail verification is off. Or as a response from method `POST /b2b/user/verify-email` if e-mail verification is on.
 2. `email` -- from The Customer.
-3. `phone` -- from The Customer.
 
 ### 4. User data
 
