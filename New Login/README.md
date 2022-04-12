@@ -87,7 +87,7 @@ Response w/o e-mail verification:
 
 In this method, the user will need to go through KYC through the web view of Mercuryo by uploading the necessary documents.
 
-Use method [`GET /b2b/user/kyc-access-token`](https://sandbox-cryptosaas.mrcr.io/v1.6/comm-docs/index.html#api-B2B_User-UserKycAccessToken) to get user's KYC token
+Use method [`GET /b2b/user/kyc-access-token`]() to get user's KYC token
 
 | Error  | Text | Description  |
 | ------------- | -------------  | -------------  |
