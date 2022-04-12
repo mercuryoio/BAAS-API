@@ -10,8 +10,8 @@
 1. The Customer wants to buy crypto.
 2. You will need to authorize customer and check if he can use Mercuryo API. Please check [this](https://github.com/mercuryoio/Commercial-API/blob/master/Login/README.md) for more information.
 3. Use method [`GET /lib/currencies`](https://sandbox-cryptosaas.mrcr.io/v1.6/comm-docs/index.html#api-Public-PublicCurrencies) - to show to the Customer available curencies.
-4. Use method [`GET /b2b/buy/methods`](https://sandbox-cryptosaas.mrcr.io/v1.6/comm-docs/index.html#api-B2B_Buy-BuyMethods) to get avaliable buy methods. You need to implement a form on your side in which the Customer can choose one of available methods.
-5. Use method [`GET /b2b/buy/rate`](https://sandbox-cryptosaas.mrcr.io/v1.6/comm-docs/index.html#api-B2B_Buy-GetBuyRate) to get rates.
+4. Use method [`GET /b2b/fiat/buy-methods`](https://sandbox-cryptosaas.mrcr.io/v1.6/comm-docs/index.html#api-B2B_Buy-BuyMethods) to get avaliable buy methods. You need to implement a form on your side in which the Customer can choose one of available methods.
+5. Use method [`GET /b2b/fiat/buy-rates`](https://sandbox-cryptosaas.mrcr.io/v1.6/comm-docs/index.html#api-B2B_Buy-GetBuyRate) to get rates.
 
 While using this method pay attention to the flag `is total` which affects on fee limits value:
 
@@ -24,7 +24,7 @@ While using this method pay attention to the flag `is total` which affects on fe
 | `to` | crypto wallet address | string | obligatory |
 | `amount` | Amount to be converted | string | obligatory |
 | `is_total` | amount with or without fee | boolean | obligatory |
-| `payment` | payment method get form `/b2b/buy/methods` | string | obligatory |
+| `payment` | payment method get form `/b2b/fiat/buy-methods` | string | obligatory |
 
 Rates are freezed and associated with buy-token.
 
@@ -38,7 +38,7 @@ Rates are freezed and associated with buy-token.
 | 500002  | amount off limits  | failed to get rates  |
 
 6. You need to implement a form on your side in which the Customer can type his wallet.
-7. Use method [`POST /b2b/buy`](https://sandbox-cryptosaas.mrcr.io/v1.6/comm-docs/index.html#api-B2B_Buy-Buy) to initiate buy. 
+7. Use method [`POST /b2b/fiat/buy`](https://sandbox-cryptosaas.mrcr.io/v1.6/comm-docs/index.html#api-B2B_Buy-Buy) to initiate buy. 
 
 `merch_tansaction_id` - transaction ID, using it you can find out the transaction status. It is also needed to Mercuryo technical support if something going wrong. You can generate it by yourself, or Mercuryo can make it for you. We strongly recommend you save this parameter.
 
