@@ -29,9 +29,13 @@ Estimated rollout time of methods to prod environment:
 /b2b/user/sign-up - April
 
 /b2b/user/kyc-docs - second half of April
+
 /b2b/user/kyc-share-token - second half of April
+
 /b2b/user/verify-email - May
+
 method to receive phone from Customer - May
+
 method to sign-up American citizens - May
 
 
