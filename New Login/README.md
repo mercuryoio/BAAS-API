@@ -127,7 +127,7 @@ Request:
 | `trustReview` | boolean | If you trust your partner's check result, then you should use true. If it is false, then the applicant will be rechecked. | No |
 | `userid` | string | Sets your own externalUserId for the imported applicant. In case of empty value we'll generate a random one | No |
 
-(img1)[https://github.com/mercuryoio/Commercial-API/blob/master/New%20Login/sharetoken.png]
+![img1](https://github.com/mercuryoio/Commercial-API/blob/master/New%20Login/sharetoken.png)
 
 #### 2.3. Passing KYC with sharing verification documents with Mercuryo
 
@@ -151,7 +151,7 @@ Request:
 | `type` | string | User's document type (eq passport, id_card, driver_license). |
 | `files` | string | User's document files. document.files must contain an array with filename as key and file content as value. For current document type requirements for list of files differs. `id_card` Count of files must be 3. File names must be `face.`, `side-1.`, `side-2.`; `passport` Count of files must be 2. File names must be `face.`, `side-1.`; `driver_license` Count of files must be 3. File names must be `face.`, `side-1.`, `side-2.`. Extensions in file names must correspond `.jpg`, .png. |
 
-(img2)[https://github.com/mercuryoio/Commercial-API/blob/master/New%20Login/documentsflow.png]
+![img2](https://github.com/mercuryoio/Commercial-API/blob/master/New%20Login/documentsflow.png)
 
 ***
 
