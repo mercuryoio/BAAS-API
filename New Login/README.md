@@ -136,7 +136,7 @@ Link must contain these parameters:
 
 Registering with a share-token allows to eliminate repeat KYC verification. Share-token allows you to exchange KYC data between you and Mercuryo. If the user has passed KYC verification in your app using the SumSub service, you can generate share-token containing the user’s data and documents with SumSub and provide it to Mercuryo.
 
-In order to use share-token use method [`POST /b2b/user/share-token`] to make The Customer pass KYC in SumSub.
+In order to use share-token use method [`POST /b2b/user/kyc-share-token`] to make The Customer pass KYC in SumSub.
 
 Request:
 
@@ -205,7 +205,8 @@ Response:
 How to get:
 
 1. `user_uuid4` as a response from method `POST /b2b/user/sign-up` if e-mail verification is off. Or as a response from method `POST /b2b/user/verify-email` if e-mail verification is on.
-2. `email` -- from The Customer.
+2. `email` -- from the Cutomer via `POST /b2b/user/sign-up.
+3. `phone` -- from the Customer. New method will be developed
 
 ### 4. User data
 
