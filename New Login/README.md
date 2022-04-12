@@ -23,6 +23,7 @@ All Customers need to pass KYC authorization to use their crypto-wallets or crea
 
 **IN DEVELOPMENT**
 Estimated rollout time of methods to prod environment:
+
 /b2b/user/sign-in - April
 /b2b/user/sign-up - April
 /b2b/user/kyc-docs - second half of April
