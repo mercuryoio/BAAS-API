@@ -11,7 +11,7 @@
 1. The Customer wants to buy crypto.
 2. You will need to authorize customer and check if he can use Mercuryo API. Please check [this](https://github.com/mercuryoio/Commercial-API/blob/master/Login/README.md) for more information.
 3. Use method [`GET /lib/currencies`](https://sandbox-cryptosaas.mrcr.io/v1.6/comm-docs/index.html#api-Public-PublicCurrencies) - to show to the Custome available curencies.
-4. Use method [`GET /b2b/buy/methods`](https://sandbox-cryptosaas.mrcr.io/v1.6/comm-docs/index.html#api-B2B_Buy-BuyMethods) to get avaliable buy methods.
+4. Use method [`GET /b2b/fiat/buy-methods`](https://sandbox-cryptosaas.mrcr.io/v1.6/comm-docs/index.html#api-B2B_Buy-BuyMethods) to get avaliable buy methods.
 5. Use method [`GET /b2b/fiat/buy-rates`](https://sandbox-cryptosaas.mrcr.io/v1.6/comm-docs/index.html#api-B2B_Buy-GetBuyRate) to get rates.
 
 
@@ -26,7 +26,7 @@ While using this method pay attention to the flag `is total` which affects on fe
 | `to` | crypto wallet address | string | obligatory |
 | `amount` | amount to be converted | string | obligatory |
 | `is_total` | amount with or without fee | boolean | obligatory |
-| `payment` | payment method get form `/b2b/buy/methods` | string | obligatory |
+| `payment` | payment method get form `/b2b/fiat/buy-methods` | string | obligatory |
 
 
 Rates are freezed and associated with buy-token.
@@ -46,7 +46,7 @@ To get the list of saved cards use method [`GET /b2b/user/cards`](https://sandbo
 You will receive a list of masked customer's cards and `card_ids`.  
 For the reason of PCI-DSS complience Mercuryo need to get payment details on Mercuryo side. In case of passing valid card_id in method `POST /b2b/buy` the Customer will asked for CVV only.  
 
-7. Use method [`POST /b2b/buy`](https://sandbox-cryptosaas.mrcr.io/v1.6/comm-docs/index.html#api-B2B_Buy-Buy) to initiate buy. 
+7. Use method [`POST /b2b/fiat/buy`](https://sandbox-cryptosaas.mrcr.io/v1.6/comm-docs/index.html#api-B2B_Buy-Buy) to initiate buy. 
 
 `merch_tansaction_id` - transaction ID, using it you can find out the transaction status. It is also needed to Mercuryo technical support if something going wrong. You can generate it by yourself, or Mercuryo can make it for you. We strongly recommend you save this parameter.
 
