@@ -10,8 +10,8 @@
 1. The Customer wants to sell crypto.
 2. You will need to authorize customer and check if he can use Mercuryo API. Please check [this](https://github.com/mercuryoio/Commercial-API/blob/master/Login/README.md) for more information.
 3. Use method [`GET /lib/currencies`](https://sandbox-cryptosaas.mrcr.io/v1.6/comm-docs/index.html#api-Public-PublicCurrencies) - to show to the Custome available curencies.
-4. Use method [`POST /b2b/sell/methods`](https://sandbox-cryptosaas.mrcr.io/v1.6/comm-docs/index.html#api-B2B_Sell-SellMethods) to get avaliable sell methods. You need to implement a form on your side in which the Customer can choose one of available methods.
-5. Use method [`GET /b2b/sell/rate`](https://sandbox-cryptosaas.mrcr.io/v1.6/comm-docs/index.html#api-B2B_Sell-GetSellRate) to get rates.
+4. Use method [`POST /b2b/fiat/sell-methods`](https://sandbox-cryptosaas.mrcr.io/v1.6/comm-docs/index.html#api-B2B_Sell-SellMethods) to get avaliable sell methods. You need to implement a form on your side in which the Customer can choose one of available methods.
+5. Use method [`GET /b2b/fiat/sell-rates`](https://sandbox-cryptosaas.mrcr.io/v1.6/comm-docs/index.html#api-B2B_Sell-GetSellRate) to get rates.
 
 ***NB**: pay attention to the flag `is_total` which affects fee limits value.*
 
@@ -29,7 +29,7 @@
 Rates are freezed and associated with `sell-token`.
 
 6. You need to implement form on your side in which the Customer can type any IBAN he wants to. 
-7. Use method [`POST /b2b/sell`](https://sandbox-cryptosaas.mrcr.io/v1.6/comm-docs/index.html#api-B2B_Sell-Sell) to initiate sell
+7. Use method [`POST /b2b/fiat/sell`](https://sandbox-cryptosaas.mrcr.io/v1.6/comm-docs/index.html#api-B2B_Sell-Sell) to initiate sell
 
 `flow_id` has two options. You can give the customer an option to choose one of them or use the default method:
 - The Customer needs to choose what to do: sell in any cases or refund if rate will change more than 5%. 
