@@ -49,7 +49,7 @@ Rates are freezed and associated with buy-token.
 | `address` | crypto wallet address | string | obligatory |
 | `merchant_transaction_id` | transaction ID | string | optional |
 
-7. Use method [`GET /b2b/buy/:merchant_trx_id/status`](https://u3-1-api.mrcr.io/v1.6/comm-docs/index.html#api-Buy-BuyTransactionStatus) to get transaction status.
+7. Use method [`GET /b2b/transactions/:merchant_trx_id`](https://sandbox-cryptosaas.mrcr.io/v1.6/comm-docs/index.html#api-B2B_Sell-SellTransactionStatus) to get transaction status.
 
 ***
 
