@@ -73,7 +73,7 @@ Link must contain these parameters:
 9. Mercuryo will redirect the user back to the success or failed url that you specified in the [admin panel](https://github.com/mercuryoio/Commercial-API/blob/master/admin.md). 
 10. Redirect user to the page with the instructions how to create deposit on Mercury. The redirection link you get from method `POST /b2b/sell`. Customer needs to create a deposit on the Mercuryo side.
 11. Transaction will be completed on the Mercuryo side.
-12. Use method [`GET /b2b/sell/:merch_trx_id:/status`](https://u3-1-api.mrcr.io/v1.6/comm-docs/index.html#api-Sell-SellTransactionStatus) to get transaction status
+12. Use method [`GET /b2b/transactions/:merchant_trx_id`](https://sandbox-cryptosaas.mrcr.io/v1.6/comm-docs/index.html#api-B2B_Sell-SellTransactionStatus) to get transaction status
 
 ***
 
