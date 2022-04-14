@@ -76,7 +76,7 @@ Link must contains this parameters:
 
 10. Mercuryo API will send the callback to you when the transaction will be completed.
 
-11. To show transaction status to the Customer before you get the callback with status use method [`GET /b2b/buy/:merchant_trx_id/status`](https://sandbox-cryptosaas.mrcr.io/v1.6/comm-docs/index.html#api-Buy-BuyTransactionStatus).
+11. To show transaction status to the Customer before you get the callback with status use method [`GET /b2b/buy/:merchant_trx_id/status`](https://sandbox-cryptosaas.mrcr.io/v1.6/comm-docs/index.html#api-B2B_Sell-SellTransactionStatus).
 
 ***
 
