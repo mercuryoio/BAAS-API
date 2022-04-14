@@ -44,7 +44,7 @@ For this case, you need to integrate an interface for the Users on your side.
 `merch_tansaction_id` - transaction ID, by it you can find out its status. It is also needed to Mercuryo technical support if something going wrong. You can generate it by yourself, or Mercuryo can make it for you. Mercuryo strongly recommends you save this parameter.
 
 8. Transaction will be completed on the Mercuryo side.
-9. Use method [`GET /b2b/sell/:merch_trx_id:/status`](https://sandbox-cryptosaas.mrcr.io/v1.6/comm-docs/index.html#api-Sell-SellTransactionStatus) to get transaction status
+9. Use method [`GET /b2b/transactions/:merchant_trx_id`](https://sandbox-cryptosaas.mrcr.io/v1.6/comm-docs/index.html#api-B2B_Sell-SellTransactionStatus) to get transaction status
 
 ***
 
