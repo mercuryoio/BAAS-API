@@ -55,4 +55,4 @@ Rates are freezed and associated with buy-token.
 
 #### 2. Scheme
 
-![buy_iban](https://github.com/mercuryoio/Commercial-API/blob/master/3%20Buy%20IBAN/IBAN1.png)
+![buy_iban](https://github.com/mercuryoio/Commercial-API/blob/master/3%20Buy%20IBAN/new_iban.png)
