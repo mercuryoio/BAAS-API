@@ -13,11 +13,9 @@ participant "Partner" as part
 participant "Mercuryo" as merc
 
 part -> merc: /b2b/user/data()
-part -> merc: /b2b/user/iban-get
-part -> merc: /b2b/user/iban-balance
+part -> merc: /b2b/user/iban
 user -> part: Вывести средства со своего IBAN
-part -> merc: /b2b/user/iban-withdraw
+part -> merc: /b2b/fiat/withdraw
 merc --> part: Done 
-part --> user: Done 
-
+part --> user: Done
 @enduml
