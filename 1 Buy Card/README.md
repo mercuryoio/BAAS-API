@@ -83,5 +83,5 @@ Link must contains this parameters:
 <a name="scheme"></a>
 #### 2. Scheme
 
-![buy](https://github.com/mercuryoio/Commercial-API/blob/master/1%20Buy%20Card/buy.png)
+![buy](https://github.com/mercuryoio/Commercial-API/blob/master/1%20Buy%20Card/new_card.png)
 
