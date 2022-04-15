@@ -15,14 +15,14 @@ participant "Mercuryo" as merc
 user -> part: Купить крипту
 part -> merc: /lib/currencies()
 part -> merc: /sdk-partner/sign-in()
-part -> merc: /b2b/buy/methods()
+part -> merc: /b2b/fiat/buy-methods
 merc --> part: Payment methods
 user -> part: Купить крипту переводом на счет
 user -> part: Currency, Amount
-part -> merc: /b2b/buy/rate(From, To, Amount, PM-Alias)
+part -> merc: /b2b/fiat/buy-rates
 merc --> part: Buy-token
 user -> part: Wallet для вывода криптовалюты
-part -> merc: /b2b/buy(mrch-trx-id opt, buy-token, wallet)
+part -> merc: /b2b/fiat/buy
 merc --> part: Payment instructions for user, merchant-trx-id
 part -> user: Payment Instructions
 user -> merc: Payment
