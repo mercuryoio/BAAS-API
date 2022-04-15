@@ -15,17 +15,16 @@ participant "Mercuryo" as merc
 user -> part: Купить крипту
 part -> merc: /lib/currencies()
 part -> merc: /sdk-partner/sign-in()
-part -> merc: /b2b/buy/methods()
+part -> merc: /b2b/fiat/buy-methods
 merc --> part: Payment methods
 user -> part: Купить крипту c моего IBAN счета
 user -> part: Currency, Amount
-part -> merc: /b2b/buy/rate(From, To, Amount, PM-Alias)
+part -> merc: /b2b/fiat/buy-rates
 merc --> part: Buy-token
 user -> part: Wallet для вывода криптовалюты
-part -> merc: /b2b/buy(mrch-trx-id opt, buy-token, wallet)
+part -> merc: /b2b/fiat/buy
 merc --> part: merchant-trx-id
 part -> merc: /b2b/buy/:merch_trx_id:/status()
 merc --> part: Transacton Status
 part --> user: Transaction Result
-
 @enduml
