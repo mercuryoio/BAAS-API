@@ -19,4 +19,4 @@
 
 #### 2. Scheme
 
-![buy_withdraw](https://github.com/mercuryoio/Commercial-API/blob/master/8%20fiat%20withdraw/IBAN%20withdraw.png)
+![buy_withdraw](https://github.com/mercuryoio/Commercial-API/blob/master/8%20fiat%20withdraw/new_withdraw.png)
