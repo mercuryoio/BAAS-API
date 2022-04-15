@@ -16,12 +16,12 @@ participant "Mercuryo API" as merc
 user -> part: buy crypto
 part -> merc: /sdk-partner/sign-in
 part -> merc: /lib/currencies
-part -> merc: /b2b/buy/methods
+part -> merc: /b2b/fiat/buy-methods
 activate merc
 merc --> part: available methods 
 deactivate merc
 user -> part: Fiat-Curr, Crypto-Curr, Amount, Card Payment
-part -> merc: /b2b/buy/rate
+part -> merc: /b2b/fiat/buy-rates
 activate merc
 merc --> part: Buy-Token, Rates, Limits, Fee
 deactivate merc
@@ -32,11 +32,11 @@ deactivate merc
 part --> user: cards
 alt#Gold
 user -> part: Wallet, Card from list
-part -> merc: /b2b/buy
+part -> merc: /b2b/fiat/buy
 activate merc
 else #lightGrey New card
 user -> part: Wallet, Whant to enter new card
-part -> merc: /b2b/buy
+part -> merc: /b2b/fiat/buy
 end
 merc -> part: init-token, merchant-trx-id
 deactivate merc
