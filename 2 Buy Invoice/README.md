@@ -54,4 +54,4 @@ Rates are freezed and associated with buy-token.
 
 #### 2. Scheme
 
-![buy_invoice](https://github.com/mercuryoio/Commercial-API/blob/master/2%20Buy%20Invoice/invoice.png)
+![buy_invoice](https://github.com/mercuryoio/Commercial-API/blob/master/2%20Buy%20Invoice/new_invoice.png)
