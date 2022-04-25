@@ -1,4 +1,4 @@
-# Commercial-API
+# BAAS API
 
 Mercuryo API is a set of crypto and fiat balances that allows users to quickly and easily exchange crypto to fiat and fiat to crypto, and top up and withdraw funds from fiat balance too.
 
