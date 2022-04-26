@@ -20,17 +20,18 @@ Link example: `https://payments.mrcr.io/kyc?flow=ID%2BSelfie&access_token=your_t
 Link must contains this parameters:
 
 | Parameter  |  Description  | Type |
-| ------------- | -------------  | -------------  |
+| :-- | :--  | :--  |
 | `access_token` | your access token, you get it from method `GET /b2b/kyc-access-token` | obligatory |
 | `flow` |  `ID+Selfie`  | optional |
 | `scheme` | `dark` or `light` | optional |
 | `lang` | language. By default it is `en`. Supported languages: `en`, `zh`, `ru`, `fr`, `hi` , `id`, `ja`, `ko`, `pt`, `es`, `tr`, `vi`  | optional |
-7. Then again use method [`GET b2b/user/data`](https://sandbox-cryptosaas.mrcr.io/v1.6/comm-docs/index.html#api-B2B_User-UserData) to get customer's status. 
+7. Then again use method [`GET b2b/user/data`](https://sandbox-cryptosaas.mrcr.io/v1.6/comm-docs/index.html#api-B2B_User-UserData) to get customer's status.
 8. If KYC2 is passed use method [`POST /b2b/user/iban`](https://sandbox-cryptosaas.mrcr.io/v1.6/comm-docs/index.html#api-B2B_User-IbanCreate) to create IBAN.
-9. You need to realize a form on your side and show to the Customer his IBAN. 
+9. You need to realize a form on your side and show to the Customer his IBAN.
 
 ***
 
+<a name="scheme"></a>
 #### 2. Scheme
 
-![buy_iban](https://github.com/mercuryoio/Commercial-API/blob/master/9%20IBAN%20Create/IBAN%20create.png)
+![iban-create](iban-create.png)
