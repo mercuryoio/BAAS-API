@@ -1,14 +1,15 @@
-For methods in `/sdk/` domain you need your `sdk-partner-token`. Ask your Mercuryo manager to get it.
+***For methods in `/sdk/` domain you need your `sdk-partner-token`. Ask your Mercuryo manager to get it.***
 
 ***
 
-New Customers need to accept Mercuryo 'Terms and Policies'. [See Acceptance](#Acceptance)
+New Customers need to accept Mercuryo 'Terms and Policies'. [See Acceptance](#acceptance)
 
 All Customers need to pass KYC authorization to use their crypto-wallets or create IBAN.
 
 
 ***
 
+<a name="acceptance"></a>
 ### Acceptance
 
 1. You need to add to your Terms and Policy agreement to share Customers data with Mercuryo.
@@ -26,37 +27,32 @@ All Customers need to pass KYC authorization to use their crypto-wallets or crea
 
 Estimated rollout time of methods to prod environment:
 
-/b2b/user/sign-in - done
-
-/b2b/user/sign-up - done
-
-/b2b/user/kyc-docs - second half of April
-
-/b2b/user/kyc-share-token - second half of April
-
-/b2b/user/verify-email - May
-
-method to receive phone from Customer - May
-
-method to sign-up American citizens - May
+- /b2b/user/sign-in - done
+- /b2b/user/sign-up - done
+- /b2b/user/kyc-docs - second half of April
+- /b2b/user/kyc-share-token - second half of April
+- /b2b/user/verify-email - May
+- method to receive phone from Customer - May
+- method to sign-up American citizens - May
 
 ***
 
 
-1. [Sign up](README.md/#1-sign-up)
-2. [KYC](README.md/#2-kyc)
+1. [Sign up](#sign-up)
+2. [KYC](#kyc-2)
 
-   2.1. [Passing KYC with uploading documents to the SumSub widget](README.md/#21-passing-kyc-with-uploading-documents-to-the-sumsub-widget)
-   
-   2.2. [Passing KYC with share token](README.md/#22-passing-kyc-with-share-token)
+   2.1. [Passing KYC with uploading documents to the SumSub widget](#kyc-sumsub)
 
-   2.3. [Passing KYC with sharing verification documents with Mercuryo](README.md/#23-passing-kyc-with-sharing-verification-documents-with-mercuryo)
-   
-3. [Sign in](README.md/#3-sign-in)
-4. [User data](README.md/#4-user-data)
+   2.2. [Passing KYC with share token](#ky-share-token)
+
+   2.3. [Passing KYC with sharing verification documents with Mercuryo](#kyc-mercuryo)
+
+3. [Sign in](#sign-in)
+4. [User data](#user-data)
 
 ***
 
+<a name="sign-up"></a>
 ### 1. Sing up
 
 **Steps:**
@@ -95,14 +91,16 @@ Response w/o e-mail verification:
 
 
 3. Get verification code from the Customer. Code will be sent to Customers e-mail by Mercuryo
-4. Use method [`POST /b2b/user/verify-email`](https://sandbox-cryptosaas.mrcr.io/v1.6/comm-docs/index.html#api-B2B-B2BEmail_verify) to verify Customers e-mail. 
+4. Use method [`POST /b2b/user/verify-email`](https://sandbox-cryptosaas.mrcr.io/v1.6/comm-docs/index.html#api-B2B-B2BEmail_verify) to verify Customers e-mail.
 
 **This is optional.** To On\Off e-mail verification ask your Mercuryo Manager.
 
-5. The Customer needs to pass KYC 
+5. The Customer needs to pass KYC
 
-### 2. KYC. 
+<a name="kyc-2"></a>
+### 2. KYC.
 
+<a name="kyc-sumsub"></a>
 #### 2.1 Passing KYC with uploading documents to the SumSub widget
 
 In this method, the user will need to go through KYC through the web view of Mercuryo by uploading the necessary documents.
@@ -130,7 +128,7 @@ Link must contain these parameters:
 | `scheme` | `dark` or `light` | optional |
 | `lang` | language. By default it is `en`. Supported languages: `en`, `zh`, `ru`, `fr`, `hi` , `id`, `ja`, `ko`, `pt`, `es`, `tr`, `vi`  | optional |
 
-
+<a name="kyc-share-token"></a>
 #### 2.2. Passing KYC with share token
 
 
@@ -149,6 +147,7 @@ Request:
 
 ![img1](https://github.com/mercuryoio/Commercial-API/blob/master/New%20Login/sharetoken.png)
 
+<a name="kyc-mercuryo"></a>
 #### 2.3. Passing KYC with sharing verification documents with Mercuryo
 
 Use method [`Post /b2b/user/kyc-docs`] to send Customers data and documents in pictures to Mercuryo. To make this method avaliable for you contact your Mercuryo Manager.
@@ -177,9 +176,10 @@ Request:
 
 ***
 
+<a name="sign-in"></a>
 ### 3. Sign in
 
-To sign in the Customer use method [`GET /b2b/user/sign-in`](https://sandbox-cryptosaas.mrcr.io/v1.6/comm-docs/index.html#api-B2B-B2BSignIn). 
+To sign in the Customer use method [`GET /b2b/user/sign-in`](https://sandbox-cryptosaas.mrcr.io/v1.6/comm-docs/index.html#api-B2B-B2BSignIn).
 As input parameters you will need to pass 'sdk-partner-token' in header and `user_uuid4` **OR** `email` **OR** `phone'.
 
 Request:
@@ -208,6 +208,7 @@ How to get:
 2. `email` -- from the Cutomer via `POST /b2b/user/sign-up.
 3. `phone` -- from the Customer. New method will be developed
 
+<a name="user-data"></a>
 ### 4. User data
 
 Use [`GET /b2b/user/data`](https://sandbox-cryptosaas.mrcr.io/v1.6/comm-docs/index.html#api-B2B_User-UserData) to get info about Customers's status
@@ -217,11 +218,11 @@ Use [`GET /b2b/user/data`](https://sandbox-cryptosaas.mrcr.io/v1.6/comm-docs/ind
 | 500001 | `try later` | smth going wrong |
 
 
-| Status  |  Description  | 
-| ------------- | -------------  | 
+| Status  |  Description  |
+| ------------- | -------------  |
 | KYC status |  |
-| `complete` | KYC is passed successfully| 
-| `under_review` | KYC is in progress | 
+| `complete` | KYC is passed successfully|
+| `under_review` | KYC is in progress |
 | `failed` | KYC is failed |
 | `incomplete`| KYC isn't passed |
 | Email status |  |
@@ -239,4 +240,3 @@ What to do if The Customer still inactive:
 1. User need to pass KYC successful.
 2. If Customers status is `temporary-blocked` user will be able to use Mercuryo in 15 min.
 3. If Customers sill has problem -- ask Mercuryo support
-
