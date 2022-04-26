@@ -1,4 +1,6 @@
-**NEW LOGIN FLOW IS IN DEVELOPMENT. FOR MORE INFORMATION LOOK [HERE](https://github.com/mercuryoio/Commercial-API/tree/master/New%20Login)**
+# Sign in
+
+**NEW LOGIN FLOW IS IN DEVELOPMENT. FOR MORE INFORMATION LOOK [HERE](../new-sign-in/README.md)**
 
 ***
 ***
@@ -10,19 +12,20 @@ For methods in `/sdk/` domain you need your `sdk-partner-token`. Ask your Mercur
 In Mercuryo users can be registered only with phone.
 Users can be authorised with phone and uuid. Uuid - uniq user id. As a partner you will get it as a response for sign-in method and we recommend to save it to user account on your side.
 
-New users need to accept Mercuryo 'Terms and Policies'. [See Acceptance](#Acceptance)
+New users need to accept Mercuryo 'Terms and Policies'. [See Acceptance](#acceptance)
 
 All the users need to pass KYS authorization to use their crypto-wallets or create IBAN.
 *Note: US user also need verified email address to work with Mercuryo API*
 
 ***
 
+<a name="acceptance"></a>
 ## Acceptance
 
 1. You need to add to your Terms and Policy agreement to share user data with Mercuryo.
 2. You need to make an agreement with Mercuryo that Mercuryo will use the data for registration and will use it to third parties.
 3. You need to ask users to accept the Mercurio term in your interface before signing user in.
-4. If you create a new user you need to pass user acception to Mercuryo API. When the user is new for Mercuryo `accept` parameter is required.
+4. If you create a new user you need to pass user acceptance to Mercuryo API. When the user is new for Mercuryo `accept` parameter is required.
 
 ***
 ***
@@ -79,11 +82,11 @@ We recommend you to design a drop-down list of phone codes using this method.
 | 500001 | `try later` | smth going wrong |
 
 
-| Status  |  Description  | 
-| ------------- | -------------  | 
+| Status  |  Description  |
+| ------------- | -------------  |
 | KYC status |  |
-| `complete` | KYC is passed successfully| 
-| `under_review` | KYC is in progress | 
+| `complete` | KYC is passed successfully|
+| `under_review` | KYC is in progress |
 | `failed` | KYC is failed |
 | `incomplete`| KYC isn't passed |
 | Email status |  |
@@ -161,10 +164,10 @@ How to detect that the Customer is from US:
 1. Phone code is +1
 2. Response on method `/b2b/user/email-verify` contains this:
 
-| Parameter  |  Description  | 
-| ------------- | -------------  | 
-| `country_code` | `us` | 
- 
+| Parameter  |  Description  |
+| ------------- | -------------  |
+| `country_code` | `us` |
+
 **Steps:**
 
 US users need to verificate their e-mail too
