@@ -10,11 +10,16 @@ For methods in `/sdk/` domain you need your `sdk-partner-token`. Ask your Mercur
 ***
 
 In Mercuryo users can be registered only with phone.
-Users can be authorised with phone and uuid. Uuid - uniq user id. As a partner you will get it as a response for sign-in method and we recommend to save it to user account on your side.
+Users can be authorised by phone and uuid.
+
+Uuid - uniq user id.
+
+As a partner you will get it as a response for sign-in method and we recommend to save it to user account on your side.
 
 New users need to accept Mercuryo 'Terms and Policies'. [See Acceptance](#acceptance)
 
 All the users need to pass KYS authorization to use their crypto-wallets or create IBAN.
+
 *Note: US user also need verified email address to work with Mercuryo API*
 
 ***
@@ -32,21 +37,26 @@ All the users need to pass KYS authorization to use their crypto-wallets or crea
 
 **Cases**
 
-1. [Sign up](README.md/#1-sign-up)
-2. [Partner has phone sign up](README.md/#2-partner-has-phone-sign-up)
-3. [User from US](README.md/#3-user-from-us)
-4. [Log in by uuid](README.md/#4-log-in-by-uuid)
-5. [Log in by phone](README.md/#5-log-in-by-phone)
+1. [Sign up](#sign-up)
+2. [Partner has phone sign up](R#phone-sign-up)
+3. [User from US](#us-user)
+4. [Sign in by uuid](#sign-in-by-uuid)
+5. [Sign in by phone](#sign-in-by-phone)
 
 ***
 
 We do not work with all countries. To get list of supported countries use method [`GET /lib/countries`](https://sandbox-cryptosaas.mrcr.io/v1.6/comm-docs/index.html#api-Public-PublicCountries)
 
+<a name="sign-up"></a>
 #### 1. Sing up
 
 **Case:**
 
-The customer wants to by crypto on your side. You do not have information about users phone. User have not got Mercuryo account. `accept` parameter is required.
+The customer wants to by crypto on your side.
+
+You do not have information about users phone.
+
+User have not got Mercuryo account. `accept` parameter is required.
 
 **Steps:**
 
@@ -56,13 +66,13 @@ We recommend you to design a drop-down list of phone codes using this method.
 2. Use method [`POST /sdk-partner/sign-in`](https://sandbox-cryptosaas.mrcr.io/v1.6/comm-docs/index.html#api-SDK-SDKLogin) to pass user's phone to Mercuryo API
 
 | Error  | Text | Description  |
-| ------------- | -------------  | -------------  |
+| :-- | :--  | :--  |
 | 403004 | `User not found.` | wrong uuid |
 | 403005 | `invalid country by phone number` |  wrong countrycode |
 | 403005 | `Country %s is not active or not exist.` | country is inactive |
 | 403005 | `Country %s is in black list.` | country in black list |
 | 403010 | `Phone is invalid` | phone is invalid |
-| 403006 | `Accept cannot be blank for new users` | there is no `acception` parameter |
+| 403006 | `Accept cannot be blank for new users` | there is no `acceptance` parameter |
 
 
 4. Get verification code from user
@@ -70,7 +80,7 @@ We recommend you to design a drop-down list of phone codes using this method.
 
 
 | Error  | Text | Description  |
-| ------------- | -------------  | -------------  |
+| :-- | :--  | :--  |
 | 403001 | `Verification failed.` | wrong key  |
 | 403002 | `Verification failed.` |  wrong code |
 
@@ -78,12 +88,12 @@ We recommend you to design a drop-down list of phone codes using this method.
 6. Use [`GET /b2b/user/data`](https://sandbox-cryptosaas.mrcr.io/v1.6/comm-docs/index.html#api-User-UserData) to get info about user's status
 
 | Error  | Text | Description  |
-| ------------- | -------------  | -------------  |
-| 500001 | `try later` | smth going wrong |
+| :-- | :--  | :-- |
+| 500001 | `try later` | smth went wrong |
 
 
 | Status  |  Description  |
-| ------------- | -------------  |
+| :-- | :--  |
 | KYC status |  |
 | `complete` | KYC is passed successfully|
 | `under_review` | KYC is in progress |
@@ -110,7 +120,7 @@ What to do if user still inactive:
 7. User need to pass KYC. Use method [`GET /b2b/user/kyc-access-token`](https://sandbox-cryptosaas.mrcr.io/v1.6/comm-docs/index.html#api-B2B_User-UserKycAccessToken) to get user's KYC token
 
 | Error  | Text | Description  |
-| ------------- | -------------  | -------------  |
+| :-- | :--  | :--  |
 | 403004 | `User not found.` | user not found |
 
 
@@ -121,10 +131,10 @@ Link example: `https://payments.mercuryo.io/kyc?access_token=your_token8&scheme=
 Link must contains this parameters:
 
 | Parameter  |  Description  | Type |
-| ------------- | -------------  | -------------  |
+| :-- | :-- | :--  |
 | `access_token` | your access token, you get it from method `GET /b2b/kyc-access-token` | obligatory |
-| `success_url` | [how to set](https://github.com/mercuryoio/Commercial-API/blob/master/admin.md) urlencoded JSON | obligatory |
-| `failure_url`  | [how to set](https://github.com/mercuryoio/Commercial-API/blob/master/admin.md) urlencoded JSON | obligatory |
+| `success_url` | [how to set](../admin.md) urlencoded JSON | obligatory |
+| `failure_url`  | [how to set](../admin.md) urlencoded JSON | obligatory |
 | `status` | add to `failure_url` if the User taped on the back button - `status: back`, if you get an error as a response `status: fail` | obligatory |
 | `msg` | string. This is a error message that you can get as a response from any api method | obligatory if `status: fail` |
 | `scheme` | `dark` or `light` | optional |
@@ -132,10 +142,11 @@ Link must contains this parameters:
 
 
 
-![img](https://github.com/mercuryoio/Commercial-API/blob/master/0%20Login/Sign%20up.png)
+![img](sign-up.png)
 
 ***
 
+<a name="phone-sign-up"></a>
 #### 2. Partner has phone sign-up
 
 **Case:**
@@ -147,12 +158,13 @@ The Customer wants to by crypto on your side. You have information about users p
 If you have users phone there are some differences with previous case:
 
 1. You do not need to ask user about his phone. Just transfer `phone` parameter to Mercuryo API
-2. If users phone is already verificated on your side - skip phone verification
+2. If users phone is already verifyed on your side - skip phone verification.
 
 All other steps are same with previous case
 
 ***
 
+<a name="us-user"></a>
 #### 3. User from US
 
 **Case:**
@@ -165,17 +177,17 @@ How to detect that the Customer is from US:
 2. Response on method `/b2b/user/email-verify` contains this:
 
 | Parameter  |  Description  |
-| ------------- | -------------  |
+| :-- | :--  |
 | `country_code` | `us` |
 
 **Steps:**
 
-US users need to verificate their e-mail too
+US users need to verify their e-mail too.
 
 1. Use  method [`POST /b2b/user/set-email`](https://sandbox-cryptosaas.mrcr.io/v1.6/comm-docs/index.html#api-User-UserSetEmail) to send user e-mail to Mercuryo API
 
 | Error  | Text | Description  |
-| ------------- | -------------  | -------------  |
+| :-- | :--  | :-- |
 | 403006 | `Email cannot be blank.` |  wrong e-mail |
 | 403006 | `Email is not a valid email address.` | invalid e-mail |
 | 403006 | `Email "ff@dd.dd" has already been taken.` | e-mail is already taken |
@@ -183,29 +195,30 @@ US users need to verificate their e-mail too
 3. Use method [`POST /b2b/user/email-verify`](https://sandbox-cryptosaas.mrcr.io/v1.6/comm-docs/index.html#api-User-UserEmailVerify) to give Mercuryo API user's phone and verification code
 
 | Error  | Text | Description  |
-| ------------- | -------------  | -------------  |
+| :-- | :--  | :--  |
 | 403007 | `Token somehow contains invalid data.` | token data is invalid |
 | 401008 | `Verification failed.` | invalid token |
 | 401009 | `Verification failed.` | code is invalid |
 
 4. Mercuryo API response with user status
 
-![img](https://github.com/mercuryoio/Commercial-API/blob/master/0%20Login/User%20from%20US.png)
+![img](user-from-us.png)
 
 ***
 
-#### 4. Log in by uuid
+<a name="sign-in-by-uuid"></a>
+#### 4. Sign in by uuid
 
 **Case:**
 
-The Customer wants to by crypto on your side. User have Mercuryo account. Login by uuid. `accept` parameter isn't required becouse uuid have only already registrated users
+The Customer wants to by crypto on your side. User have Mercuryo account. Login by uuid. `accept` parameter isn't required because uuid have only already registered users.
 
 **Steps:**
 
 1. Use method [`POST /sdk-partner/sign-in`](https://sandbox-cryptosaas.mrcr.io/v1.6/comm-docs/index.html#api-SDK-SDKLogin) to initiate login by uuid
 
 | Error  | Text | Description  |
-| ------------- | -------------  | -------------  |
+| :-- | :--  | :--  |
 | 403004 | `User not found.` | wrong uuid |
 | 400305 | `invalid country by phone number` |  wrong countrycode |
 | 403005 | `Country `%s` is not active or not exist.` | country is inactive |
@@ -213,24 +226,25 @@ The Customer wants to by crypto on your side. User have Mercuryo account. Login 
 | 403005 | `Phone is invalid` | phone is invalid |
 | 403005 | `Invalid uuid4` | wrong uuid format |
 
-2. If as a responce you get user's token - you do not need to verify user's phone. If as a response you get `code length` you need to verify user's phone by method [`POST /sdk-partner/phone-verify`](https://sandbox-cryptosaas.mrcr.io/v1.6/comm-docs/index.html#api-SDK-SDKPhone_verify) to give Mercuryo API user's phone and verefication code
+2. If as a response you get user's token - you do not need to verify user's phone. If as a response you get `code length` you need to verify user's phone by method [`POST /sdk-partner/phone-verify`](https://sandbox-cryptosaas.mrcr.io/v1.6/comm-docs/index.html#api-SDK-SDKPhone_verify) to give Mercuryo API user's phone and verefication code
 
 3. Then Mercuryo API will send users status to you
 
-![img](https://github.com/mercuryoio/Commercial-API/blob/master/0%20Login/Log%20in%20by%20uuid.png)
+![img](log-in-by-uuid.png)
 
 
 ***
 
-#### 5. Log in by phone
+<a name="sign-in-by-phone"></a>
+#### 5. Sign in by phone
 
 **Case:**
 
-The Customer wants to by crypto on your side. User have Mercuryo account. Login by phone. If you are not shure is user already registrated or not - pass `accept` parameter to Mercuryo API
+The Customer wants to by crypto on your side. User have Mercuryo account. Login by phone. If you are not shure is user already registered or not - pass `accept` parameter to Mercuryo API.
 
 **Steps:**
 
-Flow is the same with log in by uuid but with little diffenrences:
+Flow is the same with log in by uuid but with little differences:
 
 1. Use method `POST /sdk-partner/sign-in`
-2. User do not need to verificate his phone
+2. User do not need to verify his phone.
