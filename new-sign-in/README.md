@@ -27,11 +27,11 @@ All Customers need to pass KYC authorization to use their crypto-wallets or crea
 
 Estimated rollout time of methods to prod environment:
 
-- /b2b/user/sign-in - done
-- /b2b/user/sign-up - done
-- /b2b/user/kyc-docs - second half of April
-- /b2b/user/kyc-share-token - second half of April
-- /b2b/user/verify-email - May
+- `/b2b/user/sign-in` - done
+- `/b2b/user/sign-up` - done
+- `/b2b/user/kyc-docs` - second half of April
+- `/b2b/user/kyc-share-token` - second half of April
+- `/b2b/user/verify-email` - May
 - method to receive phone from Customer - May
 - method to sign-up American citizens - May
 
@@ -63,7 +63,7 @@ Estimated rollout time of methods to prod environment:
 Request:
 
 | Parameter  | Type | Description  |
-| ------------- | -------------  | -------------  |
+| :-- | :--  | :--  |
 | **Header** | | |
 |`sdk-partner-token` | string | 	Authorization sdk partner token |
 | **Body** | | |
@@ -73,7 +73,7 @@ Request:
 Response with e-mail verification:
 
 | Parameter  | Type | Description  |
-| ------------- | -------------  | -------------  |
+| :-- | :--  | :--  |
 | `status` | number | response code |
 | data | object | |
 | `key` | string | Public key for verification |
@@ -83,11 +83,11 @@ Response with e-mail verification:
 Response w/o e-mail verification:
 
 | Parameter  | Type | Description  |
-| ------------- | -------------  | -------------  |
+| :-- | :--  | :--  |
 | `status` | number | response code |
 | data | object | |
 | `user_uuid4` | string | Customer's uuid |
-| `b2b-bearer-token` | string | Authorisation token |
+| `b2b-bearer-token` | string | Authorization token |
 
 
 3. Get verification code from the Customer. Code will be sent to Customers e-mail by Mercuryo
@@ -108,7 +108,7 @@ In this method, the user will need to go through KYC through the web view of Mer
 Use method [`GET /b2b/user/kyc-access-token`](https://sandbox-cryptosaas.mrcr.io/v1.6/comm-docs/index.html#api-B2B_User-UserKycAccessToken) to get user's KYC token
 
 | Error  | Text | Description  |
-| ------------- | -------------  | -------------  |
+| :-- | :--  | :--  |
 | 403004 | `User not found.` | user not found |
 
 
@@ -119,10 +119,10 @@ Link example: `https://payments.mercuryo.io/kyc?access_token=your_token8&scheme=
 Link must contain these parameters:
 
 | Parameter  |  Description  | Type |
-| ------------- | -------------  | -------------  |
+| :-- | :--  | :--  |
 | `access_token` | your access token, you get it from method `GET /b2b/kyc-access-token` | obligatory |
-| `success_url` | [how to set](https://github.com/mercuryoio/Commercial-API/blob/master/admin.md) urlencoded JSON | obligatory |
-| `failure_url`  | [how to set](https://github.com/mercuryoio/Commercial-API/blob/master/admin.md) urlencoded JSON | obligatory |
+| `success_url` | [how to set](../admin.md) urlencoded JSON | obligatory |
+| `failure_url`  | [how to set](../admin.md) urlencoded JSON | obligatory |
 | `status` | add to `failure_url` if the User taped on the back button - `status: back`, if you get an error as a response `status: fail` | obligatory |
 | `msg` | string. This is an error message that you can get as a response from any api method | obligatory if `status: fail` |
 | `scheme` | `dark` or `light` | optional |
@@ -134,28 +134,28 @@ Link must contain these parameters:
 
 Registering with a share-token allows to eliminate repeat KYC verification. Share-token allows you to exchange KYC data between you and Mercuryo. If the user has passed KYC verification in your app using the SumSub service, you can generate share-token containing the user’s data and documents with SumSub and provide it to Mercuryo.
 
-In order to use share-token use method [`POST /b2b/user/kyc-share-token`] to make The Customer pass KYC in SumSub.
+In order to use share-token use method `POST /b2b/user/kyc-share-token` to make The Customer pass KYC in SumSub.
 
 Request:
 
 | Parameter  | Type | Description  | Obligatory |
-| ------------- | -------------  | -------------  | -------------  |
+| :-- | :--  | :--  | :--  |
 | `shareToken` | string | Share token from Partner from You | Yes |
 | `resetIdDocSetTypes` | string | Specify one or few comma-separated document types if an applicant has to resubmit those documents to be verified. Examples, SELFIE, IDENTITY, etc. | No |
 | `trustReview` | boolean | If you trust your partner's check result, then you should use true. If it is false, then the applicant will be rechecked. | No |
 | `userid` | string | Sets your own externalUserId for the imported applicant. In case of empty value we'll generate a random one | No |
 
-![img1](https://github.com/mercuryoio/Commercial-API/blob/master/New%20Login/sharetoken.png)
+![sharetoken](sharetoken.png)
 
 <a name="kyc-mercuryo"></a>
 #### 2.3. Passing KYC with sharing verification documents with Mercuryo
 
-Use method [`Post /b2b/user/kyc-docs`] to send Customers data and documents in pictures to Mercuryo. To make this method avaliable for you contact your Mercuryo Manager.
+Use method [`Post /b2b/user/kyc-docs`] to send Customers data and documents in pictures to Mercuryo. To make this method available for you contact your Mercuryo Manager.
 
 Request:
 
 | Parameter  | Type | Description  |
-| ------------- | -------------  | -------------  |
+| :-- | :--  | :--  |
 | **Header** | | |
 |`sdk-partner-token` | string | 	Authorization sdk partner token |
 | **Body** | | |
@@ -170,7 +170,7 @@ Request:
 | `type` | string | User's document type (eq passport, id_card, driver_license). |
 | `files` | string | User's document files. document.files must contain an array with filename as key and file content as value. For current document type requirements for list of files differs. `id_card` Count of files must be 3. File names must be `face.`, `side-1.`, `side-2.`; `passport` Count of files must be 2. File names must be `face.`, `side-1.`; `driver_license` Count of files must be 3. File names must be `face.`, `side-1.`, `side-2.`. Extensions in file names must correspond `.jpg`, .png. |
 
-![img2](https://github.com/mercuryoio/Commercial-API/blob/master/New%20Login/documentsflow.png)
+![documentsflow](documentsflow.png)
 
 ***
 
@@ -180,12 +180,12 @@ Request:
 ### 3. Sign in
 
 To sign in the Customer use method [`GET /b2b/user/sign-in`](https://sandbox-cryptosaas.mrcr.io/v1.6/comm-docs/index.html#api-B2B-B2BSignIn).
-As input parameters you will need to pass 'sdk-partner-token' in header and `user_uuid4` **OR** `email` **OR** `phone'.
+As input parameters you will need to pass `sdk-partner-token` in header and `user_uuid4` **OR** `email` **OR** `phone`.
 
 Request:
 
 | Parameter  | Type | Description  |
-| ------------- | -------------  | -------------  |
+| :-- | :--  | :--  |
 | **Header** | | |
 |`sdk-partner-token` | string | 	Authorization sdk partner token |
 | **Body** | | |
@@ -196,16 +196,16 @@ Request:
 Response:
 
 | Parameter  | Type | Description  |
-| ------------- | -------------  | -------------  |
+| :-- | :--  | :--  |
 | `status` | number | response code |
 | data | object | |
 | `user_uuid4` | string | Customer's uuid |
-| `b2b-bearer-token` | string | Authorisation token |
+| `b2b-bearer-token` | string | Authorization token |
 
 How to get:
 
 1. `user_uuid4` as a response from method `POST /b2b/user/sign-up` if e-mail verification is off. Or as a response from method `POST /b2b/user/verify-email` if e-mail verification is on.
-2. `email` -- from the Cutomer via `POST /b2b/user/sign-up.
+2. `email` -- from the Customer via `POST /b2b/user/sign-up`.
 3. `phone` -- from the Customer. New method will be developed
 
 <a name="user-data"></a>
@@ -214,12 +214,12 @@ How to get:
 Use [`GET /b2b/user/data`](https://sandbox-cryptosaas.mrcr.io/v1.6/comm-docs/index.html#api-B2B_User-UserData) to get info about Customers's status
 
 | Error  | Text | Description  |
-| ------------- | -------------  | -------------  |
+| :-- | :--  | :--  |
 | 500001 | `try later` | smth going wrong |
 
 
 | Status  |  Description  |
-| ------------- | -------------  |
+| :-- | :--  |
 | KYC status |  |
 | `complete` | KYC is passed successfully|
 | `under_review` | KYC is in progress |
