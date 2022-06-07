@@ -1,6 +1,6 @@
-# BAAS API
+# BAAS API (1)
 
-Mercuryo API is a set of crypto and fiat balances that allows users to quickly and easily exchange crypto to fiat and fiat to crypto, and top up and withdraw funds from fiat balance too.
+Mercuryo API is a set of crypto and fiat balances that allows users to exchange crypto to fiat and fiat to crypto quickly and easily, and top up and withdraw funds from fiat balance too.
 
 If you have a crypto wallet or other crypto service, your users can create Mercuryo wallet and see an additional fiat balance in the interface. They can use Mercuryo wallet as simple as others that already exist in your service.
 
@@ -10,17 +10,17 @@ The Mercuryo API has structured around your and users' wallets. Users create wal
 
 ## Methods
 
-You can find reference documentation with methods description [here](https://sandbox-cryptosaas.mrcr.io/v1.6/comm-docs/index.html).
+You can find reference documentation with methods description [in sandbox](https://sandbox-cryptosaas.mrcr.io/v1.6/comm-docs/index.html).
 
-All the methods in b2b domain have to be signed up with `b2b-bearer-token`. You can get it in the authorization flow described [here](https://github.com/mercuryoio/Commercial-API/blob/master/0%20Login/README.md).
+All the methods in b2b domain have to be signed up with `b2b-bearer-token`. You can get it in the authorization flow described in [New sign in ](new-sign-in/README.md).
 
 ***
 
-## Sign up/ Log in
+## Sign up/ Sign in
 
 *Note: For authorization, you need your `sdk-partner-token`. Ask your Mercuryo manager to get it.*
 
-[Sign up/Log in](https://github.com/mercuryoio/Commercial-API/tree/master/0%20Login)
+[Sign up/Sign in](new-sign-in/README.md)
 
 
 ***
@@ -30,7 +30,7 @@ All the methods in b2b domain have to be signed up with `b2b-bearer-token`. You 
 There are two types of KYC: KYC and KYC2.
 1. The Customer need to pass KYC to start using Mercuryo. If the Customer passed KYC he can:
  - Buy or Sell with a card.
- - Buy crypto with bank transfer.
+ - Buy crypto by bank transfer.
 2. The Customer needs to pass KYC2 too to make operations with IBAN.
 3. The Customer can get information about his IBAN and balance with expired KYC.
 
@@ -42,26 +42,26 @@ There are two types of KYC: KYC and KYC2.
 
 IBANs are available only for EU users.
 
-The Customer can create IBAN. [Here](https://github.com/mercuryoio/Commercial-API/blob/master/9%20IBAN%20Create/README.md) is the instruction.
+The Customer can create IBAN. [Here](9-iban-create/README.md) is the instruction.
 
 ***
 
 ## Popular scenarios for using API:
 
-1. [Buy crypto with card](https://github.com/mercuryoio/Commercial-API/tree/master/1%20Buy%20Card)
-2. [Buy crypto with bank transfer](https://github.com/mercuryoio/Commercial-API/blob/master/2%20Buy%20Invoice/README.md)
-3. [Buy crypto using user's IBAN](https://github.com/mercuryoio/Commercial-API/blob/master/3%20Buy%20IBAN/README.md)
-4. [Top Up user's IBAN](https://github.com/mercuryoio/Commercial-API/blob/master/4%20fiat%20deposit/README.md)
-5. [Sell crypto and withdraw fiat to card](https://github.com/mercuryoio/Commercial-API/blob/master/5%20Sell%20Card/README.md)
+1. [Buy crypto with card](1-buy-card/README.md)
+2. [Buy crypto with bank transfer](2-buy-invoice/README.md)
+3. [Buy crypto using user's IBAN](3-buy-iban/README.md)
+4. [Top Up user's IBAN](4-fiat-deposit/README.md)
+5. [Sell crypto and withdraw fiat to card](5-sell-card/README.md)
 6. Sell crypto and withdraw to random IBAN - TBD
-7. [Withdraw from User's IBAN to random IBAN](https://github.com/mercuryoio/Commercial-API/blob/master/8%20fiat%20withdraw/README.md)
+7. [Withdraw from User's IBAN to random IBAN](8-fiat-withdraw/README.md)
 
 ***
 
-## Transactions 
+## Transactions
 
-| Transaction  | Type  | 
-| ------------- | -------------  |
+| Transaction  | Type  |
+| :-- | :--  |
 | buy crypto with a card| `buy_card` |
 | buy crypto using user's IBAN | `buy_iban` |
 | buy crypto by invoice | `buy_iban_invoice` |
@@ -70,22 +70,23 @@ The Customer can create IBAN. [Here](https://github.com/mercuryoio/Commercial-AP
 | top up user's IBAN | `deposit` |
 | withdraw from user's IBAN | `withdraw` |
 
-| Transaction  | trx_type  | 
-| ------------- | -------------  |
+| Transaction  | trx_type  |
+| :-- | :--  |
 | pending  | transaction is in progress |
 | failed | transaction is failed |
 | success | transaction is successfully completed |
 
 Fail flow:
+
 1. Buy: fiat would be returned to the users card\IBAN\etc.
 2. Sell: crypto would be returned to the users `refund_address`.
 
-Request example: 
+Request example:
 
 `GET https://sandbox-cryptosaas.mrcr.io/v1.6/b2b/transactions?merchant_transaction_id=123456789&date_start=1606210749&date_end=1637833150`
 
 | Parameter  | Description  | Obligatory |
-| ------------- | -------------  | -------------  |
+| :-- | :--  | :--  |
 | merchant_transaction_id | filter by transaction ID | optional |
 | date_start | start of a date period | optional |
 | date_end | end of a date period | optional |
@@ -118,8 +119,8 @@ Response example:
 
 ## Errors
 
-| Error code  | Description  | 
-| ------------- | -------------  |
+| Error code  | Description  |
+| :-- | :--  |
 | 2xx | all is okay. The request was successfully received, understood, and accepted |
 | 4xx | most of them are a part of our normal flow, so all of those codes are coming from the backend and processed normally by our frontend. Don’t care much if you see any of those in your logs, as they don’t indicate any serious problem related with service |
 | 5xx | server errors. Mercuryo team have already seen them in monitor and already chasing the problem, this is normally resolved as quickly as possible, because it might affects all Mercuryo partners. So if you see that error was detected 3 days ago or even half day ago — 100% it’s fixed |
@@ -127,10 +128,9 @@ Response example:
 
 **Most common cases of 4xx**
 
-| Error code  | Description  | 
-| ------------- | -------------  |
-| 400 | validation error. Wrong parameters etc | 
+| Error code  | Description  |
+| :-- | :--  |
+| 400 | validation error. Wrong parameters etc |
 | 401 | unauthorized, client token authentication timeout |
 | 403 | access  error |
 | 404 |  method not found |
-
